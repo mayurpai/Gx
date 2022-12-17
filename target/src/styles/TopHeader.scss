@@ -1,0 +1,44 @@
+.top-header-main {
+    background-color: #cc0000;
+    width: 100vw;
+    
+    nav {
+        height: 3.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                font-size: 0.9rem;
+                color: #ffffff;
+            }
+        }
+
+        .top-header-main-left {
+            min-width: 20%;
+            flex-direction: column;
+        }
+        
+        .top-header-main-left :first-child {
+            margin-right: 3.85rem;
+        }
+        
+        .top-header-main-left :nth-child(2) {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-right: 2rem;
+        }
+
+        .top-header-main-right {
+            min-width: 45%;
+            justify-content: space-around;
+        }
+    }
+}
