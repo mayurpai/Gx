@@ -1,0 +1,82 @@
+.deals-to-celebrate-main-conatiner {
+    position: relative;
+    padding: 0 2.5rem;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -o-transform: translate(-50%);
+
+    .deals-to-celebrate-image {
+        position: relative;
+        margin-top: -.25rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .deals-to-celebrate-image-head {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .deals-to-celebrate-flex-div {
+        position: relative;
+        margin-top: -.25rem;
+        display: flex;
+        min-height: 20rem;
+        background-color: aqua;
+
+        .deals-to-celebrate-left-div,
+        .deals-to-celebrate-right-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2.5rem;
+            padding: 2.5rem;
+            background-color: #E00000;
+            object-fit: cover;
+
+            .deals-to-celebrate-left-div-image,
+            .deals-to-celebrate-right-div-image {
+                width: 100%;
+            }
+        }
+
+    }
+
+    .deals-tocelebrate-explore-more {
+        width: 100%;
+        background-color: #cc0000;
+        font-size: 2rem;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: white !important;
+
+            :hover {
+                text-decoration: underline;
+            }
+        }
+
+
+        p {
+            padding: .5rem;
+            margin-left: 2rem;
+
+            :hover {
+                text-decoration: underline;
+            }
+        }
+
+        span {
+            text-decoration: underline;
+            font-weight: 700;
+        }
+    }
+
+
+}
