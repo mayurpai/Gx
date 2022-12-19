@@ -1,103 +1,244 @@
-.item-card {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    -webkit-transform: translate(-50%);
-    -moz-transform: translate(-50%);
-    -ms-transform: translate(-50%);
-    -o-transform: translate(-50%);
-    width: 20rem;
+.item-card-main-container {
     display: flex;
-    flex-direction: column;
-    padding: 0.3rem;
-    border: .1rem solid rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    justify-content: center;
 
-    .item-card-image {
+    .item-card {
+        position: relative;
         width: 20rem;
-    }
-
-    .item-card-flex {
         display: flex;
-        width: 20rem;
+        flex-direction: column;
+        border: .1rem solid rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+        margin: .75rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        -ms-border-radius: 1rem;
+        -o-border-radius: 1rem;
 
-        .item-card-details {
-            padding: 0.2rem;
-            width: 75%;
 
-            .item-card-title {
-                font-weight: 600;
-                padding: 0.5rem;
-                margin-left: -.25rem;
-                line-height: 1.5rem;
-                font-size: 1.2rem;
-            }
-
-            .item-card-company {
-                padding: 0.3rem;
-            }
-
-            .item-card-price {
-                padding: 0.3rem;
-                color: #E00000;
-                font-size: 1.2rem;
-
-                span {
-                    font-weight: 100;
-                    font-size: 0.85rem;
-                    color: rgb(102, 102, 102);
-                }
-            }
-
-            .item-card-detail {
-                padding: 0.3rem;
-                color: #E00000;
-                line-height: 1.5rem;
-
-                span {
-                    color: #000000;
-                }
-            }
-        }
-
-        .item-card-like {
-            width: 25%;
+        .item-card-image-div {
+            transition: all linear 1s;
+            -webkit-transition: all linear 1s;
+            -moz-transition: all linear 1s;
+            -ms-transition: all linear 1s;
+            -o-transition: all linear 1s;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            padding-top: .5rem;
+            margin-top: 1rem;
 
-            span {
-                padding: 1rem;
+            .item-card-image {
+                border-radius: 1rem;
+                width: 18rem;
+            }
+        }
+
+        .item-card-flex {
+            display: flex;
+            width: 20rem;
+
+            .item-card-details {
+                padding: 0.2rem;
+                width: 75%;
+
+                .item-card-title {
+                    font-weight: 600;
+                    padding: 0.5rem;
+                    margin-left: -.25rem;
+                    line-height: 1.5rem;
+                    font-size: 1.2rem;
+                }
+
+                .item-card-company {
+                    padding: 0.3rem;
+                }
+
+                .item-card-price {
+                    padding: 0.3rem;
+                    color: #E00000;
+                    font-size: 1.2rem;
+
+                    span {
+                        font-weight: 100;
+                        font-size: 0.85rem;
+                        color: rgb(102, 102, 102);
+                    }
+                }
+
+                .item-card-detail {
+                    padding: 0.3rem;
+                    color: #E00000;
+                    line-height: 1.5rem;
+
+                    span {
+                        color: #000000;
+                    }
+                }
+            }
+
+            .item-card-like {
+                width: 25%;
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                -webkit-border-radius: 50%;
-                -moz-border-radius: 50%;
-                -ms-border-radius: 50%;
-                -o-border-radius: 50%;
-                font-size: 1.35rem;
-                border: .1rem solid #d6d6d6cc;
+                align-items: flex-start;
+                padding-top: .5rem;
 
+                span {
+                    padding: 1rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                    font-size: 1.35rem;
+                    border: .1rem solid #d6d6d6cc;
+
+                }
+            }
+        }
+
+        .item-card-add-to-cart {
+            padding: 0.3rem;
+
+            .item-card-add-to-cart-button {
+                background-color: #cc0000;
+                padding: 0.75rem;
+                color: #FFFFFF;
+                border-radius: 0.4rem;
+                -webkit-border-radius: 0.4rem;
+                -moz-border-radius: 0.4rem;
+                -ms-border-radius: 0.4rem;
+                -o-border-radius: 0.4rem;
+                border: none;
+                font-size: 0.85rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all linear 0.1s;
+                -webkit-transition: all linear 0.1s;
+                -moz-transition: all linear 0.1s;
+                -ms-transition: all linear 0.1s;
+                -o-transition: all linear 0.1s;
+            }
+
+            :hover {
+                transform: scale(1.05);
+                -webkit-transform: scale(1.05);
+                -moz-transform: scale(1.05);
+                -ms-transform: scale(1.05);
+                -o-transform: scale(1.05);
             }
         }
     }
+}
 
-    .item-card-add-to-cart {
-        padding: 0.3rem;
+.page-four-zero-four {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding-top: 3rem;
+    overflow: hidden;
 
-        .item-card-add-to-cart-button {
-            background-color: #cc0000;
-            padding: 0.75rem;
-            color: #FFFFFF;
-            border-radius: 0.4rem;
-            -webkit-border-radius: 0.4rem;
-            -moz-border-radius: 0.4rem;
-            -ms-border-radius: 0.4rem;
-            -o-border-radius: 0.4rem;
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 600;
+    .four_zero_four_bg {
+        .four-zero-four-gif {
+            max-width: 100%;
+            object-fit: contain;
         }
+
+
+    }
+
+    .contant-box-four-zero-four {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        top: 0;
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            font-size: 5rem;
+            font-weight: bolder;
+
+        }
+
+        h3 {
+            position: absolute;
+            top: 7rem;
+            width: 100vw;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+    }
+}
+
+.categories-flex {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+}
+
+
+.filter-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    flex-direction: column;
+
+    .filter {
+        margin: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        background-color: #f8ecdc;
+        width: 12rem;
+        height: 12rem;
+        color: #44802c;
+        border: none;
+        font-size: 2rem;
+        font-weight: bold;
+        border-radius: 14% 86% 14% 86% / 86% 16% 84% 14%;
+        -webkit-border-radius: 14% 86% 14% 86% / 86% 16% 84% 14%;
+        -moz-border-radius: 14% 86% 14% 86% / 86% 16% 84% 14%;
+        -ms-border-radius: 14% 86% 14% 86% / 86% 16% 84% 14%;
+        -o-border-radius: 14% 86% 14% 86% / 86% 16% 84% 14%;
+        cursor: pointer;
+    }
+
+
+    .filter-top,
+    .filter-bottom {
+        display: flex;
+    }
+
+    .filter-button {
+        margin: 1rem;
+        background-color: transparent;
+        border: .01rem solid lightgray;
+        color: #000000;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        -ms-border-radius: 1rem;
+        -o-border-radius: 1rem;
+        cursor: pointer;
     }
 }
