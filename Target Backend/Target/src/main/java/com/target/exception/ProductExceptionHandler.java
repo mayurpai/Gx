@@ -13,7 +13,15 @@ public class ProductExceptionHandler {
 
 	@ExceptionHandler(value = { ProductNotFound.class })
 	public ResponseEntity<Object> handleProductPostException(ProductNotFound e) {
-		HttpStatus badRequest = HttpStatus.NOT_FOUND;
+		HttpStatus notFound = HttpStatus.NOT_FOUND;
+		ProductException productException = new ProductException(e.getMessage(), e, notFound,
+				ZonedDateTime.now(ZoneId.of("Asia/Kolkata")));
+		return new ResponseEntity<>(productException, notFound);
+	}
+
+	@ExceptionHandler(value = { ProductTypeMismatch.class })
+	public ResponseEntity<Object> handleProductTypeException(ProductTypeMismatch e) {
+		HttpStatus badRequest = HttpStatus.BAD_REQUEST;
 		ProductException productException = new ProductException(e.getMessage(), e, badRequest,
 				ZonedDateTime.now(ZoneId.of("Asia/Kolkata")));
 		return new ResponseEntity<>(productException, badRequest);

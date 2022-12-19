@@ -9,14 +9,14 @@ import { Link } from "react-router-dom";
 function DealsToCelebrate() {
   return (
     <div className="deals-to-celebrate-main-conatiner">
-      <img
-        className="deals-to-celebrate-image-head"
-        src={DealsToCelebrateImageHead}
-      ></img>
-      <img
-        className="deals-to-celebrate-image"
-        src={DealsToCelebrateImage}
-      ></img>
+        <img
+          className="deals-to-celebrate-image-head"
+          src={DealsToCelebrateImageHead}
+        ></img>
+        <img
+          className="deals-to-celebrate-image"
+          src={DealsToCelebrateImage}
+        ></img>
       <div className="deals-to-celebrate-flex-div">
         <div className="deals-to-celebrate-left-div">
           <img

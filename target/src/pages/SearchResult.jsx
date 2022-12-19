@@ -1,49 +1,28 @@
 import React, { useState, useEffect } from "react";
-import "../styles/ItemCard.scss";
 import axios from "axios";
 import { BsHeart } from "react-icons/bs";
+import { useLocation } from "react-router-dom";
 
-function ItemCard() {
+import HomeDealsImage from "../images/home-deals.webp";
+import ElectronicDeals from "../images/electronic-deals.webp";
+import ClothingDeals from "../images/clothing-deals.webp";
+import ToyDeals from "../images/toy-deals.webp";
+import BeautyDeals from "../images/beauty-deals.webp";
+import { Link } from "react-router-dom";
+import Categories from "../components/Categories";
+
+function SearchResult() {
   const [Product, setProduct] = useState([]);
   const [StatusCode, setStatusCode] = useState();
-  const {
-    REACT_APP_GET_PRODUCT_BELOW_TEN_DOLLARS,
-    REACT_APP_GET_PRODUCT_BELOW_FIFTY_DOLLARS,
-    REACT_APP_GET_PRODUCT_SORTED_ASCENDING,
-    REACT_APP_GET_PRODUCT_SORTED_DESCENDING,
-  } = process.env;
-  const getHelper = async (URL) => {
-    console.log(URL);
-    const getAllProductsBelowTenDollars = URL;
-    await axios
-      .get(getAllProductsBelowTenDollars)
-      .then((response) => {
-        setProduct(response.data);
-        console.log(response);
-        setStatusCode(response.status);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-          setStatusCode(error.response.status);
-          setProduct(error.response.data);
-        } else if (error.request) {
-          setStatusCode(error.request);
-          setProduct(Object.values(error.request));
-        } else {
-          console.log("Error", error.message);
-          setProduct(Object.values(error.message));
-        }
-        console.log(error.config);
-      });
-  };
+  const location = useLocation();
 
   useEffect(() => {
-    const getAllProducts = process.env.REACT_APP_GET_ALL_PRODUCTS_URL;
+    const searchElement = location.state.searchElement;
+    const getByProductName = process.env.REACT_APP_GET_PRODUCT_BY_PRODUCT_NAME;
+    const getByProductBrand =
+      process.env.REACT_APP_GET_PRODUCT_BY_PRODUCT_BRAND;
     axios
-      .get(getAllProducts)
+      .get(`${getByProductName}/${searchElement}`)
       .then((response) => {
         setProduct(response.data);
         console.log(response);
@@ -54,7 +33,6 @@ function ItemCard() {
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
-          //   setProduct(Object.values(error.response.data));
           setStatusCode(error.response.status);
           setProduct(error.response.data);
         } else if (error.request) {
@@ -67,54 +45,27 @@ function ItemCard() {
         console.log(error.config);
       });
   }, []);
-
   return (
     <>
-      <div className="filter-flex">
-        <div className="filter-top">
-          <button
-            className="filter"
-            onClick={() => {
-              getHelper(
-                Object.values({ REACT_APP_GET_PRODUCT_BELOW_TEN_DOLLARS })
-              );
-            }}
-          >
-            Under $10
-          </button>
-          <button
-            className="filter"
-            onClick={() => {
-              getHelper(
-                Object.values({ REACT_APP_GET_PRODUCT_BELOW_FIFTY_DOLLARS })
-              );
-            }}
-          >
-            Under $50
-          </button>
-        </div>
-        <div className="filter-bottom">
-          <button
-            className="filter-button"
-            onClick={() => {
-              getHelper(
-                Object.values({ REACT_APP_GET_PRODUCT_SORTED_ASCENDING })
-              );
-            }}
-          >
-            Price: Low To High
-          </button>
-          <button
-            className="filter-button"
-            onClick={() => {
-              getHelper(
-                Object.values({ REACT_APP_GET_PRODUCT_SORTED_DESCENDING })
-              );
-            }}
-          >
-            Price: High To Low
-          </button>
-        </div>
+      <div className="categories-flex">
+        <Link to="../Home-Deals">
+          <Categories image={HomeDealsImage} description="Home Deals" />
+        </Link>
+        <Link to="../Electronic-Deals">
+          <Categories image={ElectronicDeals} description="Electronic Deals" />
+        </Link>
+        <Link to="../Clothing-Deals">
+          <Categories image={ClothingDeals} description="Clothing Deals" />
+        </Link>
+        <Link to="../Toy-Deals">
+          <Categories image={ToyDeals} description="Toy Deals" />
+        </Link>
+        <Link to="../Beauty-Deals">
+          <Categories
+            image={BeautyDeals}
+            description="Beauty & Personal Care Deals"
+          />
+        </Link>
       </div>
       {StatusCode === 200 ? (
         <div className="item-card-main-container">
@@ -172,4 +123,4 @@ function ItemCard() {
   );
 }
 
-export default ItemCard;
+export default SearchResult;

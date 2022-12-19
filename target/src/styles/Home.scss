@@ -1,5 +1,16 @@
 .home-main-container {
     min-height: 200vh;
     min-width: 100vw;
-    // background-color: black;
+
+    .categories-flex {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+    }
 }

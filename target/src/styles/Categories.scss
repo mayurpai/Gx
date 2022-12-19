@@ -1,0 +1,27 @@
+.categories-card-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+    
+    .categories-card-view {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .categories-card-image {
+            width: 12rem;
+            object-fit: cover;
+        }
+
+        .categories-card-description {
+
+            h1 {
+                font-weight: 200;
+                font-size: 1rem;
+            }
+        }
+    }
+}
