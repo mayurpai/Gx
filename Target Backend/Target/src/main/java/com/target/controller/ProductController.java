@@ -1,6 +1,7 @@
 package com.target.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.target.entity.Cart;
 import com.target.entity.Product;
 import com.target.enums.ProductType;
 import com.target.exception.ProductNotFound;
@@ -27,6 +29,8 @@ public class ProductController {
 	ProductService productService;
 
 	List<Product> product;
+
+//	Optional<Cart> cart;
 
 	@GetMapping("GET")
 	public List<Product> getAllProducts() throws ProductNotFound, Exception {
@@ -150,4 +154,23 @@ public class ProductController {
 		}
 		return product;
 	}
+
+	@PostMapping("POST/Product-Cart")
+	public Product saveProductToCart(@RequestBody Product product) throws Exception {
+		try {
+			return productService.saveProductToCart(product);
+		} catch (Exception e) {
+			throw new Exception();
+		}
+	}
+
+//	@GetMapping("GET/Product-Cart/{cartId}")
+//	public Optional<Cart> getAllProductsInCartByCartId(@PathVariable int cartId) throws Exception {
+//		try {
+//			cart = productService.findAllProductsInCartByCartId(cartId);
+//		} catch (Exception e) {
+//			throw new Exception();
+//		}
+//		return cart;
+//	}
 }
