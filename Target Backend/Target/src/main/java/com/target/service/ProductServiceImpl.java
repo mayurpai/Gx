@@ -2,17 +2,18 @@ package com.target.service;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.target.entity.Cart;
 import com.target.entity.Product;
 import com.target.enums.ProductType;
 import com.target.exception.ProductNotFound;
 import com.target.exception.ProductTypeMismatch;
+import com.target.repository.CartRepository;
 import com.target.repository.ProductRepository;
 
 @Service
@@ -20,6 +21,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	ProductRepository productRepository;
+
+	@Autowired
+	CartRepository cartRepository;
 
 	@Override
 	public List<Product> getAllProducts() throws ProductNotFound {
@@ -125,7 +129,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 
 	}
-	
+
 	@Override
 	public Stream<Product> getProductBelowFiftyDollars() throws ProductNotFound {
 		List<Product> products = getAllProducts();
@@ -141,5 +145,23 @@ public class ProductServiceImpl implements ProductService {
 		}
 
 	}
+
+	@Override
+	public Product saveProductToCart(Product product) throws Exception {
+		try {
+			return productRepository.save(product);
+		} catch (Exception e) {
+			throw new Exception();
+		}
+	}
+
+//	@Override
+//	public Optional<Cart> findAllProductsInCartByCartId(int cartId) throws Exception {
+//		try {
+//			return cartRepository.findById(cartId);
+//		} catch (Exception e) {
+//			throw new Exception();
+//		}
+//	}
 
 }

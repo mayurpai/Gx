@@ -1,9 +1,8 @@
 package com.target.entity;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,20 +11,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.target.enums.ProductType;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 @Entity
 @Table(name = "Product")
 @NoArgsConstructor
@@ -42,9 +41,11 @@ public class Product {
 	private ProductType productType;
 	private String productURL;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "cart_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Cart cart;
+//	@JsonIgnore
+//	@JsonManagedReference
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "PRODUCT_CART_TABLE", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "cart_id") })
+	private Set<Cart> carts;
 
 }
