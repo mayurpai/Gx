@@ -9,6 +9,10 @@ import ToyDeals from "../images/toy-deals.webp";
 import BeautyDeals from "../images/beauty-deals.webp";
 import { Link } from "react-router-dom";
 import Categories from "../components/Categories";
+import Header from "../components/Header";
+import TopHeader from "../components/TopHeader";
+import BottomFooter from "../components/BottomFooter";
+import Footer from "../components/Footer";
 
 function ClothingDeals() {
   const [Product, setProduct] = useState([]);
@@ -21,29 +25,25 @@ function ClothingDeals() {
       .get(getAllClothingProducts)
       .then((response) => {
         setProduct(response.data);
-        console.log(response);
         setStatusCode(response.status);
       })
       .catch((error) => {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
           setStatusCode(error.response.status);
           setProduct(error.response.data);
         } else if (error.request) {
           setStatusCode(error.request);
           setProduct(Object.values(error.request));
         } else {
-          console.log("Error", error.message);
           setProduct(Object.values(error.message));
         }
-        console.log(error.config);
       });
   }, []);
   return (
     <>
-        <div className="categories-flex">
+      <TopHeader />
+      <Header />
+      <div className="categories-flex">
         <Link to="../Home-Deals">
           <Categories image={HomeDealsImage} description="Home Deals" />
         </Link>
@@ -102,19 +102,21 @@ function ClothingDeals() {
           })}
         </div>
       ) : (
-        <section class="page-four-zero-four">
-          <div class="four-zero-four-bg">
+        <section className="page-four-zero-four">
+          <div className="four-zero-four-bg">
             <img
               className="four-zero-four-gif"
               src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif"
             ></img>
           </div>
-          <div class="contant-box-four-zero-four">
+          <div className="contant-box-four-zero-four">
             <h1>{StatusCode}</h1>
             <h3>{Product.message}</h3>
           </div>
         </section>
       )}
+      <Footer />
+      <BottomFooter />
     </>
   );
 }

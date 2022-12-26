@@ -10,6 +10,10 @@ import ToyDeals from "../images/toy-deals.webp";
 import BeautyDeals from "../images/beauty-deals.webp";
 import { Link } from "react-router-dom";
 import Categories from "../components/Categories";
+import Header from "../components/Header";
+import TopHeader from "../components/TopHeader";
+import BottomFooter from "../components/BottomFooter";
+import Footer from "../components/Footer";
 
 function SearchResult() {
   const [Product, setProduct] = useState([]);
@@ -25,28 +29,24 @@ function SearchResult() {
       .get(`${getByProductName}/${searchElement}`)
       .then((response) => {
         setProduct(response.data);
-        console.log(response);
         setStatusCode(response.status);
       })
       .catch((error) => {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
           setStatusCode(error.response.status);
           setProduct(error.response.data);
         } else if (error.request) {
           setStatusCode(error.request);
           setProduct(Object.values(error.request));
         } else {
-          console.log("Error", error.message);
           setProduct(Object.values(error.message));
         }
-        console.log(error.config);
       });
   }, []);
   return (
     <>
+      <TopHeader />
+      <Header />
       <div className="categories-flex">
         <Link to="../Home-Deals">
           <Categories image={HomeDealsImage} description="Home Deals" />
@@ -119,6 +119,8 @@ function SearchResult() {
           </div>
         </section>
       )}
+      <Footer />
+      <BottomFooter />
     </>
   );
 }

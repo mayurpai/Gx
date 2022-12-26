@@ -7,7 +7,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ userEmail }) {
   const [searchElement, setSearchElement] = useState("");
   const navigate = useNavigate();
 
@@ -45,21 +45,25 @@ function Header() {
             onClick={() => {
               if (searchElement.length === 0)
                 alert("Please Enter The Product For Search");
-                else {
-              navigate("/Search-Results", {
-                state: { searchElement: searchElement },
-              });
+              else {
+                navigate("/Search-Results", {
+                  state: { searchElement: searchElement },
+                });
               }
             }}
           />
         </ul>
         <ul className="header-main-sign-in">
-          <li>
-            <FaRegUserCircle
-              style={{ cursor: "pointer", fontSize: "1.75rem" }}
-            />{" "}
-            &nbsp; Sign in
-          </li>
+          {userEmail}
+          {console.log(userEmail)}
+          <Link to="/Sign-In">
+            <li>
+              <FaRegUserCircle
+                style={{ cursor: "pointer", fontSize: "1.75rem" }}
+              />{" "}
+              &nbsp; Sign in
+            </li>
+          </Link>
         </ul>
         <ul className="header-main-cart">
           <li>
