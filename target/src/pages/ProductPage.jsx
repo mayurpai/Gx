@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ReactImageMagnify from "react-image-magnify";
 
 function ProductPage(props) {
   const [StatusCode, setStatusCode] = useState();
@@ -121,7 +122,28 @@ function ProductPage(props) {
             ></img> */}
           </div>
           <div className="product-page-image-div">
-            <img className="product-page-image" src={image.value}></img>
+            <ReactImageMagnify
+              style={{
+                position: "absolute",
+                zIndex: "9",
+              }}
+              {...{
+                smallImage: {
+                  alt: "Wristwatch by Ted Baker London",
+                  src: image.value,
+                  width: 500,
+                  height: 500,
+                },
+                largeImage: {
+                  src: image.value,
+                  width: 1920,
+                  height: 1080,
+                },
+                isHintEnabled: true,
+                shouldHideHintAfterFirstActivation: false,
+              }}
+            />
+            {/* <img className="product-page-image" src={image.value}></img> */}
           </div>
           <div className="product-page-desc">
             <div className="product-page-price">
