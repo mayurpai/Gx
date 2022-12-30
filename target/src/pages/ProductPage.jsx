@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ReactImageMagnify from "react-image-magnify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useGlobalContext } from "../Context";
 
 function ProductPage(props) {
   const [StatusCode, setStatusCode] = useState();
+  const [images, setImages] = useState();
+  const [image, setImage] = useState("");
   const navigate = useNavigate();
   const ratingCount = Math.floor(Math.random() * (600 - 100 + 1)) + 1;
+  const productIds = localStorage.getItem("productId");
+  const { userEmailStorage } = useGlobalContext();
+  document.title = props.product.productName;
 
   const getInitialState = () => {
     const quantity = "1";
@@ -20,11 +28,34 @@ function ProductPage(props) {
     setQuantity(e.target.value);
   };
 
+  useEffect(() => {
+    const getImageListByProductId =
+      process.env.REACT_APP_GET_IMAGE_LIST_BY_PRODUCT_ID;
+    axios
+      .get(`${getImageListByProductId}/${productIds}`)
+      .then((response) => {
+        setImage(response.data[0].imageUrl);
+        setImages(response.data);
+        setStatusCode(response.status);
+      })
+      .catch((error) => {
+        if (error.response) {
+          setStatusCode(error.response.status);
+          setImages(error.response.data);
+        } else if (error.request) {
+          setStatusCode(error.request);
+          setImages(Object.values(error.request));
+        } else {
+          setImages(Object.values(error.message));
+        }
+      });
+  }, []);
+
   const handleCartSubmit = async (e) => {
     e.preventDefault();
     const postProductToCart = process.env.REACT_APP_POST_PRODUCT_TO_CART;
     const dataToPost = {
-      userEmail: "mayur5pai@gmail.com",
+      userEmail: userEmailStorage,
       productId: props.product.productId,
       productQuantity: quantity,
     };
@@ -35,7 +66,7 @@ function ProductPage(props) {
       )
       .then((response) => {
         setStatusCode(response.status);
-        navigate("/Cart");
+        toast.success("Added to cart.");
       })
       .catch((error) => {
         if (error.response) {
@@ -46,80 +77,21 @@ function ProductPage(props) {
       });
   };
 
-  const imgs = [
-    {
-      id: 1,
-      value:
-        "https://www.thehalogroup.com/wp-content/uploads/2016/04/google-search-engine-thumb-400x400.jpg",
-    },
-    {
-      id: 2,
-      value: "https://mcdn.wallpapersafari.com/374/51/21/E7xKjA.png",
-    },
-    {
-      id: 3,
-      value:
-        "https://visualcomposer.com/wp-content/uploads/2020/08/sitekit-by-google-plugin-for-wordpress-600x218.png",
-    },
-    {
-      id: 4,
-      value:
-        "https://www.androidsis.com/wp-content/uploads/2016/01/app-de-google.jpg",
-    },
-    {
-      id: 5,
-      value:
-        "https://www.androidsis.com/wp-content/uploads/2016/01/app-de-google.jpg",
-    },
-  ];
-
-  const [image, setImage] = useState(imgs[0]);
-
   return (
     <div className="product-page-main-container">
       <form className="product-page-cart-form" onSubmit={handleCartSubmit}>
         <div className="product-page-title">{props.product.productName}</div>
         <div className="product-page-image-desc">
           <div className="product-page-list-images">
-            {/* <img className="product-page-image" src={image.value}></img> */}
-            {imgs.map((data, index) => {
+            {images?.map((data) => {
               return (
                 <img
-                  key={data.id}
-                  src={data.value}
-                  onClick={() => setImage(imgs[index])}
+                  key={data.imageId}
+                  src={data.imageUrl}
+                  onClick={() => setImage(data.imageUrl)}
                 ></img>
               );
             })}
-            {/* <img
-              className="product-page-image"
-              src="https://th.bing.com/th/id/R.6edf02018b1372f6a33105025af73e06?rik=5ypBiYhVnNeQyQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f04%2fGoogle-images-HD-wallpaper.png&ehk=9xlZ08okwdp95Cxw7to3eaQyl2rH9b2mxE9gT%2bNd8a8%3d&risl=&pid=ImgRaw&r=0"
-              onClick={() =>
-                setImage(
-                  "https://th.bing.com/th/id/R.6edf02018b1372f6a33105025af73e06?rik=5ypBiYhVnNeQyQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f04%2fGoogle-images-HD-wallpaper.png&ehk=9xlZ08okwdp95Cxw7to3eaQyl2rH9b2mxE9gT%2bNd8a8%3d&risl=&pid=ImgRaw&r=0"
-                )
-              }
-            ></img>
-            <img
-              className="product-page-image"
-              src={image}
-              onClick={() => setImage(image)}
-            ></img>
-            <img
-              className="product-page-image"
-              src={image}
-              onClick={() => setImage(image)}
-            ></img>
-            <img
-              className="product-page-image"
-              src={image}
-              onClick={() => setImage(image)}
-            ></img>
-            <img
-              className="product-page-image"
-              src={image}
-              onClick={() => setImage(image)}
-            ></img> */}
           </div>
           <div className="product-page-image-div">
             <ReactImageMagnify
@@ -130,12 +102,12 @@ function ProductPage(props) {
               {...{
                 smallImage: {
                   alt: "Wristwatch by Ted Baker London",
-                  src: image.value,
+                  src: image,
                   width: 500,
                   height: 500,
                 },
                 largeImage: {
-                  src: image.value,
+                  src: image,
                   width: 1920,
                   height: 1080,
                 },
@@ -143,7 +115,6 @@ function ProductPage(props) {
                 shouldHideHintAfterFirstActivation: false,
               }}
             />
-            {/* <img className="product-page-image" src={image.value}></img> */}
           </div>
           <div className="product-page-desc">
             <div className="product-page-price">
@@ -186,14 +157,23 @@ function ProductPage(props) {
                 </button>
               </div>
             </div>
-            <div className=""></div>
           </div>
         </div>
       </form>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
 
 export default ProductPage;
-
-//   {Object.values(props.product)}

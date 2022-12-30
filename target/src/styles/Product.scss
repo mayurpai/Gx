@@ -1,5 +1,6 @@
 .product-page-main-container {
     width: 100vw;
+    display: flex;
 
     .product-page-title {
         font-size: 1.75rem;
@@ -11,6 +12,9 @@
 
     .product-page-image-desc {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
 
         .product-page-list-images {
             display: flex;
@@ -34,7 +38,7 @@
         .product-page-image-div {
             padding: 1rem;
             // overflow: hidden;
-            
+
             .product-page-image {
                 width: 46.5rem;
                 aspect-ratio: 1/1;
@@ -61,6 +65,7 @@
             .product-page-price {
                 font-size: 1.75rem;
                 font-weight: 600;
+                color: rgb(255, 61, 61);
             }
 
             .product-page-line {

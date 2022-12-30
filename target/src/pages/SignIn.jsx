@@ -5,9 +5,12 @@ import AuthFooter from "../components/AuthFooter";
 import "../styles/SignIn.scss";
 import axios from "axios";
 import TargetLogo from "../images/target-logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function SignIn() {
   const navigate = useNavigate();
+  document.title = "Login : Target";
   const [changeComponent, setChangeComponent] = useState(false);
   const [StatusCode, setStatusCode] = useState();
   const [data, setData] = useState({
@@ -45,13 +48,15 @@ function SignIn() {
       .post(postUser, userData)
       .then((response) => {
         setStatusCode(response.status);
+        toast.success("Successfully registered.");
         setChangeComponent(!changeComponent);
       })
       .catch((error) => {
         if (error.response) {
-          alert(error.response.data.message);
+          toast.error(error.response.data.message);
         } else if (error.request) {
           setStatusCode(error.request);
+          toast.error(error.request);
         }
       });
   };
@@ -74,18 +79,19 @@ function SignIn() {
       )
       .then((response) => {
         setStatusCode(response.status);
+        localStorage.setItem("token", window.btoa(userEmailStorage));
         navigate("/", {
           state: {
             userEmailStorage: userEmailStorage,
-            userPasswordStorage: userPasswordStorage,
           },
         });
       })
       .catch((error) => {
         if (error.response) {
-          alert(error.response.data.message);
+          toast.error(error.response.data.message);
         } else if (error.request) {
           setStatusCode(error.request);
+          toast.error(error.request);
         }
       });
   };
@@ -287,6 +293,18 @@ function SignIn() {
           </div>
         </div>
       )}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

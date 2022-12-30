@@ -113,6 +113,11 @@ function ItemCard() {
               key={data.productId}
               className="item-card"
               onClick={() => {
+                localStorage.setItem(
+                  "productIdStore",
+                  window.btoa(data.productId)
+                );
+                localStorage.setItem("productId", data.productId);
                 navigate("/Product", {
                   state: {
                     getProductByIdUrl: Object.values({
@@ -124,7 +129,10 @@ function ItemCard() {
               }}
             >
               <div className="item-card-image-div">
-                <img className="item-card-image" src={data.productURL}></img>
+                <img
+                  className="item-card-image"
+                  src={data.images[0].imageUrl}
+                ></img>
               </div>
               <div className="item-card-flex">
                 <div className="item-card-details">

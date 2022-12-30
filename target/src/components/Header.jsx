@@ -6,11 +6,15 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../Context";
 
-function Header({ userEmail }) {
+function Header() {
   const [searchElement, setSearchElement] = useState("");
   const navigate = useNavigate();
+  const { userEmailStorage } = useGlobalContext();
+  const [isAuthenticated, SetIsAuthenticated] = useState(true);
 
+  if (userEmailStorage === null) SetIsAuthenticated(false);
   const handleChange = (e) => {
     const value = e.target.value;
     setSearchElement(value);
@@ -54,21 +58,40 @@ function Header({ userEmail }) {
           />
         </ul>
         <ul className="header-main-sign-in">
-          {userEmail}
-          {console.log(userEmail)}
-          <Link to="/Sign-In">
-            <li>
-              <FaRegUserCircle
-                style={{ cursor: "pointer", fontSize: "1.75rem" }}
-              />{" "}
-              &nbsp; Sign in
-            </li>
-          </Link>
+          {isAuthenticated ? (
+            <>
+              <li>
+                <FaRegUserCircle
+                  style={{ cursor: "pointer", fontSize: "1.75rem" }}
+                />{" "}
+                &nbsp; Hi, {userEmailStorage}
+              </li>
+              <li
+                onClick={() => {
+                  SetIsAuthenticated(false);
+                  localStorage.removeItem("token");
+                }}
+              >
+                Log Out
+              </li>
+            </>
+          ) : (
+            <Link to="/Sign-In">
+              <li>
+                <FaRegUserCircle
+                  style={{ cursor: "pointer", fontSize: "1.75rem" }}
+                />{" "}
+                &nbsp; Sign in
+              </li>
+            </Link>
+          )}
         </ul>
         <ul className="header-main-cart">
-          <li>
-            <BsCart3 style={{ cursor: "pointer", fontSize: "1.75rem" }} />
-          </li>
+          <Link to="/Cart">
+            <li>
+              <BsCart3 style={{ cursor: "pointer", fontSize: "1.75rem" }} />
+            </li>
+          </Link>
         </ul>
       </nav>
     </div>

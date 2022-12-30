@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Categories from "../components/Categories";
 import DealsToCelebrate from "../components/DealsToCelebrate";
 import ItemCard from "../components/ItemCard";
@@ -16,10 +16,7 @@ import Footer from "../components/Footer";
 
 function Home() {
   const location = useLocation();
-  // const [userEmail, setUserEmail] = useState(location.state.userEmailStorage);
-  // const [userPassword, setUserPassword] = useState(
-  //   location.state.userPasswordStorage
-  // );
+  document.title = "Target : Expect More. Pay Less.";
   return (
     <>
       <TopHeader />
