@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BsHeart } from "react-icons/bs";
-
 import HomeDealsImage from "../images/home-deals.webp";
 import ElectronicDeals from "../images/electronic-deals.webp";
 import ClothingDeals from "../images/clothing-deals.webp";
@@ -13,10 +12,14 @@ import Header from "../components/Header";
 import TopHeader from "../components/TopHeader";
 import BottomFooter from "../components/BottomFooter";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function BeautyDeals() {
+  const navigate = useNavigate();
   const [Product, setProduct] = useState([]);
   const [StatusCode, setStatusCode] = useState();
+  document.title = "Beauty & Personal Care Deals : Target";
+  const { REACT_APP_GET_PRODUCT_BY_ID } = process.env;
 
   useEffect(() => {
     const getAllBeautyProducts =
@@ -41,9 +44,9 @@ function BeautyDeals() {
   }, []);
   return (
     <>
-    <TopHeader />
+      <TopHeader />
       <Header />
-        <div className="categories-flex">
+      <div className="categories-flex">
         <Link to="../Home-Deals">
           <Categories image={HomeDealsImage} description="Home Deals" />
         </Link>
@@ -67,9 +70,26 @@ function BeautyDeals() {
         <div className="item-card-main-container">
           {Product.map((data) => {
             return (
-              <div key={data.productId} className="item-card">
+              <div
+                key={data.productId}
+                className="item-card"
+                onClick={() => {
+                  navigate("/Product", {
+                    state: {
+                      getProductByIdUrl: Object.values({
+                        REACT_APP_GET_PRODUCT_BY_ID,
+                      }),
+                      productId: data.productId,
+                    },
+                  });
+                  localStorage.setItem("productId", data.productId);
+                }}
+              >
                 <div className="item-card-image-div">
-                  <img className="item-card-image" src={data.productURL}></img>
+                  <img
+                    className="item-card-image"
+                    src={data.images[0].imageUrl}
+                  ></img>
                 </div>
                 <div className="item-card-flex">
                   <div className="item-card-details">
