@@ -9,7 +9,7 @@ import { useGlobalContext } from "../Context";
 
 function ItemCard() {
   const navigate = useNavigate();
-  const { userEmailStorage } = useGlobalContext();
+  const { userEmailStorage, cartCount } = useGlobalContext();
   const [Product, setProduct] = useState([]);
   const [StatusCode, setStatusCode] = useState();
   const {
@@ -77,6 +77,12 @@ function ItemCard() {
       .then((response) => {
         toast.success("Added to cart.");
         setStatusCode(response.status);
+        {
+          localStorage.setItem("cartStore", window.btoa(Number(cartCount) + 1));
+        }
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       })
       .catch((error) => {
         if (error.response) {

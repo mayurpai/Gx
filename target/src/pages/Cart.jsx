@@ -17,8 +17,7 @@ import { useGlobalContext } from "../Context";
 
 function Cart() {
   document.title = "Cart : Target";
-  const { userEmailStorage } = useGlobalContext();
-
+  const { userEmailStorage, cartCount } = useGlobalContext();
   const [Product, setProduct] = useState([]);
   const [StatusCode, setStatusCode] = useState();
   const deleteAllProductsFromCart =
@@ -87,6 +86,17 @@ function Cart() {
         setProduct(response.data);
         setStatusCode(response.status);
         toast.success("Item removed from cart.");
+        {
+          localStorage.setItem(
+            "cartStore",
+            window.btoa(
+              Product?.map((data) => data.quantity).reduce((a, c) => a + c, 0)
+            )
+          );
+        }
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       })
       .catch((error) => {
         if (error.response) {
@@ -129,6 +139,15 @@ function Cart() {
                   </h3>
                   <ul>
                     <li>
+                      {localStorage.setItem(
+                        "cartStore",
+                        window.btoa(
+                          Product?.map((data) => data.quantity).reduce(
+                            (a, c) => a + c,
+                            0
+                          )
+                        )
+                      )}
                       {Product?.map((data) => data.quantity).reduce(
                         (a, c) => a + c,
                         0
@@ -171,7 +190,7 @@ function Cart() {
                           <label>
                             <select
                               className="product-page-select"
-                                value={data.quantity}
+                              value={data.quantity}
                               onChange={(e) => {
                                 const selectedChoice = e.target.value;
                                 setQuantity(selectedChoice);
@@ -189,7 +208,6 @@ function Cart() {
                         <div className="cart-single-radio-flex">
                           <input
                             type="radio"
-                            // name="Standard shipping"
                             value="Standard shipping Get it by Mon, Jan 2"
                             checked
                           />

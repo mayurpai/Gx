@@ -7,12 +7,15 @@ import axios from "axios";
 import TargetLogo from "../images/target-logo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useGlobalContext } from "../Context";
 
 function SignIn() {
   const navigate = useNavigate();
   document.title = "Login : Target";
+  const { userEmailStorage, cartCount } = useGlobalContext();
   const [changeComponent, setChangeComponent] = useState(false);
   const [StatusCode, setStatusCode] = useState();
+  const [Product, setProduct] = useState([]);
   const [data, setData] = useState({
     userId: "",
     userName: "",
@@ -64,6 +67,7 @@ function SignIn() {
   const handleLogin = async (e) => {
     e.preventDefault();
     const getUser = process.env.REACT_APP_GET_USER;
+    const getProductFromCart = process.env.REACT_APP_GET_PRODUCT_FROM_CART;
     const userLoginData = {
       userEmail: data.userEmail,
       userPassword: data.userPassword,
@@ -78,6 +82,29 @@ function SignIn() {
         userLoginData
       )
       .then((response) => {
+        axios
+          .get(`${getProductFromCart}/${userEmailStorage}`)
+          .then((response) => {
+            localStorage.setItem(
+              "cartStore",
+              window.btoa(
+                response.data
+                  .map((data) => data.quantity)
+                  .reduce((a, c) => a + c, 0)
+              )
+            );
+          })
+          .catch((error) => {
+            if (error.response) {
+              setStatusCode(error.response.status);
+              setProduct(error.response.data);
+            } else if (error.request) {
+              setStatusCode(error.request);
+              setProduct(Object.values(error.request));
+            } else {
+              setProduct(Object.values(error.message));
+            }
+          });
         setStatusCode(response.status);
         localStorage.setItem("token", window.btoa(userEmailStorage));
         navigate("/", {

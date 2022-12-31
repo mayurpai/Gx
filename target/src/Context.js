@@ -7,6 +7,7 @@ const AppProvider = ({ children }) => {
       value={{
         userEmailStorage: window.atob(localStorage.getItem("token")),
         productIdStorage: window.atob(localStorage.getItem("productIdStore")),
+        cartCount: window.atob(localStorage.getItem("cartStore")),
       }}
     >
       {children}

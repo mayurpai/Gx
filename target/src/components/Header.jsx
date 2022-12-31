@@ -11,10 +11,13 @@ import { useGlobalContext } from "../Context";
 function Header() {
   const [searchElement, setSearchElement] = useState("");
   const navigate = useNavigate();
-  const { userEmailStorage } = useGlobalContext();
+  const { userEmailStorage, cartCount } = useGlobalContext();
   var flag;
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   if (userEmailStorage.length !== 3) {
+    flag = true;
+  }
+  if (cartCount.length !== 3) {
     flag = true;
   }
   const handleChange = (e) => {
@@ -72,7 +75,9 @@ function Header() {
                 onClick={() => {
                   setIsAuthenticated(false);
                   localStorage.removeItem("token");
+                  localStorage.removeItem("cartStore");
                   window.location.reload();
+                  flag = false;
                 }}
               >
                 Log Out
@@ -93,6 +98,7 @@ function Header() {
           <Link to="/Cart">
             <li>
               <BsCart3 style={{ cursor: "pointer", fontSize: "1.75rem" }} />
+              <span>{flag ? cartCount : "0"}</span>
             </li>
           </Link>
         </ul>
