@@ -9,6 +9,7 @@
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",
     "react": "^18.2.0",
+    "react-async-select": "^0.2.6",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-image-magnify": "^2.7.4",
