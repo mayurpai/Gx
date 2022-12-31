@@ -12,9 +12,11 @@ function Header() {
   const [searchElement, setSearchElement] = useState("");
   const navigate = useNavigate();
   const { userEmailStorage } = useGlobalContext();
-  const [isAuthenticated, SetIsAuthenticated] = useState(true);
-
-  if (userEmailStorage === null) SetIsAuthenticated(false);
+  var flag;
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  if (userEmailStorage.length !== 3) {
+    flag = true;
+  }
   const handleChange = (e) => {
     const value = e.target.value;
     setSearchElement(value);
@@ -58,7 +60,7 @@ function Header() {
           />
         </ul>
         <ul className="header-main-sign-in">
-          {isAuthenticated ? (
+          {isAuthenticated && flag ? (
             <>
               <li>
                 <FaRegUserCircle
@@ -68,8 +70,9 @@ function Header() {
               </li>
               <li
                 onClick={() => {
-                  SetIsAuthenticated(false);
+                  setIsAuthenticated(false);
                   localStorage.removeItem("token");
+                  window.location.reload();
                 }}
               >
                 Log Out

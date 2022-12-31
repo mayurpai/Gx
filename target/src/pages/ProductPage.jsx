@@ -70,7 +70,7 @@ function ProductPage(props) {
       })
       .catch((error) => {
         if (error.response) {
-          alert(error.response.data.message);
+          toast.error("Sign in to add to cart.");
         } else if (error.request) {
           setStatusCode(error.request);
         }

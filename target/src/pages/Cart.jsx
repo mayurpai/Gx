@@ -17,8 +17,7 @@ import { useGlobalContext } from "../Context";
 
 function Cart() {
   document.title = "Cart : Target";
-  const { userEmailStorage } = useGlobalContext();  
-  console.log(userEmailStorage);
+  const { userEmailStorage } = useGlobalContext();
 
   const [Product, setProduct] = useState([]);
   const [StatusCode, setStatusCode] = useState();
@@ -46,15 +45,17 @@ function Cart() {
       });
   }, []);
 
-  const getInitialState = () => {
-    const quantity = "1";
-    return quantity;
-  };
-  const [quantity, setQuantity] = useState(getInitialState);
+  //   const getInitialState = () => {
+  //     const quantity = "1";
+  //     return quantity;
+  //   };
 
-  const handleChange = (e) => {
-    setQuantity(e.target.value);
-  };
+  const [quantity, setQuantity] = useState(Product.quantity);
+
+  //   const handleChange = (e, productIdForDelete) => {
+  //     setQuantity(e.target.value);
+  //     console.log(productIdForDelete);
+  //   };
 
   const deleteAllItems = async () => {
     await axios
@@ -119,7 +120,9 @@ function Cart() {
                 <div className="cart-shipping">
                   <h3>
                     $
-                    {Product?.map((data) => data.product.productPrice)
+                    {Product?.map(
+                      (data) => data.quantity * data.product.productPrice
+                    )
                       .reduce((a, c) => a + c, 0)
                       .toFixed(2)}{" "}
                     subtotal
@@ -168,8 +171,12 @@ function Cart() {
                           <label>
                             <select
                               className="product-page-select"
-                              value={data.quantity}
-                              onChange={handleChange}
+                                value={data.quantity}
+                              onChange={(e) => {
+                                const selectedChoice = e.target.value;
+                                setQuantity(selectedChoice);
+                                // handleChange(data.product.productId);
+                              }}
                             >
                               <option value="1">Qty 1</option>
                               <option value="2">Qty 2</option>
@@ -192,7 +199,7 @@ function Cart() {
                         </div>
                       </div>
                       <div className="cart-single-item-price">
-                        <p>${data.product.productPrice}</p>
+                        <p>${data.quantity * data.product.productPrice}</p>
                       </div>
                       <div
                         className="cart-single-item-delete"
@@ -224,10 +231,19 @@ function Cart() {
                 </div>
                 <div className="cart-details">
                   <div className="cart-price">
-                    <h3>Subtotal ({Product.length} items)</h3>
+                    <h3>
+                      Subtotal (
+                      {Product?.map((data) => data.quantity).reduce(
+                        (a, c) => a + c,
+                        0
+                      )}{" "}
+                      items)
+                    </h3>
                     <h3>
                       $
-                      {Product?.map((data) => data.product.productPrice)
+                      {Product?.map(
+                        (data) => data.quantity * data.product.productPrice
+                      )
                         .reduce((a, c) => a + c, 0)
                         .toFixed(2)}{" "}
                     </h3>
@@ -244,7 +260,9 @@ function Cart() {
                     <h3>Total</h3>
                     <h3>
                       $
-                      {Product?.map((data) => data.product.productPrice)
+                      {Product?.map(
+                        (data) => data.quantity * data.product.productPrice
+                      )
                         .reduce((a, c) => a + c, 0)
                         .toFixed(2)}{" "}
                     </h3>

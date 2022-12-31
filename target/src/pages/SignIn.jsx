@@ -85,6 +85,7 @@ function SignIn() {
             userEmailStorage: userEmailStorage,
           },
         });
+        window.location.reload();
       })
       .catch((error) => {
         if (error.response) {

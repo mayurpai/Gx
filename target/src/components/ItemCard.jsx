@@ -3,9 +3,13 @@ import "../styles/ItemCard.scss";
 import axios from "axios";
 import { BsHeart } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useGlobalContext } from "../Context";
 
 function ItemCard() {
   const navigate = useNavigate();
+  const { userEmailStorage } = useGlobalContext();
   const [Product, setProduct] = useState([]);
   const [StatusCode, setStatusCode] = useState();
   const {
@@ -58,6 +62,31 @@ function ItemCard() {
       });
   }, []);
 
+  const handleCartSubmit = async (productId) => {
+    const postProductToCart = process.env.REACT_APP_POST_PRODUCT_TO_CART;
+    const dataToPost = {
+      userEmail: userEmailStorage,
+      productId: productId,
+      productQuantity: 1,
+    };
+
+    await axios
+      .post(
+        `${postProductToCart}/${dataToPost.userEmail}/${dataToPost.productId}/${dataToPost.productQuantity}`
+      )
+      .then((response) => {
+        toast.success("Added to cart.");
+        setStatusCode(response.status);
+      })
+      .catch((error) => {
+        if (error.response) {
+          toast.error("Sign in to add to cart.");
+        } else if (error.request) {
+          setStatusCode(error.request);
+        }
+      });
+  };
+
   return (
     <>
       <div className="filter-flex">
@@ -109,29 +138,26 @@ function ItemCard() {
       {StatusCode === 200 ? (
         <div className="item-card-main-container">
           {Product.map((data) => (
-            <div
-              key={data.productId}
-              className="item-card"
-              onClick={() => {
-                localStorage.setItem(
-                  "productIdStore",
-                  window.btoa(data.productId)
-                );
-                localStorage.setItem("productId", data.productId);
-                navigate("/Product", {
-                  state: {
-                    getProductByIdUrl: Object.values({
-                      REACT_APP_GET_PRODUCT_BY_ID,
-                    }),
-                    productId: data.productId,
-                  },
-                });
-              }}
-            >
+            <div key={data.productId} className="item-card">
               <div className="item-card-image-div">
                 <img
                   className="item-card-image"
                   src={data.images[0].imageUrl}
+                  onClick={() => {
+                    localStorage.setItem(
+                      "productIdStore",
+                      window.btoa(data.productId)
+                    );
+                    localStorage.setItem("productId", data.productId);
+                    navigate("/Product", {
+                      state: {
+                        getProductByIdUrl: Object.values({
+                          REACT_APP_GET_PRODUCT_BY_ID,
+                        }),
+                        productId: data.productId,
+                      },
+                    });
+                  }}
                 ></img>
               </div>
               <div className="item-card-flex">
@@ -155,7 +181,7 @@ function ItemCard() {
               <div className="item-card-add-to-cart">
                 <button
                   className="item-card-add-to-cart-button"
-                  onClick={() => alert("Add To Cart")}
+                  onClick={() => handleCartSubmit(data.productId)}
                 >
                   Add to cart
                 </button>
@@ -177,6 +203,18 @@ function ItemCard() {
           </div>
         </section>
       )}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
