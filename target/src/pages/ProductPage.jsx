@@ -14,7 +14,7 @@ function ProductPage(props) {
   const navigate = useNavigate();
   const ratingCount = Math.floor(Math.random() * (600 - 100 + 1)) + 1;
   const productIds = localStorage.getItem("productId");
-  const { userEmailStorage } = useGlobalContext();
+  const { userEmailStorage, cartCount } = useGlobalContext();
   document.title = props.product.productName;
 
   const getInitialState = () => {
@@ -67,6 +67,12 @@ function ProductPage(props) {
       .then((response) => {
         setStatusCode(response.status);
         toast.success("Added to cart.");
+        {
+          localStorage.setItem("cartStore", window.btoa(Number(cartCount) + Number(quantity)));
+        }
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       })
       .catch((error) => {
         if (error.response) {

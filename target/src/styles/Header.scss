@@ -89,8 +89,8 @@
 
         .header-main-sign-in {
             min-width: 8%;
-           
-           
+
+
             li {
                 display: flex;
                 align-items: center;
@@ -120,6 +120,7 @@
             min-width: 3%;
 
             li {
+                position: relative;
                 padding: 0.75rem;
                 font-size: 1.25rem;
                 font-weight: 600;
@@ -128,9 +129,31 @@
                 -moz-border-radius: .4rem;
                 -ms-border-radius: .4rem;
                 -o-border-radius: .4rem;
+
+                span {
+                    content: counter(cartCount);
+                    display: block;
+                    position: absolute;
+                    background-color: rgb(204, 0, 0);
+                    color: #ffffff;
+                    border-radius: 50%;
+                    width: 1.25rem;
+                    aspect-ratio: 1/1;
+                    display: flex;
+                    justify-content: center;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                    font-size: 0.75rem;
+                    font-weight: 400;
+                    top: 0;
+                    right: 0;
+                }
             }
 
-            :hover {
+
+            &:hover {
                 background-color: #d6d6d6cc;
                 cursor: pointer;
             }
