@@ -17,6 +17,8 @@ import com.galaxe.target.entity.User;
 public interface CartRepository extends JpaRepository<Cart, Integer> {
 
 	public List<Cart> findByUser(User user);
+	
+	public List<Cart> findByProduct(Product product);
 
 	public Cart findByUserAndProduct(User user, Product product);
 
@@ -24,6 +26,12 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
 	@Transactional
 	@Query(value = "DELETE FROM Cart WHERE user_email = ?1", nativeQuery = true)
 	public void deleteAllByUserEmail(String userEmail);
+	
+	@Modifying
+	@Transactional
+	@Query(value = "DELETE FROM Cart WHERE product_id = ?1", nativeQuery = true)
+	public void deleteAllByProductId(Integer productId);
+
 
 	@Modifying
 	@Transactional

@@ -60,7 +60,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public void deleteByUserEmailAndProductId(String userEmail, Integer productId)
+	public List<Cart> deleteByUserEmailAndProductId(String userEmail, Integer productId)
 			throws UserNotFound, ProductNotFound, NoSuchItemInCartExists {
 		if (!userRepository.existsByUserEmail(userEmail)) {
 			throw new UserNotFound("User Not Found");
@@ -73,6 +73,7 @@ public class CartServiceImpl implements CartService {
 			throw new NoSuchItemInCartExists("No Such Item In Cart Exists");
 		}
 		cartRepository.deleteByUserEmailAndProductId(userEmail, productId);
+		return cartRepository.findByUser(userRepository.findByUserEmail(userEmail));
 	}
 
 	@Override
@@ -84,6 +85,18 @@ public class CartServiceImpl implements CartService {
 			throw new NoSuchItemInCartExists("No Such Item In Cart Exists");
 		}
 		cartRepository.deleteAllByUserEmail(userEmail);
+
+	}
+
+	@Override
+	public void deleteAllByProductId(Integer productId) throws ProductNotFound, NoSuchItemInCartExists {
+		if (!productRepository.existsByProductId(productId))
+			throw new ProductNotFound("Product Not Found");
+		List<Cart> cart = cartRepository.findByProduct(productRepository.findByProductId(productId));
+		if (cart.isEmpty()) {
+			throw new NoSuchItemInCartExists("No Such Item In Cart Exists");
+		}
+		cartRepository.deleteAllByProductId(productId);
 
 	}
 

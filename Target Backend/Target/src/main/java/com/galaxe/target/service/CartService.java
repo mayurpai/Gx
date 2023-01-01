@@ -13,9 +13,11 @@ public interface CartService {
 
 	public Integer AddProductToCart(String userEmail, Integer productId, Integer quantity) throws UserNotFound;
 
-	public void deleteByUserEmailAndProductId(String userEmail, Integer productId)
+	public List<Cart> deleteByUserEmailAndProductId(String userEmail, Integer productId)
 			throws NoSuchItemInCartExists, UserNotFound, ProductNotFound;
 
 	public void deleteAllProductsFromCartByUserEmail(String userEmail) throws UserNotFound, NoSuchItemInCartExists;
+	
+	public void deleteAllByProductId(Integer productId) throws ProductNotFound, NoSuchItemInCartExists;
 
 }

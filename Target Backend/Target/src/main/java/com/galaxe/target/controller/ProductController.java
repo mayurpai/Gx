@@ -6,17 +6,21 @@ import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.galaxe.target.entity.Product;
 import com.galaxe.target.enums.ProductType;
+import com.galaxe.target.exception.ProductAlreadyExists;
 import com.galaxe.target.exception.ProductNotFound;
 import com.galaxe.target.exception.ProductTypeMismatch;
+import com.galaxe.target.exception.UserAlreadyExists;
 import com.galaxe.target.service.ProductService;
 
 @RestController
@@ -28,8 +32,6 @@ public class ProductController {
 	ProductService productService;
 
 	List<Product> product;
-
-//	Optional<Cart> cart;
 
 	@GetMapping("GET")
 	public List<Product> getAllProducts() throws ProductNotFound, Exception {
@@ -55,9 +57,11 @@ public class ProductController {
 	}
 
 	@PostMapping("POST")
-	public Product saveProduct(@RequestBody Product product) throws Exception {
+	public Product saveProduct(@RequestBody Product product) throws ProductAlreadyExists, Exception {
 		try {
 			return productService.saveProduct(product);
+		} catch (ProductAlreadyExists e) {
+			throw new ProductAlreadyExists(e.getMessage());
 		} catch (Exception e) {
 			throw new Exception();
 		}
@@ -95,7 +99,7 @@ public class ProductController {
 	public List<Product> getAllProductsByProductName(@PathVariable String productName)
 			throws ProductNotFound, Exception {
 		try {
-			product = productService.findByProductNameStartsWith(productName);
+			product = productService.findByProductNameContaining(productName);
 		} catch (ProductNotFound e) {
 			throw new ProductNotFound(e.getMessage());
 		} catch (Exception e) {
@@ -172,6 +176,28 @@ public class ProductController {
 		} catch (Exception e) {
 			throw new Exception();
 		}
+	}
+
+	@DeleteMapping("DELETE/{productId}")
+	public Integer deleteProduct(@PathVariable Integer productId) throws ProductNotFound, Exception {
+		try {
+			return productService.deleteProduct(productId);
+		} catch (ProductNotFound e) {
+			throw new ProductNotFound(e.getMessage());
+		} catch (Exception e) {
+			throw new Exception();
+		}
+	}
+
+	@PutMapping("PUT")
+	public Product updateProduct(@RequestBody Product product) throws ProductNotFound, Exception {
+//		try {
+		return productService.updateProduct(product);
+//		} catch (ProductNotFound e) {
+//			throw new ProductNotFound(e.getMessage());
+//		} catch (Exception e) {
+//			throw new Exception();
+//		}
 	}
 
 }
