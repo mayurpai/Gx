@@ -58,11 +58,11 @@ public class CartController {
 	}
 
 	@DeleteMapping("DELETE/{userEmail}/{productId}")
-	public String deleteProductFromCart(@PathVariable("userEmail") String userEmail,
+	public List<Cart> deleteProductFromCart(@PathVariable("userEmail") String userEmail,
 			@PathVariable("productId") Integer productId)
 			throws UserNotFound, ProductNotFound, NoSuchItemInCartExists, Exception {
 		try {
-			cartService.deleteByUserEmailAndProductId(userEmail, productId);
+			return cartService.deleteByUserEmailAndProductId(userEmail, productId);
 		} catch (UserNotFound e) {
 			throw new UserNotFound(e.getMessage());
 		} catch (ProductNotFound e) {
@@ -72,7 +72,6 @@ public class CartController {
 		} catch (Exception e) {
 			throw new Exception();
 		}
-		return "Deleted Successfully!";
 	}
 
 	@DeleteMapping("DELETE/All/{userEmail}")

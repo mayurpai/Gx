@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.galaxe.target.entity.Product;
 import com.galaxe.target.enums.ProductType;
+import com.galaxe.target.exception.ProductAlreadyExists;
 import com.galaxe.target.exception.ProductNotFound;
 import com.galaxe.target.exception.ProductTypeMismatch;
+import com.galaxe.target.exception.UserAlreadyExists;
 import com.galaxe.target.repository.CartRepository;
 import com.galaxe.target.repository.ProductRepository;
 
@@ -34,7 +36,10 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product saveProduct(Product product) throws Exception {
+	public Product saveProduct(Product product) throws ProductAlreadyExists, Exception {
+		if (productRepository.existsByProductName(product.getProductName())) {
+			throw new ProductAlreadyExists("Product Already Exists");
+		}
 		try {
 			return productRepository.save(product);
 		} catch (Exception e) {
@@ -70,10 +75,10 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> findByProductNameStartsWith(String productName) throws ProductNotFound {
+	public List<Product> findByProductNameContaining(String productName) throws ProductNotFound {
 		List<Product> employee;
-		if (!productRepository.findByProductNameStartsWith(productName).isEmpty()) {
-			employee = productRepository.findByProductNameStartsWith(productName);
+		if (!productRepository.findByProductNameContaining(productName).isEmpty()) {
+			employee = productRepository.findByProductNameContaining(productName);
 			return employee;
 		} else
 			throw new ProductNotFound("No Product Found With Name " + productName);
@@ -159,6 +164,24 @@ public class ProductServiceImpl implements ProductService {
 			throw new ProductNotFound("No Such Product Exists");
 		}
 		return productRepository.findByProductId(productId);
+	}
+
+	@Override
+	public Integer deleteProduct(Integer productId) throws Exception {
+		if (!productRepository.existsByProductId(productId)) {
+			throw new ProductNotFound("No Such Product Exists");
+		}
+		cartRepository.deleteAllByProductId(productId);
+		return productRepository.deleteByProductId(productId);
+	}
+
+	@Override
+	public Product updateProduct(Product product) throws ProductNotFound, Exception {
+		String productName = product.getProductName();
+		if (!productRepository.existsByProductName(productName)) {
+			throw new ProductNotFound("No Such Product Exists");
+		}
+		return productRepository.updateProductDetails(product);
 	}
 
 }

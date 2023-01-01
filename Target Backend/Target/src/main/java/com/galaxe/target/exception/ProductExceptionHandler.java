@@ -51,4 +51,12 @@ public class ProductExceptionHandler {
 		return new ResponseEntity<>(productException, notFound);
 	}
 
+	@ExceptionHandler(value = { ProductAlreadyExists.class })
+	public ResponseEntity<Object> handleProductAlreadyExistsException(ProductAlreadyExists e) {
+		HttpStatus notAcceptable = HttpStatus.NOT_ACCEPTABLE;
+		ProductException productException = new ProductException(e.getMessage(), e, notAcceptable,
+				ZonedDateTime.now(ZoneId.of("Asia/Kolkata")));
+		return new ResponseEntity<>(productException, notAcceptable);
+	}
+
 }
