@@ -14,8 +14,12 @@ import TopHeader from "../components/TopHeader";
 import BottomFooter from "../components/BottomFooter";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useGlobalContext } from "../Context";
 
 function HomeDeals() {
+  const { userEmailStorage, cartCount } = useGlobalContext();
   const [Product, setProduct] = useState([]);
   const [StatusCode, setStatusCode] = useState();
   const navigate = useNavigate();
@@ -43,6 +47,39 @@ function HomeDeals() {
         }
       });
   }, []);
+
+  const handleCartSubmit = async (productId) => {
+    const postProductToCart = process.env.REACT_APP_POST_PRODUCT_TO_CART;
+    const dataToPost = {
+      userEmail: userEmailStorage,
+      productId: productId,
+      productQuantity: 1,
+    };
+
+    await axios
+      .post(
+        `${postProductToCart}/${dataToPost.userEmail}/${dataToPost.productId}/${dataToPost.productQuantity}`
+      )
+      .then((response) => {
+        toast.success("Added to cart.");
+        setStatusCode(response.status);
+        {
+          localStorage.setItem("cartStore", window.btoa(Number(cartCount) + 1));
+        }
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      })
+      .catch((error) => {
+        if (error.response) {
+          toast.error("Sign in to add to cart.");
+        } else if (error.request) {
+          setStatusCode(error.request);
+        }
+      });
+  };
+
+
   return (
     <>
       <TopHeader />
@@ -74,22 +111,26 @@ function HomeDeals() {
               <div
                 key={data.productId}
                 className="item-card"
-                onClick={() => {
-                  navigate("/Product", {
-                    state: {
-                      getProductByIdUrl: Object.values({
-                        REACT_APP_GET_PRODUCT_BY_ID,
-                      }),
-                      productId: data.productId,
-                    },
-                  });
-                  localStorage.setItem("productId", data.productId);
-                }}
               >
                 <div className="item-card-image-div">
                   <img
                     className="item-card-image"
                     src={data.images[0].imageUrl}
+                    onClick={() => {
+                    localStorage.setItem(
+                      "productIdStore",
+                      window.btoa(data.productId)
+                    );
+                    localStorage.setItem("productId", data.productId);
+                    navigate("/Product", {
+                      state: {
+                        getProductByIdUrl: Object.values({
+                          REACT_APP_GET_PRODUCT_BY_ID,
+                        }),
+                        productId: data.productId,
+                      },
+                    });
+                  }}
                   ></img>
                 </div>
                 <div className="item-card-flex">
@@ -113,7 +154,7 @@ function HomeDeals() {
                 <div className="item-card-add-to-cart">
                   <button
                     className="item-card-add-to-cart-button"
-                    onClick={() => alert("Add To Cart")}
+                    onClick={() => handleCartSubmit(data.productId)}
                   >
                     Add to cart
                   </button>
@@ -136,6 +177,18 @@ function HomeDeals() {
           </div>
         </section>
       )}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Footer />
       <BottomFooter />
     </>

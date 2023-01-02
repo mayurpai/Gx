@@ -63,6 +63,12 @@ function Cart() {
         setProduct(response.data);
         setStatusCode(201);
         toast.success("All items removed from cart.");
+        {
+          localStorage.setItem("cartStore", window.btoa("0"));
+        }
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       })
       .catch((error) => {
         if (error.response) {
