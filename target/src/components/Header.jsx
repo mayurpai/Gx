@@ -77,7 +77,7 @@ function Header() {
                   localStorage.removeItem("token");
                   localStorage.removeItem("cartStore");
                   window.location.reload();
-                  flag = false;
+                  // flag = false;
                 }}
               >
                 Log Out

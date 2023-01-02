@@ -23,7 +23,7 @@ function SignIn() {
     userPassword: "",
     userPhone: "",
     userAddress: "",
-    userType: "",
+    // userType: "",
   });
 
   const handleChange = (e) => {
@@ -44,7 +44,7 @@ function SignIn() {
       userPassword: data.userPassword,
       userPhone: data.userPhone,
       userAddress: data.userAddress,
-      userType: data.userType,
+      // userType: data.userType,
     };
 
     await axios
@@ -174,13 +174,13 @@ function SignIn() {
                 onChange={handleChange}
               />
 
-              <input
+              {/* <input
                 type="text"
                 name="userType"
                 placeholder="User Type"
                 value={data.userType}
                 onChange={handleChange}
-              />
+              /> */}
 
               <div className="sign-in-terms-and-conditions">
                 <div className="sign-in-keep-me-signed-in">
