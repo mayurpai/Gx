@@ -47,6 +47,7 @@ function ItemCard() {
     axios
       .get(getAllProducts)
       .then((response) => {
+        console.log(response.data);
         setProduct(response.data);
         setStatusCode(response.status);
       })

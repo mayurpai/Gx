@@ -13,7 +13,6 @@ import { IoMdImages } from "react-icons/io";
 function UpdateProduct() {
   const navigate = useNavigate();
   document.title = "Update Product : Target";
-
   const [StatusCode, setStatusCode] = useState();
   const [Product, setProduct] = useState([]);
   const [data, setData] = useState({
@@ -21,9 +20,7 @@ function UpdateProduct() {
     productBrand: "",
     productPrice: "",
     productType: "",
-    
   });
-  const [images, setImages] = useState([])
 
   const [productFix, setProductFix] = useState([]);
   const location = useLocation();
@@ -34,8 +31,7 @@ function UpdateProduct() {
       .get(`${getProductNavigateLink}/${getProductNavigateId}`)
       .then((response) => {
         setData(response.data);
-        setImages(response.data.images)
-        console.log(images)
+        setImageData(response.data.images);
         setStatusCode(response.status);
       })
       .catch((error) => {
@@ -50,7 +46,7 @@ function UpdateProduct() {
         }
       });
   }, []);
-  console.log(data)
+  console.log(data);
 
   const imageList = [
     {
@@ -59,11 +55,9 @@ function UpdateProduct() {
   ];
 
   const [imageData, setImageData] = useState(imageList);
-  
 
   const handleChange = (e) => {
     const value = e.target.value;
-    console.log(value);
     setData({
       ...data,
       [e.target.name]: value,
@@ -81,30 +75,14 @@ function UpdateProduct() {
     });
   };
 
-  // const handleImageChange = (e) => {
-  //   const index = e.target.id;
-  //   setImageData((data) => {
-  //     const newImageList = data.slice();
-  //     newImageList[index].imageUrl = e.target.value;
-  //     return newImageList;
-  //   });
-  // };
-//   const toggleDone = (id) => {
-//     let newState = [...state];
-//     newState[index].done = true;
-//     setState(newState])
-// }
-
   const handleImageChange = (e) => {
-      const value=e.target.value;
-      setImages({
-        ...images,
-        [e.target.name]: value,
-      });
-      console.log(images);
-    }
-
-     
+    const index = e.target.id;
+    setImageData((data) => {
+      const newImageList = data.slice();
+      newImageList[index].imageUrl = e.target.value;
+      return newImageList;
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -118,12 +96,11 @@ function UpdateProduct() {
       images: imageData,
     };
 
-    console.log(productImageData);
     await axios
       .put(putProduct, productImageData)
       .then((response) => {
         setStatusCode(response.status);
-        toast.success("Item updated successfully.");
+        toast.success("Item added successfully.");
         setTimeout(() => {
           navigate("/");
         }, 1500);
@@ -143,7 +120,7 @@ function UpdateProduct() {
       <div className="sign-in-main-container">
         <div className="sign-in-target-logo-div">
           <img className="sign-in-target-logo" src={TargetLogo}></img>
-          <h1>Update product details At Target</h1>
+          <h1>Update product at Target</h1>
         </div>
         <div className="sign-in-form-container">
           <form className="sign-in-form" onSubmit={handleSubmit}>
@@ -241,22 +218,18 @@ function UpdateProduct() {
                 </select>
               </label>
             </div>
-            {data.images?.map((item,i)=>{
-              {/* setImages(item) */}
-              {console.log(item.imageUrl)}
-              return (
-                <input
-                  key={i}
-                  onChange={handleImageChange}
-                  value={images.imageUrl}
-                  id={i}
-                  name="imageUrl"
-                  type="text"
-                />
-              );
-            })}
+
+            {/* <input
+              type="text"
+              name="productType"
+              value={data.productType}
+              placeholder="Product Type"
+              onChange={handleChange}
+              required
+            /> */}
 
             {imageData?.map((item, i) => {
+              console.log(imageData);
               return (
                 <input
                   key={i}
@@ -266,7 +239,7 @@ function UpdateProduct() {
                   name="imageUrl"
                   type="text"
                   placeholder="Image URL"
-                  // required
+                  required
                 />
               );
             })}
@@ -288,7 +261,7 @@ function UpdateProduct() {
 
             <div className="sign-in-terms-and-conditions">
               <button type="submit" className="create-account-button">
-                Update Product
+                Add Product
               </button>
             </div>
           </form>
