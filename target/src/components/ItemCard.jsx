@@ -19,6 +19,7 @@ function ItemCard() {
     REACT_APP_GET_PRODUCT_SORTED_DESCENDING,
     REACT_APP_GET_PRODUCT_BY_ID,
   } = process.env;
+  const adminUserEmail = "mayur5pai@gmail.com";
   const getHelper = async (URL) => {
     console.log(URL);
     const sortedAPI = URL;
@@ -93,6 +94,26 @@ function ItemCard() {
       });
   };
 
+  const deleteProduct = async (productId) => {
+    const deleteProductByAdmin = process.env.REACT_APP_DELETE_PRODUCT;
+    await axios
+      .delete(`${deleteProductByAdmin}/${productId}`)
+      .then((response) => {
+        toast.success("Item deleted successfully.");
+        setStatusCode(response.status);
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      })
+      .catch((error) => {
+        if (error.response) {
+          toast.error("Could not delete item.");
+        } else if (error.request) {
+          setStatusCode(error.request);
+        }
+      });
+  };
+
   return (
     <>
       <div className="filter-flex">
@@ -140,6 +161,26 @@ function ItemCard() {
             Price: High To Low
           </button>
         </div>
+        {userEmailStorage === adminUserEmail ? (
+          <button
+            style={{
+              backgroundColor: "#cc0000",
+              padding: "0.75rem",
+              color: "#FFFFFF",
+              borderRadius: "0.4rem",
+              border: "none",
+              fontSize: "0.85rem",
+              fontWeight: "600",
+              cursor: "pointer",
+              transition: "all linear 0.1s",
+            }}
+            onClick={() => navigate("/Add-Product")}
+          >
+            Add Product
+          </button>
+        ) : (
+          ""
+        )}
       </div>
       {StatusCode === 200 ? (
         <div className="item-card-main-container">
@@ -149,6 +190,12 @@ function ItemCard() {
                 <img
                   className="item-card-image"
                   src={data.images[0].imageUrl}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.src = data.images[1].imageUrl)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.src = data.images[0].imageUrl)
+                  }
                   onClick={() => {
                     localStorage.setItem(
                       "productIdStore",
@@ -191,6 +238,40 @@ function ItemCard() {
                 >
                   Add to cart
                 </button>
+                {userEmailStorage === adminUserEmail ? (
+                  <button
+                    className="item-card-add-to-cart-button"
+                    onClick={() => {
+                      localStorage.setItem(
+                        "productIdStore",
+                        window.btoa(data.productId)
+                      );
+                      localStorage.setItem("productId", data.productId);
+                      navigate("/Update-Product", {
+                        state: {
+                          getProductByIdUrl: Object.values({
+                            REACT_APP_GET_PRODUCT_BY_ID,
+                          }),
+                          productId: data.productId,
+                        },
+                      });
+                    }}
+                  >
+                    Edit
+                  </button>
+                ) : (
+                  ""
+                )}
+                {userEmailStorage === adminUserEmail ? (
+                  <button
+                    className="item-card-add-to-cart-button"
+                    onClick={() => deleteProduct(data.productId)}
+                  >
+                    Delete
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           ))}

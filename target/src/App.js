@@ -9,6 +9,8 @@ import SearchResult from "./pages/SearchResult";
 import SignIn from "./pages/SignIn";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import AddProduct from "./pages/AddProduct";
+import UpdateProduct from "./pages/UpdateProduct";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/Sign-In" element={<SignIn />} />
         <Route path="/Product" element={<Product />} />
         <Route path="/Cart" element={<Cart />} />
+        <Route path="/Add-Product" element={<AddProduct />} />
+        <Route path="/Update-Product" element={<UpdateProduct />} />
         {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>
     </Router>
