@@ -12,7 +12,7 @@ function Header() {
   const [searchElement, setSearchElement] = useState("");
   const navigate = useNavigate();
   const { userEmailStorage, cartCount } = useGlobalContext();
-  var flag;
+  let flag;
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   if (userEmailStorage.length !== 3) {
     flag = true;
@@ -58,6 +58,11 @@ function Header() {
                 navigate("/Search-Results", {
                   state: { searchElement: searchElement },
                 });
+                {
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 1000);
+                }
               }
             }}
           />

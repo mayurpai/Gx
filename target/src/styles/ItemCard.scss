@@ -104,6 +104,8 @@
 
         .item-card-add-to-cart {
             padding: 0.3rem;
+            display: flex;
+            justify-content: space-between;
 
             .item-card-add-to-cart-button {
                 background-color: #cc0000;
