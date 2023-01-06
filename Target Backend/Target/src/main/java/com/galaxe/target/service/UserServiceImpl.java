@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.galaxe.target.entity.User;
+import com.galaxe.target.enums.UserType;
 import com.galaxe.target.exception.UserAlreadyExists;
 import com.galaxe.target.exception.UserNotFound;
 import com.galaxe.target.repository.CartRepository;
@@ -23,20 +24,24 @@ public class UserServiceImpl implements UserService {
 		if (userRepository.existsByUserEmail(user.getUserEmail())) {
 			throw new UserAlreadyExists("User Already Exists, Please Log In");
 		}
+		if (user.getUserEmail().equals("mayur5pai@gmail.com"))
+			user.setUserType(UserType.Admin);
+		else
+			user.setUserType(UserType.User);
 		return userRepository.save(user);
 
 	}
 
 	@Override
 	public User findByUserEmailAndUserPassword(String userEmail, String userPassword) throws UserNotFound {
-		if(userRepository.findByUserEmailAndUserPassword(userEmail, userPassword) == null)
+		if (userRepository.findByUserEmailAndUserPassword(userEmail, userPassword) == null)
 			throw new UserNotFound("User Not Found, Kindly Sign In");
 		return userRepository.findByUserEmailAndUserPassword(userEmail, userPassword);
 	}
-	
+
 	@Override
 	public User findByUserEmail(String userEmail) throws UserNotFound {
-		if(userRepository.findByUserEmail(userEmail) == null)
+		if (userRepository.findByUserEmail(userEmail) == null)
 			throw new UserNotFound("User Not Found, Kindly Sign In");
 		return userRepository.findByUserEmail(userEmail);
 	}

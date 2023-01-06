@@ -37,9 +37,15 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Integer AddProductToCart(String userEmail, Integer productId, Integer quantity) throws UserNotFound {
+	public Integer AddProductToCart(String userEmail, Integer productId, Integer quantity)
+			throws ProductNotFound, UserNotFound {
 		Integer addedQuantity = quantity;
-		Product product = productRepository.findById(productId).get();
+		Product product;
+		try {
+			product = productRepository.findById(productId).get();
+		} catch (Exception e) {
+			throw new ProductNotFound("No Such Product Exists");
+		}
 		User user = userRepository.findByUserEmail(userEmail);
 		if (user == null)
 			throw new UserNotFound("No Such User Exists");
