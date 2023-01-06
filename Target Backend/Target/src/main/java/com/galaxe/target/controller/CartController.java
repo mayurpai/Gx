@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.galaxe.target.entity.Cart;
 import com.galaxe.target.entity.User;
 import com.galaxe.target.exception.NoSuchItemInCartExists;
+import com.galaxe.target.exception.ProductException;
 import com.galaxe.target.exception.ProductNotFound;
 import com.galaxe.target.exception.UserNotFound;
 import com.galaxe.target.service.CartService;
@@ -45,12 +46,14 @@ public class CartController {
 	@PostMapping("POST/{userEmail}/{productId}/{quantity}")
 	public String addProductToCart(@PathVariable("userEmail") String userEmail,
 			@PathVariable("productId") Integer productId, @PathVariable("quantity") Integer quantity)
-			throws UserNotFound, Exception {
+			throws UserNotFound,ProductNotFound, Exception {
 		Integer addedQuantity = null;
 		try {
 			addedQuantity = cartService.AddProductToCart(userEmail, productId, quantity);
 		} catch (UserNotFound e) {
 			throw new UserNotFound(e.getMessage());
+		}catch (ProductNotFound e) {
+				throw new ProductNotFound(e.getMessage());
 		} catch (Exception e) {
 			throw new Exception();
 		}

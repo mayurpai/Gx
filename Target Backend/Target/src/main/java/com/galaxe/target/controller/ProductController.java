@@ -191,13 +191,13 @@ public class ProductController {
 
 	@PutMapping("PUT")
 	public Product updateProduct(@RequestBody Product product) throws ProductNotFound, Exception {
-//		try {
-		return productService.updateProduct(product);
-//		} catch (ProductNotFound e) {
-//			throw new ProductNotFound(e.getMessage());
-//		} catch (Exception e) {
-//			throw new Exception();
-//		}
+		try {
+			return productService.updateProduct(product);
+		} catch (ProductNotFound e) {
+			throw new ProductNotFound(e.getMessage());
+		} catch (Exception e) {
+			throw new Exception();
+		}
 	}
 
 }

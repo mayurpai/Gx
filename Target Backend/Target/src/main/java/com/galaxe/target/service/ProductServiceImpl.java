@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.galaxe.target.entity.Image;
 import com.galaxe.target.entity.Product;
 import com.galaxe.target.enums.ProductType;
 import com.galaxe.target.exception.ProductAlreadyExists;
@@ -14,6 +15,7 @@ import com.galaxe.target.exception.ProductNotFound;
 import com.galaxe.target.exception.ProductTypeMismatch;
 import com.galaxe.target.exception.UserAlreadyExists;
 import com.galaxe.target.repository.CartRepository;
+import com.galaxe.target.repository.ImageRepository;
 import com.galaxe.target.repository.ProductRepository;
 
 @Service
@@ -24,6 +26,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	CartRepository cartRepository;
+
+	@Autowired
+	ImageRepository imageRepository;
 
 	@Override
 	public List<Product> getAllProducts() throws ProductNotFound {
@@ -181,7 +186,15 @@ public class ProductServiceImpl implements ProductService {
 		if (!productRepository.existsByProductName(productName)) {
 			throw new ProductNotFound("No Such Product Exists");
 		}
-		return productRepository.updateProductDetails(product);
+		product.setProductId(product.getProductId());
+		product.setProductBrand(product.getProductBrand());
+		product.setProductName(product.getProductName());
+		product.setProductPrice(product.getProductPrice());
+		product.setProductType(product.getProductType());
+		product.setImages(product.getImages());
+		product = productRepository.save(product);
+		imageRepository.deleteNullValues();
+		return product;
 	}
 
 }

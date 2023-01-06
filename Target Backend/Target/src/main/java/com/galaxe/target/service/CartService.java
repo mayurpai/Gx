@@ -11,7 +11,7 @@ import com.galaxe.target.exception.UserNotFound;
 public interface CartService {
 	public List<Cart> listCartItems(String userEmail) throws UserNotFound;
 
-	public Integer AddProductToCart(String userEmail, Integer productId, Integer quantity) throws UserNotFound;
+	public Integer AddProductToCart(String userEmail, Integer productId, Integer quantity) throws ProductNotFound, UserNotFound;
 
 	public List<Cart> deleteByUserEmailAndProductId(String userEmail, Integer productId)
 			throws NoSuchItemInCartExists, UserNotFound, ProductNotFound;
