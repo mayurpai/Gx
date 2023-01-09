@@ -1,0 +1,21 @@
+1. Visit GitHub And Download A Java React Spring Boot Project In Machine
+2. 15-20 Features
+3. 15-30 Min Time Period
+4. Layered Architecture
+5. Rest API - 1st Score
+DELIVER IT BY MONDAY: 9.30 AM
+
+Things To Be Kept In Mind While Recording:
+
+1. What Is The Project About?
+2. Which Git Repo Did It Belong?
+3. What Is The Technology Stack?
+4. What Are The Features Of The Application?
+5. How Many Pages Are There In React?
+6. What Are The Layers In Back-end? - 3rd Score
+7. How Many Classes And Class Design? - 4th Score
+8. What Are The Best Practices (UI And Back-end) That Have Been Implemented In The Project? (More) - 2nd Score
+9. What Are The Libraries That Have Been Used In The Project And For What Have They Been Used?
+10 .What Errors Did I Encounter While Setting Up The Application And How Did I Resolve Them?
+11. Deploy The CI/CD Environment 
+12. 2 Unit Tests Each For Back-end And UI 
