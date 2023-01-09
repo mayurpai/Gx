@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:context="http://www.springframework">
+
+	<!-- 
+		Autowiring Mode : constructor
+		Description : 
+			Based on a constructor argument's class types, 
+			if only one instance of the class exists in the IoC container it will be used in the constructor.	 -->
+	<bean id="employee" class="di.example_wiring_3.Employee" autowire="constructor">
+		<constructor-arg index="0" value="1" />
+		<constructor-arg index="1" value="Chandra" />
+		<constructor-arg index="2" value="7500" />
+	</bean>
+
+	<bean id = "homeAddress" class="di.example_wiring_3.Address">
+		<property name="doorNo" value="55" />
+		<property name="streetName" value="Vijayanagar" />
+		<property name="city" value="Bangalore" />
+	</bean>
+
+
+</beans>
