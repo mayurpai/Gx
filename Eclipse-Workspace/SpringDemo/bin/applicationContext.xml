@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Setter Bean -->
+	<!-- <bean id="studentBean" class="com.springdemo.Student"> <property name="name" 
+		value="Mayur Pai"></property> </bean> -->
+
+	<!-- Constructor Bean -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		type="int" value="1" /> <constructor-arg type="java.lang.String" value="Mayur" 
+		/> <constructor-arg type="double" value="32000" /> </bean> -->
+
+	<!-- Index, Type, Constructor Bean -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		index="0" type="int" value="1" /> <constructor-arg index="1" type="java.lang.String" 
+		value="Mayur" /> <constructor-arg index="2" type="double" value="32000" /> 
+		<property name="homeAddress" ref="homeAddressId"></property> </bean> -->
+
+	<!-- Ref Bean -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		type="int" value="1" /> <constructor-arg type="java.lang.String" value="Mayur" 
+		/> <constructor-arg type="double" value="32000" /> <property name="homeAddress" 
+		ref="homeAddressId"></property> </bean> <bean id="homeAddressId" class="com.springdemo.Address"> 
+		<property name="doorNo" value="304"></property> <property name="streetName" 
+		value="Deralakatte"></property> <property name="city" value="Mangalore"></property> 
+		</bean> -->
+
+	<!-- Inner Bean, Ref -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		type="int" value="1" /> <constructor-arg type="java.lang.String" value="Mayur" 
+		/> <constructor-arg type="double" value="32000" /> <property name="homeAddress"> 
+		<bean class="com.springdemo.Address"> <property name="doorNo" value="304"></property> 
+		<property name="streetName" value="Deralakatte"></property> <property name="city" 
+		value="Mangalore"></property> </bean> </property> <property name="officeAddress" 
+		ref="officeAddressId"></property> </bean> -->
+
+	<!-- Inner Bean, Idref -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		type="int" value="1" /> <constructor-arg type="java.lang.String" value="Mayur" 
+		/> <constructor-arg type="double" value="32000" /> <property name="homeAddress"> 
+		<bean class="com.springdemo.Address"> <property name="doorNo" value="304"></property> 
+		<property name="streetName" value="Deralakatte"></property> <property name="city" 
+		value="Mangalore"></property> </bean> </property> <property name="officeAddress"> 
+		<idref="officeAddressId"/> </property> </bean> -->
+
+	<!-- <bean id="officeAddressId" class="com.springdemo.Address" name="GxAddress"> 
+		<property name="doorNo" value="5"></property> <property name="streetName" 
+		value="Whitefield"></property> <property name="city" value="Bangalore"></property> 
+		</bean> -->
+
+	<!-- I Can Pass This Alternate Name To Get Bean Of It! -->
+	<!-- <alias name="employeeBean" alias="GxEmployee" /> -->
+
+	<!-- List In Spring -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		type="int" value="1" /> <constructor-arg type="java.lang.String" value="Mayur" 
+		/> <constructor-arg type="double" value="32000" /> <property name="addressList"> 
+		<list> <ref bean="homeAddressId"></ref> <ref bean="officeAddressId"></ref> 
+		</list> </property> </bean> <bean id="homeAddressId" class="com.springdemo.Address"> 
+		<property name="doorNo" value="304"></property> <property name="streetName" 
+		value="Deralakatte"></property> <property name="city" value="Mangalore"></property> 
+		</bean> <bean id="officeAddressId" class="com.springdemo.Address" name="GxAddress"> 
+		<property name="doorNo" value="5"></property> <property name="streetName" 
+		value="Whitefield"></property> <property name="city" value="Bangalore"></property> 
+		</bean> -->
+
+
+	<bean id="studentBeanList" class="com.springdemo.Student">
+		<property name="studentId" value="1"></property>
+		<property name="studentName" value="Mayur Pai"></property>
+		<property name="marks">
+			<list>
+				<value>100</value>
+				<value>95</value>
+				<value>90</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Map In Spring -->
+	<!-- <bean id="school" class="com.springdemo.school"> <property name="schoolId" 
+		value="1"></property> <property name="schoolName" value="Sharada"></property> 
+		<property name="studentMap"> <map key-type="java.lang.Integer" value-type="com.springdemo.Student"> 
+		<entry key="1" value-ref="student1"></entry> <entry key="2" value-ref="student2"></entry> 
+		</map> </property> </bean> -->
+
+	<!-- Autowire - no, byName, byType, constructor -->
+	<!-- byName: It Finds The Bean Even If It Isn't Passed In Properties -->
+	<!-- byType: It Finds The Class Name, Most Often Used When Have Only 1 Bean 
+		Of That Class -->
+	<!-- constructor: We Won't Use Getters/Setters Here, Instead Use Constructors 
+		In The Respecitve Class -->
+	<bean id="triangle" class="com.springdemo.Triangle"
+		autowire="byName"></bean>
+
+	<bean id="pointA" class="com.springdemo.Point">
+		<constructor-arg value="2" />
+		<constructor-arg value="3" />
+	</bean>
+
+	<bean id="pointB" class="com.springdemo.Point">
+		<constructor-arg value="-1" />
+		<constructor-arg value="5" />
+	</bean>
+
+	<bean id="pointC" class="com.springdemo.Point">
+		<constructor-arg value="9" />
+		<constructor-arg value="-2" />
+	</bean>
+
+	<bean id="center" class="com.springdemo.Point">
+		<constructor-arg value="0" />
+		<constructor-arg value="0" />
+	</bean>
+
+
+	<!-- Singleton Scope - By Default -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee" scope="singleton"> 
+		<constructor-arg type="int" value="1" /> <constructor-arg type="java.lang.String" 
+		value="Mayur" /> <constructor-arg type="double" value="32000" /> <property 
+		name="homeAddress"> <bean class="com.springdemo.Address"> <property name="doorNo" 
+		value="304"></property> <property name="streetName" value="Deralakatte"></property> 
+		<property name="city" value="Mangalore"></property> </bean> </property> <property 
+		name="officeAddress" ref="officeAddressId"></property> </bean> -->
+
+	<!-- Prototype Scope -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee" scope="prototype"> 
+		<constructor-arg type="int" value="1" /> <constructor-arg type="java.lang.String" 
+		value="Mayur" /> <constructor-arg type="double" value="32000" /> <property 
+		name="homeAddress"> <bean class="com.springdemo.Address"> <property name="doorNo" 
+		value="304"></property> <property name="streetName" value="Deralakatte"></property> 
+		<property name="city" value="Mangalore"></property> </bean> </property> <property 
+		name="officeAddress" ref="officeAddressId"></property> </bean> -->
+
+	<!-- ApplicationContextAware & BeanNameAware -->
+	<bean id="employeeBean" class="com.springdemo.Employee">
+		<constructor-arg type="int" value="1" />
+		<constructor-arg type="java.lang.String" value="Mayur" />
+		<constructor-arg type="double" value="32000" />
+	</bean>
+	<bean id="homeAddress" class="com.springdemo.Address">
+		<property name="doorNo" value="304"></property>
+		<property name="streetName" value="Deralakatte"></property>
+		<property name="city" value="Mangalore"></property>
+	</bean>
+	<bean id="officeAddress" class="com.springdemo.Address">
+		<property name="doorNo" value="5"></property>
+		<property name="streetName" value="Whitefield"></property>
+		<property name="city" value="Bangalore"></property>
+	</bean>
+
+	<!-- Bean Definition Inheritance -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		type="int" value="1" /> <constructor-arg type="java.lang.String" value="Mayur" 
+		/> <constructor-arg type="double" value="32000" /> <property name="officeAddress" 
+		ref="officeAddressId"></property> <property name="homeAddress" ref="homeAddressId"></property> 
+		</bean> <bean id="parentAddressId" class="com.springdemo.Address"> <property 
+		name="city" value="Mangalore"></property> </bean> <bean id="homeAddressId" 
+		class="com.springdemo.Address" parent="parentAddressId"> <property name="doorNo" 
+		value="304"></property> <property name="streetName" value="Deralakatte"></property> 
+		</bean> <bean id="officeAddressId" class="com.springdemo.Address" parent="parentAddressId"> 
+		<property name="doorNo" value="5"></property> <property name="streetName" 
+		value="Whitefield"></property> <property name="city" value="Bangalore"></property> 
+		</bean> -->
+
+	<!-- Annotations -->
+	<!-- <bean id="employeeBean" class="com.springdemo.Employee"> <constructor-arg 
+		type="int" value="1" /> <constructor-arg type="java.lang.String" value="Mayur" 
+		/> <constructor-arg type="double" value="32000" /> <property name="officeAddress" 
+		ref="officeAddressId"></property> <property name="homeAddress" ref="homeAddressId"></property> 
+		</bean> <bean id="homeAddressId" class="com.springdemo.Address"> <qualifier 
+		value="home"></qualifier> <property name="doorNo" value="304"></property> 
+		<property name="streetName" value="Deralakatte"></property> <property name="city" 
+		value="Mangalore"></property> </bean> <bean id="officeAddressId" class="com.springdemo.Address"> 
+		<property name="doorNo" value="5"></property> <property name="streetName" 
+		value="Whitefield"></property> <property name="city" value="Bangalore"></property> 
+		</bean> <bean id="circle" class="com.springdemo.Circle"></bean> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean> -->
+	<!-- <context:annotation-config /> -->
+	<!-- <context:component-scan base-package="com.springdemo" /> -->
+</beans>
