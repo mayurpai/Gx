@@ -1,0 +1,148 @@
+package com.file;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
+
+public class Main {
+
+	static Map<String, Integer> countMap = new HashMap<String, Integer>();
+
+	/*
+	 * Function To Compute Frequency Of Words In Both The Files
+	 */
+	public static Object[] frequencyComputer(BufferedReader bufferedReader) throws IOException {
+		String word;
+		word = bufferedReader.readLine();
+		int fileLineCount = 0;
+
+		/*
+		 * Map Used For Getting The Frequency Of Each Word In Both The Files
+		 */
+
+		while (word != null) {
+			String[] words = word.split("[\\s.@&.?;*,!$+-0-9]+");
+			for (int i = 0; i < words.length; ++i) {
+				if (countMap.get(words[i]) == null) {
+					countMap.put(words[i], 1);
+				} else {
+					countMap.put(words[i], countMap.get(words[i]) + 1);
+				}
+			}
+			fileLineCount++;
+			/*
+			 * // In Order To Get The Thread Id That Is Currently Running
+			 * System.out.println("Thread For File 2 Used: " +
+			 * secondThread.currentThread().getId());
+			 */
+			word = bufferedReader.readLine();
+		}
+		return new Object[] { countMap, fileLineCount };
+	}
+
+	/*
+	 * Function To Check Unique Words In Both The Files
+	 */
+	public static void uniqueWords(Map<String, Integer> countMap) {
+		List<String> uniqueWordsList = new ArrayList<String>();
+		countMap.forEach(new BiConsumer<String, Integer>() {
+			@Override
+			public void accept(String key, Integer value) {
+				if (value == 1) {
+					uniqueWordsList.add(key);
+				}
+			}
+		});
+		System.out.println("Unique Words: " + uniqueWordsList);
+	}
+
+	/*
+	 * Function To Check Matching Words In Both The Files
+	 */
+	public static void matchingWords(Map<String, Integer> countMap) {
+		List<String> matchingWordsList = new ArrayList<String>();
+		for (Map.Entry<String, Integer> entry : countMap.entrySet()) {
+			if (entry.getValue() > 1) {
+				matchingWordsList.add(entry.getKey());
+			}
+		}
+		System.out.println("Matching Words: " + matchingWordsList);
+	}
+
+	/*
+	 * Function To Merge Both Files Alternatively Line By Line
+	 */
+	public static void alternativePrinting(int fileOnelineCount, int fileTwolineCount) throws IOException {
+		System.out.println(fileOnelineCount);
+		System.out.println(fileTwolineCount);
+		BufferedReader bufferedReaderSampleInputOne = new BufferedReader(new FileReader("resource/sampleInputOne.txt"));
+		BufferedReader bufferedReaderSampleInputTwo = new BufferedReader(new FileReader("resource/sampleInputTwo.txt"));
+		PrintWriter printWriter = new PrintWriter("resource/output.txt");
+		int count = fileOnelineCount + fileTwolineCount;
+		if (fileOnelineCount % 2 != 0 && fileTwolineCount % 2 == 0) {
+			for (int i = 0; i < count; i++) {
+				boolean flag = false;
+				if ((i % 2 == 0 || fileOnelineCount != 0) && flag == false) {
+					printWriter.println(bufferedReaderSampleInputOne.readLine());
+					fileOnelineCount--;
+					flag = true;
+				} else if (fileTwolineCount != 0 && flag == true) {
+					printWriter.println(bufferedReaderSampleInputTwo.readLine());
+					fileTwolineCount--;
+				}
+			}
+//			printWriter.println(bufferedReaderSampleInputOne.readLine());
+		} else if (fileOnelineCount % 2 == 0 && fileTwolineCount % 2 != 0) {
+			for (int i = 0; i < count / 2; i++) {
+				printWriter.println(bufferedReaderSampleInputOne.readLine());
+				printWriter.println(bufferedReaderSampleInputTwo.readLine());
+			}
+			printWriter.println(bufferedReaderSampleInputTwo.readLine());
+		} else {
+			for (int i = 0; i < count / 2; i++) {
+				printWriter.println(bufferedReaderSampleInputOne.readLine());
+				printWriter.println(bufferedReaderSampleInputTwo.readLine());
+			}
+		}
+		printWriter.flush();
+		printWriter.close();
+	}
+
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
+
+		/*
+		 * Calling FileReadThreads Class For Instantiating Threads
+		 */
+		FileReadThreads.fileRead();
+
+		/*
+		 * Assigning Returned Objects From Frequency Computer Function
+		 */
+		Object[] outputFileOne = frequencyComputer(FileReadThreads.bufferedReaderFileOne);
+		Object[] outputFileTwo = frequencyComputer(FileReadThreads.bufferedReaderFileTwo);
+
+		/*
+		 * Calling Each Function To Perform It's Respective Operations
+		 */
+		System.out.println("Occurrence Count: " + (Map<String, Integer>) outputFileOne[0]);
+		uniqueWords((Map<String, Integer>) outputFileOne[0]);
+		matchingWords((Map<String, Integer>) outputFileOne[0]);
+		alternativePrinting((Integer) outputFileOne[1], (Integer) outputFileTwo[1]);
+
+		/*
+		 * Closing Files Once They Are Used
+		 */
+		FileReadThreads.bufferedReaderFileOne.close();
+		FileReadThreads.bufferedReaderFileTwo.close();
+
+	}
+
+}
