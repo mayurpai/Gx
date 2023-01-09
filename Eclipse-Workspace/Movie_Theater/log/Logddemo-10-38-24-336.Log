@@ -1,0 +1,11 @@
+10:35:15.022 [http-nio-9091-exec-8] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:36:00.942 [http-nio-9091-exec-1] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:36:00.949 [http-nio-9091-exec-3] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:36:19.011 [http-nio-9091-exec-9] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:36:19.026 [http-nio-9091-exec-10] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:37:32.545 [http-nio-9091-exec-1] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:37:32.559 [http-nio-9091-exec-4] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:37:48.979 [http-nio-9091-exec-6] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:37:49.000 [http-nio-9091-exec-9] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:38:24.316 [http-nio-9091-exec-10] ERROR com.galaxetheater.controller.BookingController - ERROR 404
+10:38:24.321 [http-nio-9091-exec-3] ERROR com.galaxetheater.controller.BookingController - ERROR 404
