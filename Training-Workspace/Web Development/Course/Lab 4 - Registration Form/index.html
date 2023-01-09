@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4 - Registration Form</title>
+    <style>
+        * {
+            overflow: hidden;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: lightskyblue;
+        }
+
+        body {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .form {
+            border-top: 1px solid whitesmoke;
+            border-bottom: 1px solid whitesmoke;
+            border-radius: 1rem;
+            padding: 1rem .75rem;
+            font-weight: 500;
+            box-shadow: .3rem .3rem .3rem rgba(0, 0, 0, 0.3);
+        }
+
+        .former {
+            border: 1px solid white;
+            color: white;
+            width: 24rem;
+            height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .form h3 {
+            text-align: center;
+        }
+
+        .flexBox {
+            display: flex;
+            color: black;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        input[type=email],
+        input[type=text],
+        #ConfPassword,
+        #Sex {
+            width: 20rem;
+            border: none;
+            height: 2rem;
+            text-align: left;
+            border-bottom: 1px solid gray;
+        }
+
+        #Password {
+            width: 19rem;
+            border: none;
+            height: 2rem;
+            text-align: left;
+            border-bottom: 1px solid gray;
+        }
+
+        .submit {
+            width: 20rem;
+            height: 2.5rem;
+            background-color: black;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+            border: none;
+        }
+
+        button {
+            background-color: rgb(59, 89, 152);
+            color: white;
+            width: 20rem;
+            height: 2.5rem;
+            font-weight: 500;
+            border: none;
+        }
+
+        .output {
+            font-size: 2rem;
+        }
+
+        i {
+            color: black;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function formSubmission() {
+            if (document.getElementById("Password").value != document.getElementById("ConfPassword").value)
+                alert("Password Don't Match!")
+            selectElement = document.querySelector('#Sex');
+            output = selectElement.value;
+            if (output == "Male")
+                document.querySelector('.output').textContent = "♂️";
+            else
+                document.querySelector('.output').textContent = "♀️";
+            let passLength = document.getElementById("Password").value.length
+            console.log(passLength)
+            if (passLength < 5)
+                document.getElementById("passStrength").innerHTML = "Weak"
+            else if (passLength < 10)
+                document.getElementById("passStrength").innerHTML = "Medium"
+            else
+                document.getElementById("passStrength").innerHTML = "Strong"
+        }
+
+        function showPassword() {
+            if (document.getElementById("Password").type === "password")
+                document.getElementById("Password").type = "text";
+            else
+                document.getElementById("Password").type = "password";
+        }
+
+
+    </script>
+    <div class="form">
+        <h3>Registration Form</h3>
+        <div class="former">
+            <label for="Name"><input type="text" name="Name" id="Name" placeholder="Name" required></label>
+            <div class="flexBox">
+                <label for="Password"><input type="password" name="Password" id="Password" placeholder="Password"
+                        required></label>
+                <input type="checkbox" name="showPass" id="showPass" onclick="showPassword()">
+            </div>
+            <div>
+                <p id="passStrength" style="color: grey;">&lt;Password Strength&gt;</p>
+            </div>
+            <label for="ConfPassword"><input type="password" name="ConfPassword" id="ConfPassword"
+                    placeholder="Confirm Password" required></label>
+            <div class="flexBox">
+                <select name="Sex" id="Sex">
+                    <option value="" id="Choose">Choose Your Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <div>
+                    <span class="output"></span>
+                </div>
+            </div>
+            <label for="Submit"><input class="submit" type="button" value="Submit" onclick="formSubmission()"></label>
+        </div>
+    </div>
+</body>
+
+</html>

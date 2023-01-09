@@ -1,0 +1,8 @@
+{
+  "getCity": [
+    { "id": "1", "code": "BLR", "name": "Bangalore" },
+    { "id": "2", "code": "CHN", "name": "Chennai" },
+    { "id": "3", "code": "DEL", "name": "Delhi" },
+    { "id": "4", "code": "MUM", "name": "Mumbai" }
+  ]
+}

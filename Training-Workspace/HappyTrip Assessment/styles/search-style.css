@@ -1,0 +1,390 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6290e0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6290e0bc;
+}
+
+.splash {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: #6290e0;
+  color: #eee;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.splash.display-none {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -10;
+  opacity: 0;
+  background-color: #6290e0;
+  color: #eee;
+  top: 0;
+  left: 0;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  font-size: 4rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  -webkit-animation: fadeIn 1s ease-in forwards;
+}
+
+.main-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+i {
+  color: lightgray;
+}
+
+i:hover {
+  color: #6290e0;
+}
+
+header {
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 0.05rem 0rem rgba(0, 0, 0, 0.1);
+}
+
+.left-side,
+.right-side {
+  width: max-content;
+  display: flex;
+}
+
+.left-side ul,
+.right-side ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-side ul li,
+.right-side ul li {
+  margin-left: 1rem;
+}
+
+li img {
+  height: 5rem;
+  width: 5rem;
+}
+
+.right-side ul li:first-child {
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Resetting */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  /*font-family: 'Poppins', sans-serif;*/
+}
+
+.wrapper bg-white {
+  margin-left: 50rem;
+  margin-top: rem;
+}
+
+body {
+  /* background-color: #dcf4ff; */
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.wrapper {
+  padding: 30px 50px;
+}
+
+.wrapper form .form-group {
+  padding-bottom: 0.5rem;
+}
+
+.wrapper form .option {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  display: block;
+}
+
+.wrapper form .option input {
+  display: none;
+}
+
+.wrapper form .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+}
+
+.wrapper form .option input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.wrapper form .option .checkmark:after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: block;
+  border-radius: 50%;
+  background-color: #333;
+  position: absolute;
+  top: 48%;
+  left: 52%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out 0s;
+}
+
+.wrapper form .option:hover input[type="radio"] ~ .checkmark {
+  background-color: #f4f4f4;
+}
+
+.wrapper form .option input[type="radio"]:checked ~ .checkmark {
+  background: #fff;
+  color: #fff;
+  transition: 300ms ease-in-out 0s;
+}
+
+.wrapper form .option input[type="radio"]:checked ~ .checkmark:after {
+  transform: translate(-50%, -50%) scale(1);
+  color: #fff;
+}
+
+.wrapper form a {
+  color: #333;
+}
+
+.wrapper form .form-control {
+  outline: none;
+  border: none;
+}
+
+.wrapper form .form-control:focus {
+  box-shadow: none;
+}
+
+.wrapper form input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+
+input[type="date"] {
+  cursor: pointer;
+}
+
+.wrapper form .label::after {
+  position: absolute;
+  /* background-color: #fff; */
+  top: 5px;
+  left: 0px;
+  font-size: 0.9rem;
+  margin: 0rem 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  font-weight: 600;
+  color: #999;
+  transition: all 0.2s ease-in-out;
+  transform: scale(0);
+}
+
+.wrapper form .label#from::after {
+  content: "From";
+}
+
+.wrapper form .label#to::after {
+  content: "To";
+}
+
+.wrapper form .label#depart::after {
+  content: "Depart Date";
+}
+
+.wrapper form .label#return::after {
+  content: "Return Date";
+}
+
+.wrapper form .label#adults::after {
+  content: "Adults";
+}
+.wrapper form .label#childrens::after {
+  content: "Childrens";
+}
+.wrapper form .label#passengers::after {
+  content: "Passengers";
+}
+
+.wrapper form input[type="text"]:focus ~ .label::after {
+  top: -15px;
+  left: 0px;
+  transform: scale(1);
+}
+
+.wrapper form input[type="date"]:focus ~ .label::after {
+  top: -15px;
+  left: 0px;
+  transform: scale(1);
+}
+
+/* Margin */
+.margin {
+  margin: 2rem 0rem;
+}
+
+/* Media Queries */
+@media (max-width: 575.5px) {
+  .wrapper {
+    margin: 10px;
+  }
+
+  .wrapper form {
+    padding: 20px;
+  }
+
+  .margin {
+    margin: 0.2rem 0rem;
+  }
+}
+
+.search {
+  display: flex;
+}
+
+/* .wrapper bg-white{
+    flex-basis: 54.16667%;
+    max-width: 54.16667%;
+} */
+
+.from {
+  margin-top: -4rem;
+}
+
+body {
+  background: #eee;
+}
+
+.card {
+  width: 350px;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgb(129, 129, 179);
+  border: none;
+  color: rgb(19, 19, 148);
+  height: 350px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  height: 100vh;
+}
+
+.card h1 {
+  font-size: 48px;
+  margin-bottom: 0px;
+}
+
+.card span {
+  font-size: 28px;
+}
+
+.image {
+  position: absolute;
+  opacity: 0.1;
+  left: 0;
+  top: 0;
+}
+
+.image2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.1;
+}
+.why {
+  text-align: left;
+  color: black;
+}
+.about {
+  display: flex;
+  justify-content: left;
+  color: black;
+  font-size: xx-small;
+  margin-left: 2rem;
+}
+ul {
+  display: flex;
+}
+li {
+  margin-left: 1rem;
+}
+.tool {
+  display: flex;
+  justify-content: left;
+  color: black;
+  width: 90vw;
+  font-size: xx-small;
+  margin-left: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}

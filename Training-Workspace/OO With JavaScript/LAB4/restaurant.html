@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiery Restaurant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <header id="headerTitle">
+        <div class="container">
+            <h1 style="text-align: center;">Fiery Restaurant</h1>
+        </div>
+    </header><br><br>
+    <div class="container">
+        <h2><b>Cuisine:</b>&nbsp;North Indian</h2><br>
+        <div class="card">
+            <h3 style="margin-top: 10px; margin-left: 10px;">Add Order</h3>
+            <form id="addForm" style="display: inline;">
+                <input type="text" style="margin-top: 10px; margin-left: 10px;" id="newitem">
+                <input type="submit" value="Submit">
+            </form>
+            <h3 style="margin-left: 10px;">Added Items:</h3>
+            <ul id="items" style="margin-top: 10px; margin-left: 10px; margin-right: 100px;">
+                <li class="list-group-item">Veg Biryani <button id="removeit" class="btn btn-danger float-right btn-sm delete">X</button> <span id="price-item" class="float-right" style="margin-right: 100px;">150</span></li>
+                <li class="list-group-item">Chicken Biryani <button id="removeit" class="btn btn-danger float-right btn-sm delete">X</button> <span id="price-item" class="float-right" style="margin-right: 100px;">220</span></li>
+                <li class="list-group-item">Veg Thali <button id="removeit" class="btn btn-danger float-right btn-sm delete">X</button> <span id="price-item" class="float-right" style="margin-right: 100px;">180</span></li>
+                <li class="list-group-item">Mutten Biryani <button id="removeit" class="btn btn-danger float-right btn-sm delete">X</button> <span id="price-item" class="float-right" style="margin-right: 100px;">250</span></li>
+                <li class="list-group-item">Chicken Soup <button id="removeit" class="btn btn-danger float-right btn-sm delete">X</button> <span id="price-item" class="float-right" style="margin-right: 100px;">170</span></li>
+            </ul>
+            <h5 style="margin-left: 10px;">Total number of items: <span class="total-item">0</span></h5>
+            <h6 style="margin-left: 10px;">Add Tip: <button class="btn btn-warning float-right btn-sm delete" style="margin-right: 900px;" onclick="addTip()">+</button><span id="tipAmount" class="float-right" style="margin-right: 10px;">100</span> <button class="btn btn-warning float-right btn-sm delete" style="margin-right: 10px;" onclick="subtractTip()">-</button></h6>
+            <h6 style="margin-left: 10px;">Total Amount: <span id="totalAmount"></span></h6>
+            <div id="warning-mess" class="card text-dark bg-warning mb-3" style="padding-left: 20px;"></div>
+            <form id="ratingForm">
+                <label style="margin-left: 10px;">Please Rate Us:</label>
+                <select name="rating" id="ratingId">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input id="rateSubmit" type="submit" value="Submit">
+            </form>
+            <p id="rateMessage" style="margin-left: 10px;"></p>
+        </div>
+    </div>
+    <script src="./lab4-dom.js"></script>
+</body>
+</html> 

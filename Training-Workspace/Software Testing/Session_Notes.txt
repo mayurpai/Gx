@@ -1,0 +1,92 @@
+------------------Day 1------------------
+
+SDLC: Requirements, Design, Code, Testing, Maintainance
+
+STLC: Requirement Analysis (RTM), Test Planning (8), Test Case Developement (SRS, Review), Test Environment Setup (Server, System, Network, Tool, Smoke Test), Test Execution (Test Case, Test Data, Bug ID, Defect Report), Test Cycle Closure (Summary Report, Apporval)
+
+Essence Of Testing:
+a. Test Scenario (Main Flow, High Level Classification Of Test Requirements)
+b. Test Case (Steps To Achieve The Flow)
+
+Test Case Template:
+1. Test Case ID
+2. Test Case Summary
+3. Pre-Requisites
+4. Test Steps
+5. Test Data
+6. Expected Results
+7. Actual Results
+8. Status
+9. Remarks
+
+------------------Day 2------------------
+
+Types Of Testing:
+
+A. Functional Testing - Verify Each Function Of Your Software Application Operates In Conformance With The Requirement Specification. (Comparision With Actual And Expected Behaviour)
+Ex : Documents - Create, Save, Edit, Use Spell Check, Print
+
+Objectives: 
+1. Results Meet The Business And User Requirements.
+2. Ensure It Satisfies SRS And BRS
+3. To Prevent Defects
+4. Gain Confidence Of Customers By Providing Quality Product.
+
+Types:
+1. Unit Testing - Validate Each Units Of The Software As Per Specifications.
+
+2. Integration Testing - Expose Faults In The Intereaction Between The Integrated Units.
+
+3. System Testing -  Evaluate The System's Compliance With The Specified Requirements. (FR & NFR)
+
+4. Acceptance Testing - Evaluate The System's Compliance With The Business Requirements And Assess Whether It Is Acceptable For Delivery
+
+5. Smoke Testing (Build Verification Testing) - Whether The Applocation Or Deployed Build Is Stable Or Not. 
+
+6. Regression Testing - Intends To Ensure That Changes (Enhancements Or Defect Fixes) To The Software Have Not Adversely Affected It.
+
+B. Non-Functional Testing - Check Non-Functional Aspects Of The Application ((Performance - Load Test, Capacity, Stress, Volume, Endurance, Spike), Load, FailOver, Security, (Compatibility - Browser Compatibility Testing, Hardware, Networks, Mobile Devices, OS, Versions))
+
+C. Globalization - Whether Software Can Perform Properly In Any Locate Or Culture And Functioning Properly With All Types Of International Inputs And Steps To Effectively Make Your Product Truly Global.
+
+D. Localization - Validate The Local Constraints Over A Certain Geographical Area.
+
+E. Security Testing - Ensures Software Systems And Applications Are Free From Any Vulnerabilities, Threats, Risks That May Cause A Big Loss. (Vulnerability Testing, Security Scanning, Penetration Testing, Risk Assessment, Security Auditing, Posture Assesment, Ethical Hacking)
+
+Test Design:
+
+It Is A Stage Of The Quality Assurance Process, During Which We Create Test Scenarios And Outline The Structure Of Texting Activities For The Project. A QA Team Decides On How To Escalate Test Coverage With Minimum Effort.
+
+Test Design Techniques: 
+
+A. Black Box Testing: Equivalent Class Partitioning, Boundary Value Analysis, State Transition.
+
+B. White Box Testing: Statement Coverage, Branch Coverage, Decision Coverage
+
+C. Experience Based Technique: Explorartory Testing, Error Guessing
+
+------------------Day 3------------------
+
+Defect Logging:
+
+A Variation Or Deviation From Expected Result And Actual Result While Executing The Test Case Is Referred As A Software Defect.
+
+Defect Report Is A Document That Identifies And Describes A Defect Detected By A Tester.
+
+Purpose Of A Defect Report Is To State The Problem As Clearly As Possible So That Developers Can Replicate The Defect Easily And Fix It.
+
+
+Test Closure: 
+Four Types: 
+-> Validate Test Completion: Making Sure That All The Testing Work Has Actually Been Completed And Concluded.
+-> Handover Test Artifacts: Deliver The Test Artifacts To People Who Need It In Future.
+-> Project Retrospectives: Discussing The Best Practices And Good Processes, To Eliminating Various Unfavourable Process, All Things For Future Reference.
+-> Archive Test Work Products: All The Test Work Products Like Test Results. Logs, Status, Reports, Plans, Should Be Stored In A Configuration Folder (Archive Them).
+
+Test Summary Report: Doc Which Contains A Summary Of Test Activities And Final Test Results.
+
+
+
+
+
+

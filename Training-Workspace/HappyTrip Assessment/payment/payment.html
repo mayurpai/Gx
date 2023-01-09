@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/payment-style.css">
+    <link rel="icon" href="../images/logo.ico" type="image/x-icon">
+    <title>Payment</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- <header>
+            <div class="nav">
+               //  <i class="bi bi-airplane-engines" style="size: 50px;"></i>
+                <img src="Aeorplane_logo.png">&nbsp;
+                <h3 style="margin-top: 8px;">HappyTrip</h3>
+                <a href="#" style="color: white; margin-left: 950px; margin-top: 8px;"><i
+                        class="bi bi-person-circle">&nbsp;</i><b>Login</b></a>
+            </div>
+        </header> -->
+
+        <header class="col-md-12">
+            <div class="left-side">
+                <ul>
+                    <li><a href="../search/search.html"><img src="../images/logo.png" alt="">HappyTrip</a></li>
+                    <li><a href=""><i class="fa fa-plane"></i></a></li>
+                    <li><a href=""><i class="fa fa-bed"></i></a></li>
+                    <li><a href=""><i class="fa fa-train"></i></a></li>
+                    <li><a href=""><i class="fa fa-walking"></i></a></li>
+                </ul>
+            </div>
+            <div class="right-side">
+                <ul>
+                    <li><a href=""> INR ₹</a></li>
+                    <li><a href=""> <i class="fa fa-headphones">&nbsp; Support</i></a></li>
+                    <li><a href=""> <i class="fa fa-user-circle">&nbsp; Login</i></a></li>
+                </ul>
+            </div>
+        </header>
+
+
+
+        <h4 style="margin-top: 100px;">Pay to complete your booking</h4>
+        <div class="div">
+            <div class="div1">
+                <div class="card">
+
+                    <div class="options">
+                        <div class="modes">
+                            <button class="btn-group" style=" background-color: #AECFF9;">Credit Card</button><br>
+                            <button class="btn-group">Net banking</button><br>
+                            <button class="btn-group">EMI</button><br>
+                            <button class="btn-group">Wallets</button><br>
+                            <button class="btn-group">UPI</button>
+                        </div>
+
+                        <form>
+                            <div class="card_details">
+                                <div class="card_header">
+                                    <span class="top_icons">
+                                        <h5>Enter card details</h5>
+                                    </span>
+                                    <span class="top_icons">
+                                        <img style="height: 20px; margin-left: 120px;" src="../images/MCSecureCode.jpg">
+                                        <img style="height: 22px;" src="../images/VerifiedByVisa.png">
+                                        <img style="height: 35px;" src="../images/SafeKey.jpg">
+                                    </span><br>
+                                </div>
+                                <label>Card number<br>
+                                    <input class="input-group" type="text" pattern="[0-9]{16}" maxlength="16"
+                                        name="cardNumber" id="cardNumber" style="width: 260px;"
+                                        placeholder="Enter card number" required /></label>
+                                <label>Expiry date <br>
+                                    <input type="text" maxlength="7" name="expiryDate" id="expiryDate"
+                                        placeholder="MM/YYYY" required /></label>
+                                <!-- <label class="label-group">Expiry date</label><br>
+                                <span class="expiry">
+                                    <select class="input-group" aria-placeholder="Month" id="month">
+                                        <option>Month</option>
+                                        <option>Janaury</option>
+                                        <option>Febraury</option>
+                                        <option>March</option>
+                                        <option>April</option>
+                                        <option>May</option>
+                                        <option>June</option>
+                                        <option>July</option>
+                                        <option>August</option>
+                                        <option>September</option>
+                                        <option>October</option>
+                                        <option>November</option>
+                                        <option>December</option>
+                                    </select>
+                                </span>
+                                <span class="expiry">
+                                    <select class="input-group" aria-placeholder="Year" id="year">
+                                        <option>Year</option>
+                                        <option>2022</option>
+                                        <option>2023</option>
+                                        <option>2024</option>
+                                    </select>
+                                </span> -->
+                                <br>
+
+                                <label class="label-group">Card holder name</label><br>
+                                <input class="input-group" type="text" name="cardHolderName" id="cardHolderName"
+                                    style="width: 260px;" placeholder="Name as on card" required>
+
+                                <label class="label-group">CVV</label><br>
+                                <input class="input-group" type="password" name="cvv" style="width: 260px;"
+                                    minlength="3" maxlength="3" id="cvv" placeholder="CVV" required>
+                                <div id="alertMessage" style="color: red;"></div>
+
+
+                            </div>
+
+                            <div class="Btn_footer">
+                                <p><input style="margin-top: 80px;margin-left: -170px;" checked type="checkbox"
+                                        name="tca" id="tca"> I accept the <u>Terms and Conditions</u>
+                                </p>
+
+
+                                <input id="PayBtn" class="submit" type="submit" value="Pay Now"
+                                    style="text-align: center;"></input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div2">
+
+                <div class="card new">
+                    <div id="youPay"></div>
+                    <div id="priceOverall"></div>
+                </div>
+
+                <div id="bookingSummary" class="card newone">
+                    <h5>Booking Summary</h5>
+                    <div id="city"></div>
+                    <div id="desc"></div>
+                    <div id="passenger"></div>
+                    <div id="passengerDesc"></div>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top: 100px; width: 1269px; margin-left: -80px;">
+        <footer>
+            <div class="footer">
+                <p> © 2022 HappyTrip Pvt. Ltd.</p>
+                <i class="bi bi-lock" style="margin-left:720px;"></i>&nbsp; Completely safe and secure transactions
+        </footer>
+    </div>
+    </div>
+
+
+
+
+
+
+    <script type="module" src="./payment.js"></script>
+    <!-- <script>
+        function init() {
+            let user = JSON.parse(localStorage.getItem("user"));
+            let searching = JSON.parse(localStorage.getItem("searching"));
+            let selectedFligthSchedule = JSON.parse(
+                localStorage.getItem("flightScheduleOne")
+            );
+            let slicedPrice = Number(selectedFligthSchedule.price.slice(2, 6))
+            var numberOfAdultsDisplay = Number(searching.numberOfAdults)
+            var numberOfChildrenDisplay = Number(searching.numberOfChilderens)
+            console.log(numberOfAdultsDisplay)
+            console.log(numberOfChildrenDisplay)
+            var overPrice = Number(slicedPrice) * (Number(searching.numberOfAdults) + Number(searching.numberOfChilderens))
+            document.getElementById('youPay').innerText = `You pay: ${overPrice}`
+            document.getElementById('youPay').style.fontWeight = 700
+            let baseFare = (Number(overPrice) * 0.75).toFixed(0);
+            let taxesAndFees = (Number(overPrice) * 0.20).toFixed(0);
+            let convenienceFee = (Number(overPrice) * 0.05).toFixed(0);
+            document.getElementById("priceOverall").innerHTML = `Base Fare: ${baseFare} <br> Taxes and fees: ${taxesAndFees} <br> Convenience fee: ${convenienceFee}`
+            document.getElementById("city").innerText = `${selectedFligthSchedule.fromCity} - ${selectedFligthSchedule.toCity}`
+            document.getElementById("desc").innerText = `${selectedFligthSchedule.departTime}, ${selectedFligthSchedule.date}`
+            if (searching.numberOfChilderens != '') {
+                document.getElementById("passenger").innerText = "Passengers: " + (numberOfAdultsDisplay + numberOfChildrenDisplay) + ", Adult: " + numberOfAdultsDisplay + ", Children: " + numberOfChildrenDisplay
+            }
+            else {
+                console.log(numberOfChildrenDisplay)
+                document.getElementById("passenger").innerText = "Passengers: " + (numberOfAdultsDisplay + numberOfChildrenDisplay) + ", Adult: " + numberOfAdultsDisplay + ", Children: 0" 
+                console.log(numberOfAdultsDisplay)
+            }
+            console.log(user)
+            return false;
+        }
+
+        init();
+
+
+        document.getElementById("PayBtn").onclick = function () {
+            var cardNumber = document.getElementById("cardNumber").value;
+            var expiryDate = document.getElementById("expiryDate").value;
+            var cardHolderName = document.getElementById("cardHolderName").value;
+            var cvv = document.getElementById("cvv").value;
+            class PaymentInfo {
+                constructor(cardNumber, expiryDate, cardHolderName, cvv) {
+                    this.cardNumber = cardNumber;
+                    this.expiryDate = expiryDate;
+                    this.cardHolderName = cardHolderName;
+                    this.cvv = cvv;
+                }
+            }
+            var userBankInformation = new PaymentInfo(
+                cardNumber,
+                expiryDate,
+                cardHolderName,
+                cvv
+            );
+            paymentValidation(userBankInformation);
+            console.log(userBankInformation);
+            return false;
+        };
+
+        function paymentValidation(userBankInformation) {
+            if (
+                // paymentFormValidation(userBankInformation) &&
+                cardNumberValidation(userBankInformation) &&
+                expiryDateValidation(userBankInformation) &&
+                cardHolderValidation(userBankInformation) &&
+                cvvValidation(userBankInformation) &&
+                termsAndCondition()
+            ) {
+                alert("Payment Successful!");
+                window.location.href = "../search/search.html";
+            }
+
+            return false;
+        }
+
+        // function paymentFormValidation(userBankInformation) {
+        //     if (!(userBankInformation.cardNumber.length > 0)) {
+        //         alert("Please Fill The Form");
+        //         return false;
+        //     }
+        //     else if (!(userBankInformation.expiryDate.length > 0)) {
+        //         alert("Please Fill The Form");
+        //         return false;
+        //     }
+        //     else if (!(userBankInformation.cardHolderName.length > 0)) {
+        //         alert("Please Fill The Form");
+        //         return false;
+        //     }
+        //     else if (!(userBankInformation.cvv.length > 0)) {
+        //         alert("Please Fill The Form");
+        //         return false;
+        //     }
+        //     return true;
+        // }
+
+        function cardNumberValidation(userBankInformation) {
+            if (isNaN(userBankInformation.cardNumber)) {
+                alert("Invalid Card Number");
+                return false;
+            } else if (userBankInformation.cardNumber.length != 16) {
+                alert("Invalid Card Digits");
+                return false;
+            }
+            return true;
+        }
+
+        function expiryDateValidation(userBankInformation) {
+            let date = new Date();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            const regexMonth = new RegExp(/^[0-1][0-9]$/);
+            const regexYear = new RegExp(/^[0-9]{4}$/);
+            let expiry = document.getElementById("expiryDate").value.split("/");
+            console.log(expiry[0]);
+            console.log(expiry[1]);
+            let monthChecker = regexMonth.test(expiry[0]);
+            let yearChecker = regexYear.test(expiry[1]);
+            if (
+                (monthChecker && expiry[0] >= 1 && expiry[0] <= 12) ||
+                expiry[0].length == 0
+            ) {
+                if (expiry[0][0] != 1 && expiry[0][1] > month);
+                else if (expiry[0] > month);
+                else {
+                    alert("Month Should Be Greater Than Current Month");
+                    return false;
+                }
+            } else {
+                alert("Invalid Month");
+                return false;
+            }
+            if (yearChecker && expiry[1] >= year);
+            else {
+                alert("Invalid Year");
+                return false;
+            }
+            userBankInformation.expiryDate = document.getElementById("expiryDate").value;
+            return true;
+        }
+
+        function cardHolderValidation(userBankInformation) {
+            if (!isNaN(userBankInformation.cardHolderName)) {
+                alert("Invalid Card Name");
+                return false;
+            } else if (userBankInformation.cardHolderName.length > 16) {
+                alert("Invalid Card Name");
+                return false;
+            }
+            return true;
+        }
+
+        function cvvValidation(userBankInformation) {
+            if (isNaN(userBankInformation.cvv)) {
+                alert("Invalid CVV Number");
+                return false;
+            } else if (userBankInformation.cvv.length != 3) {
+                alert("Invalid CVV Card Digits");
+                return false;
+            }
+            return true;
+        }
+
+        function termsAndCondition() {
+            let tca = document.getElementById("tca");
+            if (!tca.checked) {
+                alert("Please Check The Terms & Conditions!");
+                return false;
+            }
+            return true;
+        }
+    </script> -->
+
+</body>
+
+</html>

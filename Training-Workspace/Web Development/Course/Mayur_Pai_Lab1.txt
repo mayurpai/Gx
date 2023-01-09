@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <style>
+        * {
+            overflow: hidden;
+            color: aliceblue;
+        }
+
+        table {
+            border-color: aliceblue;
+            border-collapse: collapse;
+        }
+
+        tr,
+        th,
+        td {
+            padding: 0.5rem;
+        }
+
+        th,
+        td:first-child {
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        td:nth-child(2) {
+            text-align: left;
+        }
+
+        td input {
+            color: tomato;
+            font-weight: bold;
+        }
+
+        body {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-color: tomato;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            border-top: 1px solid whitesmoke;
+            border-bottom: 1px solid whitesmoke;
+            border-radius: 1rem;
+            padding: 1rem .75rem;
+        }
+
+        .form h1 {
+            position: relative;
+            left: 0;
+        }
+
+        select {
+            color: black;
+        }
+
+        /* form {
+            border: 1px solid white;
+            color: white;
+            width: 50rem;
+            height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+        } */
+    </style>
+    <div class="form">
+        <form action="" method="">
+            <table>
+                <tr>
+                    <th>
+                        <h1>Create Your Account</h1>
+                    </th>
+                </tr>
+                <tr>
+                    <td><label for="Name">Enter Name: </td>
+                    <td><input type="text" name="Name" id="Name" placeholder="Enter User Here" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="Email">Enter Email ID: </td>
+                    <td><input type="email" name="Email" id="Email" placeholder="Enter Email ID Here" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="Age">Age: </td>
+                    <td><input type="number" name="Age" id="Age" min="1" max="100" placeholder="Age" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="DOB">Birthdate: </td>
+                    <td><input type="date" name="DOB" id="DOB" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="Grad">Graduated In: </label></td>
+                    <td><select>
+                            <option value="B. Tech">B. Tech</option>
+                            <option value="BCA">BCA</option>
+                            <option value="B. Arch">B. Arch</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><label for="Phone">Phone: </td>
+                    <td><input type="tel" name="Phone" id="Phone" pattern="[7-9][0-9]{1,9}" maxlength="10"
+                            placeholder="Phone" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="User">Enter User Name: </td>
+                    <td><input type="text" name="User" id="User" placeholder="Enter Username Here" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="Password">Enter Password: </td>
+                    <td><input type="password" name="Password" id="Password" placeholder="Enter Password Here" required></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ConfPassword">Enter Confirm Password: </td>
+                    <td><input type="password" name="ConfPassword" id="ConfPassword"
+                            placeholder="Enter Password Here" required></label></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"></td>
+                    <td><input type="reset" value="Clear Form"></td>
+                    <td><input type="submit" value="Create Account"></button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

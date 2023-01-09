@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sayHelloInternal() {
+            alert("Say Hello Internal")
+            document.getElementById("test").innerText = "Mayur"
+        }
+    </script>
+    <script>
+        function doLoop() {
+            var text = document.getElementById("sayThis").value;
+            console.log(typeof (text));
+            var num = document.getElementById("howMany").value;
+            var limit = parseInt(num);
+            console.log(typeof (limit));
+            for (x = 0; x < num; x++) {
+                document.getElementById("results").innerHTML += `${text} `;
+            }
+            console.log(text);
+        }
+        function dog() {
+            fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json()).then(data => {
+                document.getElementById("resultsDog").innerHTML = `<img src="${data.message}" height="300" width="300">`
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <p>Say what? <input id="sayThis" size=40>
+    <P>How many times? <select id='howMany'>
+            <option value=1>1</option>
+            <option value=5 selected>5</option>
+            <option value=10>10</option>
+            <option value=20>20</option>
+        </select>
+    <p><button onClick='doLoop()'>Do It!</button>
+    <p><button onClick="dog()" type="button" id="dog">Random Dog</button>
+    <div id="results"></div>
+    <div id="resultsDog"></div>
+    <div id="test"></div>
+    <div id="importText"></div>
+    <input type="button" onclick="sayHelloInternal()" value="Click Here Internal!">
+    <input type="button" onclick="sayHelloExternal()" value="Click Here External!">
+    <input type="text" name="message" id="message" onfocus="changer()" onkeyup="changer()">
+    <div id="messageRec" style="color: red;"></div>
+    <script type="text/javascript" language="javascript">
+        function changer() {
+            document.getElementById("messageRec").innerText = `You Typed: ${document.getElementById("message").value}`
+        }
+    </script>
+    <noscript>
+        10010110111
+        00010110111 after left shift 1
+        by shifting 1 digit left side becomes double
+        10010110110 after left shift 1
+        by shifting 1 digit right side becomes half
+
+        00000000
+        00000001
+        00000010
+        00000011
+        00000001 left Shifting 1 makes double
+        00000110 right shifing 1 makes half 6
+
+        Truth table AND
+        1 1 = 1
+        0 1 = 0
+        1 0 = 0
+        0 0 = 0
+
+        Truth table OR
+        1 1 = 1
+        0 1 = 1
+        1 0 = 1
+        0 0 = 0
+
+        Truth table AND
+        1 0 = 1
+
+        Truth table NOT
+        1 = 0
+        0 = 1
+    </noscript>
+    <script type="module">
+        import { message } from "./script.js";
+        console.log(message());
+        document.getElementById('importText').innerHTML = `<h3>${message()}</h3>`;
+    </script>
+    <h1 id="demo"></h1>
+    <script>
+        function changeState() {
+            let authenticated = [true, false][Math.floor(Math.random() * 2)];
+            authenticated ? renderApp() : renderLogin();
+        }
+        function renderApp() {
+            document.getElementById("demo").innerHTML = "Welcome!";
+            console.log("You have Logged in Successfully");
+
+        }
+        function renderLogin() {
+            document.getElementById("demo").innerHTML = "Please log in";
+            console.log("Please Login First");
+
+        }
+    </script>
+    <button id="myButton" onclick="changeState()">Click me</button>
+    <script type="module" language="javascript" src="./script.js"></script>
+</body>
+
+</html>

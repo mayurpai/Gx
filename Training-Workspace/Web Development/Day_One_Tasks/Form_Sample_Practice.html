@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <style>
+        form {
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    </style>
+    <form action="Sample.txt" method="get">
+        <label for="Name">Enter Name: <input type="text" name="Name" id="Name" placeholder="Enter User Here"></label>
+        <label for="Designa">Designation: <input type="text" name="Designation" id="Designation"
+                placeholder="Designation"></label>
+        <label for="Address">Address: <input type="text" name="Address" id="Address" placeholder="Address"></label>
+        <label for="Phone">Phone: <input type="tel" name="Phone" id="Phone" placeholder="Phone"></label>
+        <label for="POW">Place Of Work: <input type="text" name="POW" id="POW" placeholder="Place Of Work"></label>
+        <label for="Gender">Gender: 
+            Male: <input type="radio" name="Gender" id="Gender">
+            Female: <input type="radio" name="Gender" id="Gender">
+        </label>
+        <label for="Hobbies">I Love Web!<input type="checkbox" name="Hobbies" id="Hobbies" checked></label>
+        <select>
+            <option value="Audi">Audi</option>
+            <option value="Merc">Merc</option>
+            <option value="BMW">BMW</option>
+            <option value="Volvo">Volvo</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

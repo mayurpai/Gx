@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HappyTrip</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* overflow: hidden; */
+
+    }
+
+    .main {
+        background-color: #A9C9FF;
+        background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    .details {
+        border-top: 1px solid whitesmoke;
+        text-align: center;
+        border-bottom: 1px solid whitesmoke;
+        border-radius: 1rem;
+        padding: 1rem .75rem;
+        font-weight: 500;
+        box-shadow: .5rem .5rem 0.5rem rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+
+    img {
+        margin-top: -2.5rem;
+        object-fit: contain;
+        height: 15rem;
+        width: 15rem;
+    }
+
+    table {
+        margin-top: -3rem;
+        border-color: aliceblue;
+        border-collapse: collapse;
+    }
+
+    tr,
+    th,
+    td {
+        padding: 0.2rem;
+    }
+
+    th,
+    td:first-child {
+        border-collapse: collapse;
+        text-align: right;
+    }
+
+    td:nth-child(2) {
+        text-align: left;
+    }
+
+    td input {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 15rem;
+        height: 2rem;
+        padding-left: .2rem;
+        background-color: rgb(59, 89, 152);
+        color: lightcyan;
+        border-radius: .2rem;
+        text-align: left;
+        font-size: 0.8rem;
+    }
+
+    input {
+        color-scheme: dark;
+    }
+
+    button,
+    input[type="submit"] {
+        width: 22rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        background-color: black;
+        border-radius: .2rem;
+        padding-left: .4rem;
+        color: white;
+        background-color: #0093E9;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+        font-weight: 500;
+        border: none;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        list-style-type: none;
+    }
+</style>
+
+<body>
+    <script>
+        window.onload = function () {
+            const generator = {
+                flightNumber: "66E5",
+                departureDate: '2022-06-03',
+                departureTime: '15:30',
+                arrivalDate: '2022-06-03T17:45',
+                Name: "Navya D",
+                Phone: "909090876",
+                DOB: '1999-01-01',
+                From: "Bangalore",
+                To: "Delhi"
+            }
+            for (let [key, value] of Object.entries(generator)) {
+                console.log(key, value);
+                document.getElementById(key).value = value;
+            }
+        }
+    </script>
+    <div class="main">
+        <div class="details">
+            <h1>Happy Trip</h1>
+            <img src="/HappyTrip Case Study - UI - Assessment/Airbus.jpg" alt="Indigo">
+            <table>
+                <tr>
+                    <td><label for="flightNumber">Flight Number: </td>
+                    <td><input type="text" name="flightNumber" id="flightNumber" placeholder="Flight Number"
+                            required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="departureDate">Departure Date: </td>
+                    <td><input type="date" name="departureDate" id="departureDate" placeholder="Departure Date"
+                            required></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="departureTime">Departure Time: </td>
+                    <td><input type="time" name="departureTime" id="departureTime" placeholder="Departure Time"
+                            required></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="arrivalDate">Arrival Date: </td>
+                    <td><input type="datetime-local" name="arrivalDate" id="arrivalDate" placeholder="Arrival Date"
+                            required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="Phone">Passenger Name: </td>
+                    <td><input type="text" name="Name" id="Name" placeholder="Name" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="Phone">Mobile Number: </td>
+                    <td><input type="tel" name="Phone" id="Phone" pattern="[7-9][0-9]{1,9}" maxlength="10"
+                            placeholder="Phone" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="DOB">Date Of Birth: </td>
+                    <td><input type="date" name="DOB" id="DOB" required></label></td>
+                </tr>
+                <tr>
+                    <td><label for="From">From: </td>
+                    <td><input type="text" name="From" id="From" placeholder="From" required></label>
+                </tr>
+                <tr>
+                    <td><label for="To">To: </td>
+                    <td><input type="text" name="To" id="To" placeholder="To" required></label>
+                </tr>
+                <tr>
+                    <td colspan="2"><a
+                            href="/HappyTrip Case Study - UI - Assessment/paymentDetails.html"><button>Payment
+                                Details</button></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- // document.getElementById("flightNumber").value = generator.flightNumber;
+// document.getElementById("departureDate").value = '2022-06-03'
+// document.querySelector('input[type="time"]').value = '15:30';
+// document.querySelector('input[type="datetime-local"]').value = '2022-06-03T17:45';
+// document.getElementById("Name").value = "Navya D";
+// document.getElementById("Phone").value = "909090876";
+// document.getElementById("DOB").value = '1999-01-01';
+// document.getElementById("From").value = "Bangalore";
+// document.getElementById("To").value = "Delhi"; -->

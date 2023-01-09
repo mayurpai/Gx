@@ -1,0 +1,269 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6290e0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6290e0bc;
+}
+
+* {
+  margin: 20;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+
+  justify-content: center;
+  align-items: flex-start;
+}
+/* .nav
+{
+    margin-top: 20px;
+    width: 1250px;
+    height: 50px;
+    background-color: #6290e0;
+    color: white ;
+    margin-left: -65px;
+}  */
+
+.passengerform {
+  display: inline;
+}
+.gender {
+  margin-left: 200px;
+}
+
+.submit {
+  margin-top: 10px;
+  width: 250px;
+  background-color: #6290e0;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#userTb {
+  margin-top: 20px;
+}
+#name {
+  width: 180px;
+  height: 30px;
+  margin-left: 10px;
+}
+#gender {
+  width: 180px;
+  height: 30px;
+  margin-left: 60px;
+}
+#dob {
+  width: 180px;
+  height: 30px;
+  margin-left: 15px;
+}
+
+.card {
+  width: 900px;
+  margin-top: 50px;
+  height: 315px;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 1rem;
+}
+.passengercontainer {
+  margin-top: 5px;
+}
+.flightschedule {
+  display: inline;
+  margin-top: 20px;
+}
+.flightform {
+  margin-top: 20px;
+}
+#date {
+  margin-top: 30px;
+  width: 181px;
+}
+
+.tocity {
+  margin-left: 30px;
+}
+.fromcity {
+  margin-left: 40px;
+}
+.duration {
+  margin-top: 30px;
+  margin-left: 45px;
+}
+.routes1 {
+  margin-top: 30px;
+}
+
+#duration {
+  margin-top: 30px;
+  margin-left: 8px;
+}
+.date {
+  margin-top: 30px;
+  margin-left: 15px;
+}
+.flight {
+  margin-left: 10px;
+}
+
+.routes {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.new {
+  width: 230px;
+  margin-left: 10px;
+  height: 100px;
+}
+.main {
+  display: flex;
+}
+#price {
+  width: 80px;
+}
+.Price,
+.numOfPas {
+  margin-top: 10px;
+}
+#numberOfPassengers {
+  width: 80px;
+}
+.newone {
+  width: 230px;
+  margin-top: 5px;
+  margin-left: 10px;
+  height: 150px;
+}
+#coupan {
+  width: 220px;
+}
+.apply {
+  margin-top: 20px;
+  margin-left: 50px;
+  width: 110px;
+  background-color: #6290e0;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+.passengerform1 {
+  display: flex;
+}
+.dob {
+  margin-top: 30px;
+}
+.mobile {
+  margin-top: 30px;
+  margin-left: 200px;
+}
+.user {
+  width: 900px;
+  margin-top: 8px;
+}
+#mobileNumber {
+  margin-top: 30px;
+}
+#dob {
+  margin-top: 30px;
+}
+.newuser {
+  width: 230px;
+  margin-left: 10px;
+  height: 250px;
+  background-color: #faf4b7;
+  margin-top: 8px;
+}
+
+#offer {
+  width: 80px;
+  border-radius: 30px;
+  text-align: center;
+  background-color: #ecb536;
+  border: none;
+  color: white;
+}
+.offerpara {
+  font-size: 10px;
+  margin-top: 20px;
+}
+
+.passengercontainer {
+  display: flex;
+}
+
+.main-container {
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+i {
+  color: lightgray;
+}
+
+i:hover {
+  color: #6290e0;
+}
+
+header {
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 0.05rem 0rem rgba(0, 0, 0, 0.1);
+}
+
+.left-side,
+.right-side {
+  width: max-content;
+  display: flex;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  margin-left: 1rem;
+}
+
+li img {
+  height: 5rem;
+  width: 5rem;
+}
+
+ul li:first-child {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+#submitBtn[disabled],
+#addBtn[disabled] {
+  background-color: lightgray;
+}

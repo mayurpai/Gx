@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="../styles/search-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../images/logo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HappyTrip</title>
+</head>
+
+<body>
+    <div class="splash">
+        <h1 class="fade-in" style="overflow: hidden;">Happiness Is Landing Somewhere New</h1>
+        <img class="fade-in" src="../images/logo.png" alt="">
+
+    </div>
+    <div class="content">
+        <header class="col-md-12">
+            <div class="left-side">
+                <ul style="overflow: hidden;">
+                    <li><a href="./search.html" style="text-decoration: none;">
+                            <img src="../images/logo.png" alt="">HappyTrip
+                        </a></li>
+                    <li><a href="#">
+                    <li><i class="fa fa-plane"></i>
+                        </a></li>
+                    <li><a href="#">
+                    <li><i class="fa fa-bed"></i>
+                        </a></li>
+                    <li><a href="#">
+                    <li><i class="fa fa-train"></i>
+                        </a></li>
+                    <li><a href="#">
+                    <li><i class="fa fa-walking"></i>
+                        </a></li>
+                </ul>
+            </div>
+            <div class="right-side">
+                <ul>
+                    <a href="" style="text-decoration: none;">
+                        <li>INR ₹</li>
+                    </a>
+                    <a href="">
+                        <li><i class="fa fa-headphones">&nbsp; Support</i></li>
+                    </a>
+                    <a href="">
+                        <li><i class="fa fa-user-circle">&nbsp; Login</i></li>
+                    </a>
+                </ul>
+            </div>
+        </header>
+
+
+        <div class="search">
+
+            <div class="col-md-3">
+                <div class="sidebar">
+
+                    <ul class="list-group list-group flush">
+                        <li class="list-group-item"
+                            style="height:70px; font-size:20px; display: flex; align-items: center;"><i
+                                class="bi bi-airplane" style=padding:10px></i>Flights</li>
+                        <li class="list-group-item"
+                            style="height:70px; font-size:20px; display: flex; align-items: center;"><i
+                                class="bi bi-house" style=padding:10px></i>Hotels</li>
+                        <li class="list-group-item"
+                            style="height:70px; font-size:20px; display: flex; align-items: center;"><i
+                                class="bi bi-star" style=padding:10px></i>Cleartrip for work</li>
+                        <li class="list-group-item"
+                            style="height:70px; font-size:20px; display: flex; align-items: center;"><i
+                                class="bi bi-percent" style=padding:10px></i>Top Offers</li>
+                        <li class="list-group-item"
+                            style="height:70px; font-size:20px; display: flex; align-items: center;"><i
+                                class="bi bi-gift" style=padding:10px></i>Giftcard</li>
+                        <li class="list-group-item"
+                            style="height:70px; font-size:20px; display: flex; align-items: center;"><i
+                                class="bi bi-info-circle" style=padding:10px></i>Support</li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2 style="margin-left: 30px; overflow: hidden;">Search Flights</h2>
+                <h6 style="margin-left: 30px; color:grey; overflow: hidden;">Hope you make millions of happy memories
+                </h6>
+                <div class="from">
+                    <div class="wrapper bg-white">
+
+                        <form>
+                            <div
+                                class="form-group border-bottom d-flex align-items-center justify-content-between flex-wrap">
+                                <label class="option my-sm-0 my-2">
+                                    <input class="oneWay" id="oneWay" type="radio" name="radio"
+                                        onclick="enableRoundTrip(1)">One Way
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="option my-sm-0 my-2">
+                                    <input class="roundTrip" id="roundTrip" type="radio" name="radio"
+                                        onclick="enableRoundTrip(0)" checked>Round Trip
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="form-group d-sm-flex margin">
+                                <div
+                                    class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
+                                    <!-- <input type="text" name="fromCity" id="fromCity" class="form-control"> -->
+                                    <select class="form-select" id="fromCity" aria-label="Default select example">
+                                        <option selected disabled>From</option>
+                                    </select>
+
+
+                                </div>
+                                <div
+                                    class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
+                                    <!-- <input type="text" name="toCity" id="toCity" class="form-control"> -->
+                                    <select class="form-select" id="toCity" aria-label="Default select example">
+                                        <option selected disabled>To</option>
+                                    </select>
+
+
+                                </div>
+                            </div>
+                            <div class="form-group d-sm-flex margin">
+                                <div
+                                    class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative">
+                                    <input type="date" id="fromDate" required placeholder="Depart Date" min="2022-09-19"
+                                        max="2023-09-19" class="form-control">
+
+                                </div>
+
+                                <div
+                                    class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
+                                    <input type="date" id="toDate" required placeholder="Return Date" min="2022-09-19"
+                                        max="2023-09-19" class="form-control">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                                <input type="number" id="numberOfAdults" required placeholder="Adults"
+                                    class="form-control">
+
+                            </div>
+                            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                                <input type="text" id="numberOfChilderens" required placeholder="Children"
+                                    class="form-control">
+
+                            </div>
+                            <div class="form-group border-bottom d-flex align-items-center position-relative">
+                                <input type="number" id="numberofPassengers" required readonly
+                                    placeholder="Max 9 Passengers" class="form-control">
+
+                            </div>
+                            <div class="form-group my-3">
+                                <button type="submit" id="Btn-submit" class="btn btn-primary btn-lg"
+                                    style=float:right>Search
+                                    flights</button>
+                            </div>
+                            <div id="alertMessage" style="color: red;"></div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <div class="d-flex card text-center">
+
+                    <!-- <div class="image2"><img src="https://i.imgur.com/DC94rZe.png" width="200"></div> -->
+
+
+                    <h1 style="overflow: hidden;">50% OFF</h1><span class="d-block">On Everything</span><span
+                        class="d-block">Today
+
+
+                    </span>
+
+                </div><br>
+                <div style="margin-left: 45px;"><img src="../images/Flight.jpg"></div>
+
+
+
+            </div>
+        </div>
+        <div class="header">
+            <h2 style="margin-left: 5.5rem; overflow: hidden;">Popular Destinations</h2>
+        </div>
+
+        <footer class="text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!-- Section: Images -->
+                <section class="">
+                    <div class="row" style="margin-bottom: 1rem;">
+                        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                                data-ripple-color="light">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-100" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                                data-ripple-color="light">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp" class="w-100" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                                data-ripple-color="light">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp" class="w-100" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                                data-ripple-color="light">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp" class="w-100" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                                data-ripple-color="light">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp" class="w-100" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                                data-ripple-color="light">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp" class="w-100" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(235, 230, 230, 0.619);"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="why"><b>Why book on Happytrip.com?</b><br>
+                            Happytrip.com is centered on making travel simple and has been designed to let you look for
+                            cheap flights or complete your flight booking in just a few clicks. The booking experience
+                            is seamless and fast with our features like Expressway – which allows for easy checkout,
+                            Shortlist – this lets you compare multiple itineraries across dates, Fare alert – here we
+                            inform you of price drops or hikes, and even EMI options for expensive air tickets. Our
+                            round-the-clock customer service ensures all your queries and concerns are addressed
+                            efficiently and resolved.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="why">
+                            <b>How to search for cheap flights?</b><br>
+                            Our search is designed on the principle of best flight discovery and is very easy to use.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="why">
+                            Enter from and to city/airport,
+                            Select the date of travel,
+                            Choose the number of travelers and hit enter
+                            You’ll be directed to a search list of all the flights available with the cheapest ones on
+                            the
+                            top. You can further filter your search by choosing preferences and filters like time,
+                            duration,
+                            number of stops, and by airlines or even look for other dates by just clicking on the
+                            calendar
+                            visible on the right side of the page.</p>
+
+                        <p class="why"><b>What’s more?</b><br>
+                            Flight ticket booking or planning your travel is made simpler with our round trip and
+                            multicity
+                            options. When you hit enter, your search list page shows the results for both onward and
+                            return
+                            in a split screen format letting you choose flights in one go for a round trip. The
+                            multicity
+                            search page shows a list of complete itineraries that removes the hassle of you calculating
+                            time, transfers and layovers letting you finish your online flight booking.
+                        </p>
+                    </div>
+                </section>
+                <!-- Section: Images -->
+            </div>
+            <!-- Grid container -->
+
+
+            <hr>
+            <div class="about">
+                <ul>
+                    <li>AboutUs</li>
+                    <li>Career</li>
+                    <li>FAQs</li>
+                    <li>Support</li>
+                    <li>Blog</li>
+                    <li>Mobile</li>
+                    <li>Collections</li>
+                    <li>Happytripforbusiness</li>
+                    <li>Giftcards</li>
+                    <li>Holiday Planner</li>
+                </ul>
+            </div>
+            <div class="about">
+                <ul>
+                    <li>&copy;2006-2022 Happytrip pvt LTD</li>
+                    <li>Privacy</li>
+                    <li>Security</li>
+                    <li>TermsofUse</li>
+                    <li>Covid-19 Lockdown refund procedure</li>
+
+                </ul>
+            </div>
+            <div class="tool">
+                <ul>
+                    <li><b>Other Tools:</b></li>
+                    <li>Cheap air tickets</li>
+                    <li>Flight tickets</li>
+                    <li>Indiahotel</li>
+                    <li>Checkflightstatus</li>
+                    <li>IRCTC Railway Resevation</li>
+                    <li>Indian Railways PNR Status</li>
+                    <li>Tatkal booking</li>
+                    <li>IRCTC Seat Availability</li>
+                    <li>Cheap Domestic Air Tickets</li>
+                    <li>Domestic Flights</li>
+                    <li>Domestic Airlines in India</li>
+                    <li>International Air tickets</li>
+                    <li>International flight</li>
+                    <li>International Airlines</li>
+                    <li>Holiday packages</li>
+                </ul>
+
+            </div>
+            <hr>
+            <!-- Copyright -->
+        </footer>
+
+    </div>
+    <script>
+
+        function enableRoundTrip(x) {
+            if (x == 0) document.getElementById('toDate').style.display = "block";
+            else document.getElementById('toDate').style.display = "none";
+            return;
+
+            // var roundTrip = document.getElementById("roundTrip");
+            // var toDate = document.getElementById("toDate");
+            // toDate.disabled = roundTrip.checked ? false : true;
+            // toDate.value = "";
+            // if (!toDate.disabled) toDate.focus();
+        }
+
+    </script>
+    <script type="module" src="./searchController.js">
+
+    </script>
+
+    <!--     // 1. HardCoded Search
+        /*
+        function searchResults() {
+            console.log("1")
+        }
+        */
+
+        // 2. Attach The Function Dynamically To The Object
+        /* 
+        let Btn = document.getElementById("Btn");
+        Btn.onclick = function () {
+            console.log("1");
+        };
+        */
+
+        // 3. Event Listeners
+        /* let Btn = document.getElementById("Btn");
+        
+        Btn.addEventListener(function () {
+          console.log("1");
+        });
+        */
+
+        // 1. Class Objects - default way
+        // class Person {
+        //     constructor(name, age) {
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+        //     showName() {
+        //         console.log(`${this.name} - ${this.age}`)
+        //     }
+        // }
+        // console.log(mayur.name)
+        // var mayur = new Person("Mayur", 22)
+        // console.log(mayur.age)
+        // mayur.showName()
+
+        // 2. Function Objects - function obj() {}
+        // function person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.showName = function () {
+        //         console.log(`${this.name} - ${this.age}`)
+        //     }
+        // }
+        // var nagendra = new person("Nagendra", 22)
+        // console.log(nagendra)
+        // nagendra.showName()
+
+        // 3. JavaScript Objects - const obj = {}
+        // const mayur = {
+        //     name: "Mayur",
+        //     age: 22
+        // }
+
+        /* Deliverables:
+        1. Solution Should Run
+        2. Proper High Quality Code With Comments
+        3. WorkFlow, Rules, Test Cases In Document And Code
+        4. Three Solutions: Class, Function Object, JavaScript Object 
+        5. Professional UI
+        6. Beautiful Presentation, Agenda, Key Highlights, Best Practices
+        */
+
+        // class searchInfo {
+        //     constructor(
+        //         fromCity,
+        //         toCity,
+        //         numberofPassengers,
+        //         numberOfAdults,
+        //         numberOfChilderens,
+        //         fromDate,
+        //         toDate
+        //     ) {
+        //         this.fromCity = fromCity;
+        //         this.toCity = toCity;
+        //         this.numberofPassengers = numberofPassengers;
+        //         this.numberOfAdults = numberOfAdults;
+        //         this.numberOfChilderens = numberOfChilderens;
+        //         this.fromDate = fromDate;
+        //         this.toDate = toDate;
+        //     }
+        // }
+
+        // var searchInformation = [];
+        // function searchFlights(form) {}
+
+        // function searchResults(form) {
+        //     var fromCity = document.getElementById("fromCity").value;
+        //     var toCity = document.getElementById("toCity").value;
+        //     var numberofPassengers = document.getElementById("numberofPassengers").value;
+        //     var numberOfAdults = document.getElementById("numberOfAdults").value;
+        //     var numberOfChilderens = document.getElementById("numberOfChilderens").value;
+        //     var fromDate = document.getElementById("fromDate").value;
+        //     var toDate = document.getElementById("toDate").value;
+        //     function searchInfo(
+        //         fromCity,
+        //         toCity,
+        //         numberofPassengers,
+        //         numberOfAdults,
+        //         numberOfChilderens,
+        //         fromDate,
+        //         toDate
+        //     ) {
+        //         this.fromCity = fromCity;
+        //         this.toCity = toCity;
+        //         this.numberofPassengers = numberofPassengers;
+        //         this.numberOfAdults = numberOfAdults;
+        //         this.numberOfChilderens = numberOfChilderens;
+        //         this.fromDate = fromDate;
+        //         this.toDate = toDate;
+        //     }
+        //     var searching = new searchInfo(
+        //         fromCity,
+        //         toCity,
+        //         numberofPassengers,
+        //         numberOfAdults,
+        //         numberOfChilderens,
+        //         fromDate,
+        //         toDate
+        //     );
+        //     searchInformation.push(searching);
+        //     console.log(searchInformation);
+        //     // validateSearchInfo(search);
+        //     window.location.href = '/search/searchResult.html';
+        //     return false;
+
+
+            /* 
+                  1. Validate Data Entered In The Form (From City, To City, Date To Be After Current But Not Way Far)
+                  2. Implement Rules In Separate Function
+                  3. Import Manager Class
+                  4. Create An Object For Search Info, And Fill Data Within It
+                  5. If It Is Valid, Redirect To 
+                  6. Call The Search Manager, Search Function And Make A Call To Service
+                  17. Upon Success, Redirect To Search Result Page
+              */
+        // }
+
+        // function validateSearchInfo(search) {
+        //     validateLocation(search);
+        //     validateTravelDates(search);
+        //     validateNumberOfTickets(search);
+        // }
+
+        // function validateLocation(search) {
+        //     console.log(search.fromCity);
+        // }
+
+        // function validateTravelDates(search) { }
+
+        // function validateNumberOfTickets(search) { } -->
+
+
+
+</body>
+
+</html>

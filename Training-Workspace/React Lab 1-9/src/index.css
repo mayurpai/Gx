@@ -1,0 +1,86 @@
+#app {
+  margin: 0 auto;
+}
+
+nav {
+  padding: 20px 0 20px 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Reset styles*/
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+.navbar {
+  display: flex;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 0.6rem 1.2rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+  background: #ff7f50;
+}
+.navbar ul {
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 10px;
+}
+.jumbotron {
+  max-width: 850px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}
+.aboutpage {
+  max-width: 850px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}
+.table {
+  max-width: 850px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}
+.course {
+  max-width: 850px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}
+.navbar-link {
+  color: white;
+}
+.navbar ul li a {
+  margin-left: 10px;
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.heading {
+  margin-left: 240px;
+}
+

@@ -1,0 +1,221 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6290e0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6290e0bc;
+}
+
+*
+{
+    margin: 20;
+    padding: 0;
+}
+
+.container
+{
+    height: 100vh;
+  width: 100vw;
+/* display: flex; */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+ /* .nav
+{
+    margin-top: 20px;
+    width: 1250px;
+    height: 50px;
+    background-color: #00a7ce;
+    color: white ;
+    margin-left: -65px;
+} 
+
+img
+{
+    width: 75px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 4px;
+    margin-top: -3px;
+} */
+
+
+
+i {
+  color: lightgray;
+}
+
+i:hover {
+  color: #6290e0;
+}
+
+header {
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 0.05rem 0rem rgba(0, 0, 0, 0.1);
+}
+
+.left-side,
+.right-side {
+  width: max-content;
+  display: flex;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  margin-left: 1rem;
+}
+
+li img {
+  height: 5rem;
+  width: 5rem;
+}
+
+ul li:first-child {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+ .options
+{
+    display: flex;
+} 
+.modes
+{
+    display: block;
+}
+
+.btn-group
+{
+    margin-top: 20px;
+    width: 150px;
+    border-radius: 3px;
+    height: 35px;
+    border: none;
+    padding-left: 5px;
+    margin-left: 20px;
+    color: #4774CC;
+    font-weight: 500;
+    
+}
+
+.btn-group:hover {
+    background-color: #AECFF9;
+  }
+
+  .card
+  {
+    width: 800px;
+    margin-top: 20px;
+    height: 430px;
+  }
+
+  .card_details
+  {
+    margin-top: 15px;
+    margin-left: 50px;
+    
+  }
+
+  .card_header
+  {
+    display: flex;
+  }
+
+  .label-group
+  {
+    margin-top: 20px;
+  }
+
+  .input-group
+  {
+    margin-top: 8px;
+  }
+
+span.expiry
+{
+    display: inline-block;
+}
+
+ span.top_icon
+ {
+    display: flex;
+ }
+  #PayBtn
+ {
+    margin-top: 80px;
+    width: 120px;
+    height: 40px;
+    margin-left: 400px; 
+    background-color: #00a7ce;
+    color: white ;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+ } 
+.new
+{
+    height: 120px;
+    width: 350px;
+    margin-top: 100px;
+    margin-left: 70px;
+    padding: 15px;
+
+}
+.newone
+{
+    height: 200px;
+    width: 350px;
+    margin-top: 10px;
+    margin-left: 70px;
+    padding: 15px;
+
+}
+.Btn_footer
+{
+  display: flex;
+  margin-left: 1rem;
+}
+.div
+{
+  display: flex;
+  
+}
+.div2
+{
+  margin-top: -80px;
+  margin-left: -50px;
+}
+footer
+{
+  margin-top: 20px;
+  font-size: 12px; 
+  color:grey; margin-left: 20px;
+}
+.footer{
+  display: flex;
+}
+

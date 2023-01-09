@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+
+<body>
+    <style>
+        * {
+            overflow: hidden;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: lightskyblue;
+        }
+
+        body {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .form {
+            border-top: 1px solid whitesmoke;
+            border-bottom: 1px solid whitesmoke;
+            border-radius: 1rem;
+            padding: 1rem .75rem;
+            font-weight: 500;
+            box-shadow: .3rem .3rem .3rem rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            border: 1px solid white;
+            color: white;
+            width: 24rem;
+            height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .form h3 {
+            text-align: left;
+            margin-left: 2rem;
+        }
+
+        .flexBox {
+            display: flex;
+            color: black;
+            width: 22rem;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        input[type=email],
+        input[type=password] {
+            width: 20rem;
+            border: none;
+            height: 2rem;
+            text-align: left;
+            border-bottom: 1px solid gray;
+        }
+
+        input[type=submit] {
+            width: 20rem;
+            height: 2.5rem;
+            background-color: black;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+            border: none;
+        }
+
+        input[type=checkbox] {
+            color: rebeccapurple;
+            margin-left: 2rem;
+        }
+
+        button {
+            background-color: rgb(59, 89, 152);
+            color: white;
+            width: 20rem;
+            height: 2.5rem;
+            font-weight: 500;
+            border: none;
+        }
+
+        #OR {
+            color: rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+    </style>
+    <div class="form">
+        <h3>Login Form</h3>
+        <form action="" method="post">
+            <label for="Email"><input type="email" name="Email" id="Email" placeholder="Email"></label>
+            <label for="Password"><input type="password" name="Password" id="Password" placeholder="Password"></label>
+            <div class="flexBox">
+                <label for="RememberMe"><input type="checkbox" name="RememberMe" id="RememberMe"> Remember Me</label>
+                <a href="#">Forget Password?</a>
+            </div>
+            <label for="Submit"><input type="submit" value="Submit"></label>
+            <label for="OR" id="OR">OR</label>
+            <label for="Facebook"><button>Login With Facebook</button></label>
+        </form>
+        Get Members Benefit. <a href="#">Sign Up</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+HTML
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Fresh Fruits Registration</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/registrationStyle.css">
+
+	<script>
+		function submitFormMessage() {
+			document.getElementById("submitMsgId").innerHTML = "You have been successfully registered... !!!"
+		}
+	</script>
+
+</head>
+
+<body>
+	<div class="header">
+		<div class="inner_header">
+			<div class="logo_container">
+				<h1>Fresh<span>Fruits</span></h1>
+			</div>
+
+			<ul class="navigation">
+				<a href="#">
+					<li>Home</li>
+				</a>
+				<a href="#">
+					<li>About</li>
+				</a>
+				<a href="#">
+					<li>Cart</li>
+				</a>
+			</ul>
+		</div>
+	</div>
+	<div class="simple-form">
+		<form id="registration" onsubmit="submitFormMessage();return false">
+			<h1 style="color: white; font-family:'Montserrat';">Registration</h1><br>
+			<input type="text" name="fname" class="inputbtn" id="firstbutton"
+				placeholder="Enter your first name"><br><br>
+			<input type="text" name="lname" class="inputbtn" id="lastbutton" placeholder="Enter your last name"><br><br>
+			<input type="email" name="email" class="inputbtn" id="email" placeholder="Enter your Email Id"><br><br>
+
+			<input type="password" name="pas" class="inputbtn" id="passwordbutton"
+				placeholder="Enter your Password"><br><br>
+			<select id="ph">
+				<option>+91</option>
+				<option>+92</option>
+				<option>+93</option>
+				<option>+94</option>
+			</select>
+			<input type="number" name="num" id="phone" placeholder="Enter your Mobile Number"><br><br>
+			<input type="radio" name="gender" id="rd">&nbsp;&nbsp;&nbsp;<span id="but">Male</span>&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="gender" id="rd">&nbsp;&nbsp;&nbsp;<span id="but">Female</span><br><br>
+
+			<input type="submit" value="Register" id="submitBtn">
+			<p style="color:white;" id="submitMsgId"></p>
+
+		</form>
+	</div>
+
+	<footer>
+		&copy;2019 by Skill Assure
+	</footer>
+</body>
+
+
+</html>
+
+CSS
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-image: url(../Images/Cover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------Header Style----------------- */
+.header {
+  width: 100%;
+  height: 50px;
+  display: block;
+  background-color: #101010;
+}
+
+.inner_header {
+  width: 90%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  /* background-color: brown; */
+}
+
+.logo_container {
+  height: 100%;
+  display: table;
+  float: left;
+}
+
+.logo_container h1 {
+  color: white;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-weight: 200;
+}
+
+.logo_container h1 span {
+  font-weight: 800;
+}
+
+.navigation {
+  float: right;
+  height: 100%;
+}
+
+.navigation a {
+  height: 100%;
+  display: table;
+  float: left;
+  padding: 0 20px;
+}
+
+.navigation a li {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  color: white;
+  font-family: "Montserrat";
+  font-size: 16px;
+}
+/* ----------Header Style Ends---------- */
+
+/* ---Footer Style---------------- */
+footer {
+  clear: both;
+  background: #101010;
+  /* margin-top: 50px; */
+  margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  /* position: relative; */
+}
+/* ----------------------------- */
+
+.simple-form {
+  text-align: center;
+  margin: 23px 400px;
+}
+
+#registration {
+  width: 100%;
+  background-color: #051019;
+  opacity: 0.8;
+  padding: 30px 0px;
+  border-radius: 4px;
+}
+
+.inputbtn {
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+#ph {
+  outline: none;
+  width: 65px;
+  padding: 10px;
+  border-radius: 5px;
+}
+#phone {
+  outline: none;
+  width: 185px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#rd {
+}
+
+#but {
+  color: white;
+  font-size: 18px;
+}
+
+#submitBtn {
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  background-color: #f0352c;
+  border: 2px solid #01010c;
+  color: aliceblue;
+  font-size: 18px;
+}

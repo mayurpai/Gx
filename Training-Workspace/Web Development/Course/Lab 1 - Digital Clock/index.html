@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⏰ Lab 1 - Digital Clock</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(17, 17, 17);
+            color: #00ff00;
+            font-size: 2rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 900;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Digital Clock</h1>
+    <div id="digitalClock"></div>
+    <script>
+        let clock = () => {
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let period = "AM";
+            if (hours == 0) {
+                hours = 12;
+            } else if (hours >= 12) {
+                hours = hours - 12;
+                period = "PM";
+            }
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            let time = `${hours}:${minutes}:${seconds} ${period}`;
+            document.getElementById("digitalClock").innerText = time;
+            setTimeout(clock, 1000);
+        };
+
+        clock();
+
+    </script>
+</body>
+
+</html>

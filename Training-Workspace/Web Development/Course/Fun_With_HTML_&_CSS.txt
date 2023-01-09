@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun With HTML & CSS</title>
+
+    <style>
+        img {
+            height: 15rem;
+            width: 15rem;
+            object-fit: fill;
+            padding: 2rem;
+            box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thumbnails">
+        <a href="https://th.bing.com/th/id/R.af87fe3928d3df619adb13e8b0814def?rik=%2fHt7Kf%2fxfpp%2bnw&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f6%2f4%2fd%2f1123250-swiss-alps-wallpaper-3840x2160-for-pc.jpg&ehk=Hw82KRA6UKLMhdX%2feKHrZ6lCJNn5L6cuP5U6fGZgrdk%3d&risl=&pid=ImgRaw&r=0"
+            target="blank"><img
+                src="https://th.bing.com/th/id/R.af87fe3928d3df619adb13e8b0814def?rik=%2fHt7Kf%2fxfpp%2bnw&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f6%2f4%2fd%2f1123250-swiss-alps-wallpaper-3840x2160-for-pc.jpg&ehk=Hw82KRA6UKLMhdX%2feKHrZ6lCJNn5L6cuP5U6fGZgrdk%3d&risl=&pid=ImgRaw&r=0"
+                alt="" srcset=""></a>
+        <a href="https://th.bing.com/th/id/OIP.Wh0pXM-ikUYDsDNrmtu1pQHaEK?pid=ImgDet&rs=1" target="blank"><img
+                src="https://th.bing.com/th/id/OIP.Wh0pXM-ikUYDsDNrmtu1pQHaEK?pid=ImgDet&rs=1" alt="" srcset=""></a>
+        <a href="https://th.bing.com/th/id/OIP.I-Ajbfn1Y2l4u5xb2G6pWQHaFj?pid=ImgDet&w=576&h=432&rs=1"
+            target="blank"><img
+                src="https://th.bing.com/th/id/OIP.I-Ajbfn1Y2l4u5xb2G6pWQHaFj?pid=ImgDet&w=576&h=432&rs=1" alt=""
+                srcset=""></a>
+        <a href="https://th.bing.com/th/id/OIP.Amsf3S2AwycdozPjNxxRYwHaE8?pid=ImgDet&rs=1" target="blank"><img
+                src="https://th.bing.com/th/id/OIP.Amsf3S2AwycdozPjNxxRYwHaE8?pid=ImgDet&rs=1" alt="" srcset=""></a>
+        <a href="https://th.bing.com/th/id/OIP.AkwTDPxBK2TqY4nEavzkeQHaFj?pid=ImgDet&rs=1" target="blank"><img
+                src="https://th.bing.com/th/id/OIP.AkwTDPxBK2TqY4nEavzkeQHaFj?pid=ImgDet&rs=1" alt="" srcset=""></a>
+        <a href="https://th.bing.com/th/id/OIP.kG6TzII9wYDhSnDyK0HAPgHaE7?pid=ImgDet&rs=1" target="blank"><img
+                src="https://th.bing.com/th/id/OIP.kG6TzII9wYDhSnDyK0HAPgHaE7?pid=ImgDet&rs=1" alt="" srcset=""></a>
+        <a href="https://th.bing.com/th/id/R.a0e3c36e5ed30d6caa21cd6f8832a3de?rik=XPjsm7aS3Db98w&riu=http%3a%2f%2fwww.sangres.com%2fdimages%2fwyoming%2fplaces%2fcarbon-county%2fRiverside_City.gif&ehk=%2blkxvea1mAeI6AaKjdcSe1VexUNStBc37b6TJ05QuL0%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+            target="blank"><img
+                src="https://th.bing.com/th/id/R.a0e3c36e5ed30d6caa21cd6f8832a3de?rik=XPjsm7aS3Db98w&riu=http%3a%2f%2fwww.sangres.com%2fdimages%2fwyoming%2fplaces%2fcarbon-county%2fRiverside_City.gif&ehk=%2blkxvea1mAeI6AaKjdcSe1VexUNStBc37b6TJ05QuL0%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+                alt="" srcset=""></a>
+        <a href="https://th.bing.com/th/id/R.fac7fd8bcf10f4752883aea6e234360d?rik=jTRpSalLfIXaWQ&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f03%2f10%2f306032-nature-trees-road-sunlight.jpg&ehk=b1gYYH6%2bhhT7JyxEnoNATiW%2bSDSDfqvVjZDgfqjAQ1k%3d&risl=&pid=ImgRaw&r=0"
+            target="blank"><img
+                src="https://th.bing.com/th/id/R.fac7fd8bcf10f4752883aea6e234360d?rik=jTRpSalLfIXaWQ&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f03%2f10%2f306032-nature-trees-road-sunlight.jpg&ehk=b1gYYH6%2bhhT7JyxEnoNATiW%2bSDSDfqvVjZDgfqjAQ1k%3d&risl=&pid=ImgRaw&r=0"
+                alt="" srcset=""></a>
+    </div>
+</body>
+
+</html>
