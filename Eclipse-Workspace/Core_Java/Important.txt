@@ -1,0 +1,8 @@
+			A	B	C	D	E
+Public 		✔️	✔️	✔️	✔️	✔️
+Private		✔️	❌	❌	❌	❌
+Default		✔️	✔️	✔️	❌	❌
+Protected		✔️	✔️	✔️	❌	✔️
+
+🎯 Class Can Be Only Public / Default.
+🎯 When Protected, The Child Classes Don't Need Object's To Be Created.
