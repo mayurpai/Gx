@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="filename">./log</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="LogFile"
+			fileName="${filename}/Logdemo.Log"
+			filePattern="${filename}/Logddemo-%d{HH-mm-ss-SSS}.Log">
+			<PatternLayout>
+				<pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<SizeBasedTriggeringPolicy size="1 KB" />
+		</RollingFile>
+		<Console name="ConsoleName" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<!-- <Logger name="com.galaxetheater.controller" level="trace"> <AppenderRef 
+			ref="ConsoleName" /> </Logger> -->
+		<Root level="error">
+			<AppenderRef ref="ConsoleName" />
+			<AppenderRef ref="LogFile" />
+		</Root>
+	</Loggers>
+</Configuration>
