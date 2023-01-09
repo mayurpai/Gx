@@ -1,0 +1,219 @@
+create database studentsinfo;
+
+
+
+use studentsinfo;
+
+
+
+CREATE TABLE Students
+(
+StudentID int primary key unique,
+StudentName varchar(255) not null,
+ParentName varchar(255),
+Address varchar(255),
+PostalCode int,
+City varchar(255)
+);
+
+
+
+create table student1 as
+select StudentName, ParentName from students;
+
+
+
+alter table students add dateOfBirth date;
+
+
+
+drop table student1;
+
+
+
+truncate table students;
+
+
+
+insert into students(StudentID, StudentName, ParentName, Address, City, PostalCode, dateOfBirth)
+values('06', 'Sanjana','Jagannath', 'Banjara Hills', 'Hyderabad', '500046', '2002-01-02');
+
+
+
+insert into students
+values('07', 'Shivantini','Praveen', 'Camel Street', '700096', 'Kolkata', '2005-01-05');
+
+
+
+update students set StudentName ="Sanjay" where StudentId ='6';
+
+
+
+delete from students where StudentId='7';
+
+
+
+select StudentId, StudentName from students;
+
+
+
+select * from students;
+
+
+
+select distinct city from students;
+
+
+
+select * from students order by ParentName;
+
+
+
+select * from students order by ParentName asc;
+
+
+
+select * from students order by ParentName desc;
+
+
+
+select count(StudentId), city from students group by city;
+
+
+
+select count(StudentId), city from students group by city order by city desc;
+
+
+
+select * from students where StudentId=1;
+
+
+
+select count(StudentId), city from students group by city having count(StudentId) > 1;
+
+
+
+select * from students where studentId between '1' and '5';
+
+
+
+select * from students where ParentName like 'V%';
+
+
+-- 19. To get the list of orders with its customer information
+-- OrderId, OrderDate, CustomerId, CustomerName, RegionCode
+select o.OrderId, o.OrderDate, c.CustomerId, c.ShortName, c.RegionCode
+from orderreg o inner join customermaster c
+on o.CustomerId = c.CustomerId;
+
+
+
+-- 20. List of all invoices with their order information
+-- (InvoiceId, InvoiceDate, InvoiceTotal, OrderId, OrderDate)
+select i.InvoiceId, i.InvoiceDt, i.InvoiceTotal, o.OrderId, o.OrderDate
+from invoice i left join orderreg o
+on i.OrderId = o.OrderId;
+
+
+
+-- 25. Customer information with their invoice and payment information
+-- (CustomerId, CustName, RegionCode, InvoiceId, InvoiceTotal, PaidAmount, OutstandingAmount)
+select c.CustomerId, c.ShortName, c.RegionCode, i.InvoiceId, i.InvoiceTotal, p.PaidAmount, p.OutstandingAmount
+from customermaster c inner join invoice i
+on c.CustomerId = i.CustomerId
+inner join payments p
+on i.InvoiceId = p.InvoiceId;
+
+
+
+
+-- Get all the members who are from 'flora' city
+select m.*, a.city
+from memberinfo m inner join addressinfo a
+on m.member_id = a.memberinfo_member_id
+where a.city = 'Flora';
+
+
+
+-- Get the total number of bloodtests done for Aisha
+select count(b.blood_id), c.*, m.firstname
+from bloodtest b inner join cardiodiagnosis c
+on b.cardiodiagnosis_cardio_id = c.cardio_id
+inner join memberinfo m
+on c.memberinfo_member_id = m.member_id
+where m.firstname = 'aisha';
+
+
+delimiter @@
+create procedure ViewAllCardiacPatients()
+begin
+select
+mem.username,phonenumber,
+count(*)NoOfAttacks,
+max(car.date) RecentHeartAttackDate
+from memberinfo mem
+join cardiodiagnosis car
+on car.memberinfo_member_id = mem.member_id
+where cardioarrestdetected=1
+group by mem.username
+order by max(car.date) desc;
+end
+@@
+delimiter ;
+
+
+
+call viewAllCardiacPatients();
+
+
+
+==================================================
+
+
+
+DELIMITER @@
+CREATE PROCEDURE GetMemberDetailsByMemberID(
+IN memID VARCHAR(45)
+)
+BEGIN
+SELECT * from memberinfo where member_id=memID;
+END @@
+DELIMITER ;
+
+
+
+call GetMemberDetailsByMemberID('M150');
+
+
+
+-- Create a stored procedure to get city name of member_id - M100
+DELIMITER @@
+CREATE PROCEDURE GetCityByMemberID(
+IN memID VARCHAR(45),
+out mem_city varchar(45)
+)
+BEGIN
+SELECT city into mem_city from addressinfo where memberinfo_member_id= memID;
+END @@
+DELIMITER ;
+
+
+
+-- for calling store procedure with output parametes use below 2 statements
+call GetCityByMemberID('M101', @city);
+select(@city);
+
+delimiter $$
+create function GetMemberCity(member_id varchar(45))
+returns varchar(45)
+deterministic
+begin
+    -- Declaring a local variable
+    declare city_name varchar(45);
+    -- Executing select query
+    select city into city_name from addressinfo where
+    memberinfo_member_id = member_id;
+    -- Returning the value
+    return city_name;
+end $$
+delimiter ;

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 0 - Simple Calculator</title>
+    <script src="script.js"></script>
+    <style>
+        * {
+            /* overflow: hidden; */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: lightskyblue;
+        }
+
+        body {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .form {
+            border-top: 1px solid whitesmoke;
+            border-bottom: 1px solid whitesmoke;
+            border-radius: 1rem;
+            font-weight: 500;
+            box-shadow: .3rem .3rem .3rem rgba(0, 0, 0, 0.3);
+        }
+
+        .former {
+            border: 1px solid white;
+            color: white;
+            width: 24rem;
+            height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .form h3 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .flexBox {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        input[type=number],
+        #result {
+            width: 20rem;
+            font-size: 1.25rem;
+            border: none;
+            height: 2rem;
+            text-align: left;
+            border-bottom: 1px solid gray;
+        }
+
+        #result {
+            text-align: center;
+        }
+
+        button {
+            color: black;
+            width: 4rem;
+            height: 2rem;
+            font-size: 1rem;
+            border-radius: 1rem;
+            font-weight: bolder;
+            text-align: center;
+            border: none;
+        }
+
+        .operators:nth-child(1) {
+            background-color: tomato;
+        }
+
+        .operators:nth-child(2) {
+            background-color: skyblue;
+        }
+
+        .operators:nth-child(3) {
+            background-color: greenyellow;
+        }
+
+        .operators:nth-child(4) {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const addition = () => {
+            var firstNumber = Number(document.getElementById("firstNumber").value)
+            var secondNumber = Number(document.getElementById("secondNumber").value)
+            document.getElementById("result").value = firstNumber + secondNumber
+        }
+        const subtraction = () => {
+            var firstNumber = Number(document.getElementById("firstNumber").value)
+            var secondNumber = Number(document.getElementById("secondNumber").value)
+            document.getElementById("result").value = firstNumber - secondNumber
+        }
+        const multiplication = () => {
+            let firstNumber = Number(document.getElementById("firstNumber").value)
+            let secondNumber = Number(document.getElementById("secondNumber").value)
+            document.getElementById("result").value = firstNumber * secondNumber
+        }
+        const division = () => {
+            let firstNumber = Number(document.getElementById("firstNumber").value)
+            let secondNumber = Number(document.getElementById("secondNumber").value)
+            if (firstNumber < secondNumber) {
+                alert("Division By 0 Error")
+            }
+            else {
+                document.getElementById("result").value = firstNumber / secondNumber
+            }
+        }
+
+    </script>
+    <div class="form">
+        <h3>Simple Calculator</h3>
+        <div class="former">
+            <label for="firstNumber"><input type="number" name="firstNumber" id="firstNumber"
+                    placeholder="Enter First Number Here"></label>
+            <label for="secondNumber"><input type="number" name="secondNumber" id="secondNumber"
+                    placeholder="Enter Second Number Here"></label>
+            <div class="flexBox">
+                <button class="operators" onclick="addition()">+</button>
+                <button class="operators" onclick="subtraction()">-</button>
+                <button class="operators" onclick="multiplication()">*</button>
+                <button class="operators" onclick="division()">/</button>
+            </div>
+            <label for="results"><input type="number" name="result" id="result" placeholder="Result Will Appear Here"
+                    readonly></label>
+        </div>
+    </div>
+</body>
+
+</html>

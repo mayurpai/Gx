@@ -1,0 +1,63 @@
+HomeWork:
+
+1. What Is WWW?
+2. Why Did It Come In The First Place?
+3. What Is HTTP?
+4. Why Do We Need HTTP?
+5. What Is The Structure Of HTTP?
+6. What Is IP Address?
+7. What Is ISP?
+8. What Is Internet?
+9. What Is The Different Ways To Connect Networks?
+10. What Are The Different Types Of IP Address?
+11. What Is Internal IP Vs External IP?
+12. What Is A Port?
+13. What Is A Motherboard?
+14. What Is FTP?
+15. What Is A Domain Name?
+16. What Are The Different Levels Of Domains?
+17. How Can One Buy Domain Names From Somebody?
+18. Who Receives The Request On The Servers?
+19. What Is Hosting?
+20. How Does Blocking Of Certain Domain Names Work?
+21. Whois? Ican?
+22. What Is A Web Server?
+23. What Are The Different Types Of Web Servers?
+24. What Happens When You Place A Request?
+25. What Is The Difference Between Object Based & Object Oriented?
+
+Points Of Consideration:
+
+1. Structure Of App And It's Levels (One Or Two Apps To Be Used)
+2. What Components Should I Have
+3. What Should Be The Folder Structure Of Your Code
+4. What Should Be Your Layering
+5. What Libraries, Tools And Software Should I Use
+6. What Coding Standards Should I Follow
+7. What Browsers Should It Work On
+8. What Devices Should It Work On
+9. What Should Be The Response Time
+10. What Should Be The Dataset
+11. Responsiveness Should Be Maintained
+12. Single Responsibility Principle (SRP)
+13. Error Logging (Sentry Software)
+14. Best Practices : Functions, Names, ClassNames, Structure
+
+Folder Structure:
+i. Styles
+ii. Scripts
+iii. Search
+iv. Booking
+v. Profile
+vi. Common
+vii. Services
+viii. Configuration
+ix. Modals
+
+6 Ways To Implement:
+1. UI
+2. Styles
+3. User Control Logic
+4. Business Logic
+5. Integration Logic
+6. Entities
