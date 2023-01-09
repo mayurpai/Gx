@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="assets/font-awesome/5.15.2/css/all.min.css" />
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .heading {
+            width: 100vw;
+            height: 3rem;
+            background-color: grey;
+            color: aliceblue;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            font-size: x-large;
+            padding-left: 1rem;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            background-color: white;
+        }
+
+        .sideView {
+            margin: .5rem;
+            height: 36rem;
+            width: 20.5rem;
+            border-radius: 1rem;
+            box-shadow: .3rem .3rem .3rem rgba(0, 0, 0, 0.5);
+        }
+
+        .mainView {
+            height: calc(100vh - 3rem);
+            width: calc(100vw - 20rem);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .topView {
+            position: relative;
+            justify-content: flex-start;
+        }
+
+        .bottomView {
+            position: absolute;  
+            bottom: 1rem;
+        }
+
+        img {
+            border-radius: 1rem;
+            width: 19.25rem;
+            height: 19.25rem;
+            text-align: center;
+            margin: 0.5rem 0.5rem;
+        }
+
+        p {
+            text-align: center;
+            font-weight: 700;
+        }
+
+        button {
+            border-radius: 5rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            box-shadow: inset 0.1rem 0.1rem 0rem rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            height: 3rem;
+            width: 10rem;
+            margin: 0 1rem;
+            text-align: center;
+            -webkit-border-radius: 5rem;
+            -moz-border-radius: 5rem;
+            -ms-border-radius: 5rem;
+            -o-border-radius: 5rem;
+            transition: all 1s;
+            -webkit-transition: all 1s;
+            -moz-transition: all 1s;
+            -ms-transition: all 1s;
+            -o-transition: all 1s;
+        }
+
+        .Follow {
+            background-color: green;
+        }
+
+        .Message {
+            background-color: red;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .add {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li {
+            margin: .5rem 2rem;
+            font-weight: 400;
+        }
+
+        li a {
+            color: steelblue;
+        }
+
+        i {
+            margin-right: .5rem;
+            color: steelblue;
+        }
+    </style>
+
+    <div class="heading">
+        Dashboard
+    </div>
+    <div class="container">
+        <div class="sideView">
+            <img src="https://avatars.githubusercontent.com/u/45145409?v=4" alt="Profile">
+            <p>Mayur Pai <br /> Associate Developer</p>
+            <div class="add">
+                <button class="Follow"><a href="#">Follow</a></button>
+                <button class="Message"><a href="#">Message</a></button>
+            </div>
+            <ul>
+                <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Overview</a></li>
+                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Account Settings</a></li>
+                <li><a href="#"><i class="fa fa-check" aria-hidden="true"></i>Tasks</a></li>
+                <li><a href="#"><i class="fa fa-flag" aria-hidden="true"></i>Help</a></li>
+            </ul>
+        </div>
+        <div class="mainView">
+            <div class="topView">
+                Some User Related Content Goes Here!</div>
+            <div class="bottomView">
+                Email - mayur5pai@gmail.com
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

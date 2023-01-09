@@ -1,0 +1,311 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6290e0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6290e0bc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+i {
+  color: lightgray;
+}
+
+i:hover {
+  color: #6290e0;
+}
+
+header {
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.left-side,
+.right-side {
+  width: max-content;
+  display: flex;
+}
+
+.object {
+  display: flex;
+  width: 100vw;
+  height: 3.5rem;
+  /* background-color: #6290e0; */
+  box-shadow: 0 0.05rem 0rem rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  margin-left: 1rem;
+}
+
+li img {
+  height: 5rem;
+  width: 5rem;
+}
+
+ul li:first-child {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+}
+
+.details {
+  width: 20%;
+  height: 50rem;
+  /* background-color: aliceblue; */
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+}
+
+.flight-schedule {
+  width: 80%;
+  height: 85rem;
+  /* background-color: #6290e0; */
+}
+
+.alarm-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5rem;
+  width: 65%;
+  display: flex;
+}
+
+.alarm {
+  height: 3rem;
+  width: 3rem;
+  background-color: black;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alarm-details {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.alarm i {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: small;
+}
+
+.offers {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.offer {
+  margin-top: 0.5rem;
+  display: flex;
+  width: 51.5rem;
+  background-color: #fef4cc;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.offer span {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  background-color: #f79c63;
+  color: white;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  font-size: small;
+}
+.offer h6 {
+  font-size: smaller;
+  margin-top: 0.25rem;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.airlines {
+  height: 50rem;
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
+  /* background-color: #6290e0; */
+}
+
+.overall {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem;
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.2);
+}
+.image img {
+  height: 3rem;
+  width: 3rem;
+}
+
+
+.img-desc,
+.depart,
+.duration,
+.arrival,
+.price,
+.buyNow,
+.routes,
+.from,
+.to {
+  height: 5rem;
+  align-items: center;
+  display: flex;
+  font-size: 0.9rem;
+}
+
+.desc {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.price,
+#flightName,
+#flightNameTwo,
+#flightNameThree,
+#flightNameFour,
+#flightNameFive,
+#flightNameSix,
+#flightNameSeven,
+#flightNameEight,
+#flightNameNine,
+#flightNameTen {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+#flightName,
+#flightNameTwo,
+#flightNameThree,
+#flightNameFour,
+#flightNameFive,
+#flightNameSix,
+#flightNameSeven,
+#flightNameEight,
+#flightNameNine,
+#flightNameTen {
+  font-weight: bolder;
+  font-size: medium;
+}
+
+#flightName,
+#flightNameTwo,
+#flightNameThree,
+#flightNameFour,
+#flightNameFive,
+#flightNameSix,
+#flightNameSeven,
+#flightNameEight,
+#flightNameNine,
+#flightNameTen {
+  font-size: small;
+  color: gray;
+}
+
+#bookOne,
+#bookTwo,
+#bookThree,
+#bookFour,
+#bookFive,
+#bookSix,
+#bookSeven,
+#bookEight,
+#bookNine,
+#bookTen {
+  padding: 0.4rem 1rem;
+  background-color: #6290e0;
+  color: white;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.about {
+  display: flex;
+  justify-content: left;
+  color: black;
+  font-size: xx-small;
+  margin-left: 2rem;
+}
+ul {
+  display: flex;
+}
+li {
+  margin-left: 1rem;
+}
+.tool {
+  display: flex;
+  justify-content: left;
+  color: black;
+  width: 90vw;
+  font-size: xx-small;
+  margin-left: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}

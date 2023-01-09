@@ -1,0 +1,348 @@
+const ITEMS_REQUEST = "ITEMS_REQUEST";
+const ITEMS_REQUEST_SUCCESS = "ITEMS_REQUEST_SUCCESS";
+export function itemsRequest(bool, startIndex, endIndex) {
+  let payload = {
+    isLoading: bool,
+    startIndex,
+    endIndex,
+  };
+  return {
+    type: ITEMS_REQUEST,
+    payload,
+  };
+}
+export function itemsRequestSuccess(bool) {
+  return {
+    type: ITEMS_REQUEST_SUCCESS,
+    isLoading: bool,
+  };
+}
+dispatch(itemsRequest(true, 1, 20));
+dispatch(itemsRequestSuccess(false));
+
+const initialState = { isLoading: false, items: [] };
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "ITEMS_REQUEST":
+      return Object.assign({}, state, {
+        isLoading: action.payload.isLoading,
+      });
+    case "ITEMS_REQUEST_SUCCESS":
+      return Object.assign({}, state, {
+        items: state.items.concat(action.items),
+        isLoading: action.isLoading,
+      });
+    default:
+      return state;
+  }
+};
+
+import { createStore } from "redux";
+import reducer from "./reducers/reducer";
+const store = createStore(reducer);
+createStore(reducer, [preloadedState], [enhancer]);
+store.getState();
+store.dispatch({ type: "ITEMS_REQUEST" });
+store.subscribe(() => {
+  console.log(store.getState());
+});
+const unsubscribe = store.subscribe(() => {
+  console.log(store.getState());
+});
+unsubscribe();
+
+const double = (x) => x * 2; // es6 arrow function known as pure function
+console.log(double(2));
+
+const initialStateAddToCart = {
+  isAddedToCart: false,
+};
+const addToCartReducer = (state = initialState, action) => {
+  //es6 arrow function
+  switch (action.type) {
+    case "ADD_TO_CART_SUCCESS":
+      state.isAddedToCart = !state.isAddedToCart; //original object altered
+      return state;
+    default:
+      return state;
+  }
+};
+export default addToCartReducer;
+
+
+applyMiddleware(...middleware)
+import {​​​​​ createStore, applyMiddleware }​​​​​ from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/index';
+const store = createStore(rootReducer, applyMiddleware(thunk)); ({​​​​​ getState, dispatch }​​​​​) => next => action
+
+import {​​​​​ createStore, applyMiddleware }​​​​​ from 'redux'
+import userLogin from './reducers' function logger({​​​​​ getState }​​​​​) {​​​​​
+   return next => action => {​​​​​
+      console.log(‘action’, action);
+      const returnVal = next(action);
+      console.log('state when action is dispatched', getState()); 
+      return returnVal;
+   }​​​​​
+}​​​​​
+
+import isPromise from 'is-promise'; function loaderHandler({​​​​​ dispatch }​​​​​) {​​​​​
+   return next => action => {​​​​​
+      if (isPromise(action)) {​​​​​
+         dispatch({​​​​​ type: 'SHOW_LOADER' }​​​​​);
+         action
+            .then(() => dispatch({​​​​​ type: 'HIDE_LOADER' }​​​​​))
+            .catch(() => dispatch({​​​​​ type: 'HIDE_LOADER' }​​​​​));
+      }​​​​​
+      return next(action);
+   }​​​​​;
+}​​​​​
+
+const store = createStore(
+   userLogin , initialState = [ ] , 
+   applyMiddleware(loaderHandler)
+);
+
+
+export function itemsRequestSuccess(bool) {​​​​​
+   return {​​​​​
+      type: ITEMS_REQUEST_SUCCESS,
+      isLoading: bool,
+   }​​​​​
+}
+​​​​​
+import * as action from '../actions/actions';
+import * as types from '../../constants/ActionTypes'; describe('actions', () => {​​​​​
+   it('should create an action to check if item is loading', () => {​​​​​ 
+      const isLoading = true, 
+      const expectedAction = {​​​​​ 
+         type: types.ITEMS_REQUEST_SUCCESS, isLoading 
+      }​​​​​ 
+      expect(actions.itemsRequestSuccess(isLoading)).toEqual(expectedAction) 
+   }​​​​​)
+}​​​​​)
+
+const initialState = {​​​​​
+   isLoading: false
+}​​​​​;
+
+const reducer = (state = initialState, action) => {​​​​​
+   switch (action.type) {​​​​​
+      case 'ITEMS_REQUEST':
+         return Object.assign({​​​​​}​​​​​, state, {​​​​​
+            isLoading: action.payload.isLoading
+         }​​​​​)
+      default:
+         return state;
+   }​​​​​
+}​​​​​
+export default reducer;
+
+import reducer from '../../reducer/reducer' 
+import * as types from '../../constants/ActionTypes'
+ 
+describe('reducer initial state', () => {
+   it('should return the initial state', () => {
+      expect(reducer(undefined, {})).toEqual([
+         {
+            isLoading: false,
+         }
+      ])
+   })
+   it('should handle ITEMS_REQUEST', () => {
+      expect(
+         reducer(
+            {
+               isLoading: false,
+            },
+            {
+               type: types.ITEMS_REQUEST,
+               payload: { isLoading: true }
+            }
+         )
+      ).toEqual({
+         isLoading: true
+      })
+   })
+})
+
+
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux';
+import reducer from './reducers/reducer'
+import thunk from 'redux-thunk';
+import App from './components/app'
+import './index.css';
+ 
+const store = createStore(
+   reducer,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+   applyMiddleware(thunk)
+)
+render(
+<Provider store = {store}>
+<App />
+</Provider>,
+   document.getElementById('root')
+)
+
+import { connect } from 'react-redux'
+import Listing from '../components/listing/Listing' //react component
+import makeApiCall from '../services/services' //component to make api call
+ 
+const mapStateToProps = (state) => {
+   return {
+      items: state.items,
+      isLoading: state.isLoading
+   };
+};
+const mapDispatchToProps = (dispatch) => {
+   return {
+      fetchData: () => dispatch(makeApiCall())
+   };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Listing);
+
+import axios from 'axios'
+import { itemsLoading, itemsFetchDataSuccess } from '../actions/actions'
+ 
+export default function makeApiCall() {
+   return (dispatch) => {
+      dispatch(itemsLoading(true));
+      axios.get('http://api.tvmaze.com/shows')
+      .then((response) => {
+         if (response.status !== 200) {
+            throw Error(response.statusText);
+         }
+         dispatch(itemsLoading(false));
+         return response;
+      })
+      .then((response) => dispatch(itemsFetchDataSuccess(response.data)))
+   };
+}
+
+/src/index.js
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux';
+import reducer from '../src/reducer/index'
+import App from '../src/App'
+import './index.css';
+ 
+const store = createStore(
+   reducer,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && 
+   window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+render(
+<Provider store = {store}>
+<App />
+</Provider>, document.getElementById('root')
+)
+
+/src/app.js
+ 
+import React, { Component } from 'react';
+import './App.css';
+import Counter from '../src/container/appContainer';
+ 
+class App extends Component {
+   render() {
+      return (
+<div className = "App">
+<header className = "App-header">
+<Counter/>
+</header>
+</div>
+      );
+   }
+}
+export default App;
+
+container/counterContainer.js
+ 
+import { connect } from 'react-redux'
+import Counter from '../component/counter'
+import { increment, decrement, reset } from '../actions';
+ 
+const mapStateToProps = (state) => {
+   return {
+      counter: state
+   };
+};
+const mapDispatchToProps = (dispatch) => {
+   return {
+      increment: () => dispatch(increment()),
+      decrement: () => dispatch(decrement()),
+      reset: () => dispatch(reset())
+   };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+container/counterContainer.js
+ 
+import { connect } from 'react-redux'
+import Counter from '../component/counter'
+import { increment, decrement, reset } from '../actions';
+ 
+const mapStateToProps = (state) => {
+   return {
+      counter: state
+   };
+};
+const mapDispatchToProps = (dispatch) => {
+   return {
+      increment: () => dispatch(increment()),
+      decrement: () => dispatch(decrement()),
+      reset: () => dispatch(reset())
+   };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+/component/counter.js
+import React, { Component } from 'react';
+class Counter extends Component {
+   render() {
+      const {counter,increment,decrement,reset} = this.props;
+      return (
+<div className = "App">
+<div>{counter}</div>
+<div>
+<button onClick = {increment}>INCREMENT BY 1</button>
+</div>
+<div>
+<button onClick = {decrement}>DECREMENT BY 1</button>
+</div>
+<button onClick = {reset}>RESET</button>
+</div>
+      );
+   }
+}
+export default Counter;
+
+/actions/index.js
+export function increment() {
+   return {
+      type: 'INCREMENT'
+   }
+}
+export function decrement() {
+   return {
+      type: 'DECREMENT'
+   }
+}
+export function reset() {
+   return { type: 'RESET' }
+}
+
+reducer/index.js
+const reducer = (state = 0, action) => {
+   switch (action.type) {
+      case 'INCREMENT': return state + 1
+      case 'DECREMENT': return state - 1
+      case 'RESET' : return 0 default: return state
+   }
+}
+export default reducer;

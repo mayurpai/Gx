@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:context="http://www.springframework">
+
+	<bean id = "parentAddress" class="di.example.bean.inheritance.Employee">
+		<property name="list">
+			<list>
+				<ref bean="officeAddress" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="employee" class="di.example.bean.inheritance.Employee" parent="parentAddress">
+		<constructor-arg index="0" value="1" />
+		<constructor-arg index="1" value="Chandra Shekhar" />
+		<constructor-arg index="2" value="15000" />
+		<property name="list">
+			<list merge="true">
+				<ref bean = "homeAddress" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="officeAddress" class="di.example.bean.inheritance.Address">
+		<property name="doorNo" value="18" />
+		<property name="streetName" value="Silkboard" />
+		<property name="city" value="Bangalore" />
+	</bean>
+
+	<bean id = "homeAddress" class="di.example.bean.inheritance.Address">
+		<property name="doorNo" value="55" />
+		<property name="streetName" value="Vijayanagar" />
+		<property name="city" value="Bangalore" />
+	</bean>
+
+
+</beans>

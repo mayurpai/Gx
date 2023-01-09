@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="../styles/searchresult-style.css">
+    <link rel="icon" href="../images/logo.ico" type="image/x-icon">
+    <title>Search Results</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="col-md-12">
+            <div class="left-side">
+                <ul>
+                    <li><a href="../search/search.html"><img src="../images/logo.png" alt="">HappyTrip</a></li>
+                    <li><a href=""><i class="fa fa-plane"></i></a></li>
+                    <li><a href=""><i class="fa fa-bed"></i></a></li>
+                    <li><a href=""><i class="fa fa-train"></i></a></li>
+                    <li><a href=""><i class="fa fa-walking"></i></a></li>
+                </ul>
+            </div>
+            <div class="right-side">
+                <ul>
+                    <li><a href=""> INR ₹</a></li>
+                    <li><a href=""> <i class="fa fa-headphones">&nbsp; Support</i></a></li>
+                    <li><a href=""> <i class="fa fa-user-circle">&nbsp; Login</i></a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- <div class="object">
+
+        </div> -->
+        <div class="container">
+            <div class="details">
+                <div class="alarm-card">
+                    <div class="alarm">
+                        <i class="fa fa-bell"></i>
+                    </div>
+                    <div class="alarm-details">
+                        <h6>Get fare updates <br> via email <br> <a href="#">Set a fare alert</a></h6>
+                    </div>
+                </div>
+                <hr>
+                <b>10 of 10 flights</b>
+                <br>
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                Stop
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                            aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body" style="display: flex; flex-direction: column">
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Non-stop</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;1 stop</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;2 stops</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                                Departure time
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body" style="display: flex; flex-direction: column">
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Early morning: Midnight -
+                                    8am</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Morning: 8am - Noon</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Afternoon: Noon - 4pm</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Evening: 4pm - 8pm</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Night: 8pm - Midnight</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree">
+                                One-way price
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingThree">
+                            <div class="accordion-body">
+                                Up to ₹14,272
+                                <div id="cost">₹ 7136</div>
+                                <input type="range" min="2456" max="14272" step="any" style="width: 100%"
+                                    oninput="document.getElementById('cost').innerHTML = `₹ ` + parseInt(this.value)"
+                                    onchange="document.getElementById('cost').innerHTML = `₹ ` + parseInt(this.value)" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseFour">
+                                Airline
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingFour">
+                            <div class="accordion-body" style="display: flex; flex-direction: column">
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Air Asia: ₹2,797</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Air India: ₹2,992</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;GO FIRST: ₹2,994</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;IndiGo: ₹2,546</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;SpiceJet: ₹2,893</label>
+                                <label for=""><input type="checkbox" name="" id="">&nbsp;Vistara: ₹4,535</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseFive">
+                                Trip duration
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingFive">
+                            <div class="accordion-body">
+                                <div id="times">3 hours</div>
+                                <input type="range" min="2" max="5" step="any" style="width: 100%"
+                                    oninput="document.getElementById('times').innerHTML = parseInt(this.value) + ` hours`"
+                                    onchange="document.getElementById('times').innerHTML = parseInt(this.value) + ` hours`" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseSix">
+                                Layover duration
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
+                            aria-labelledby="panelsStayOpen-headingSix">
+                            <div class="accordion-body">
+                                <div id="times">2 hours</div>
+                                <input type="range" min="0" max="3" step="any" style="width: 100%"
+                                    oninput="document.getElementById('times').innerHTML = parseInt(this.value) + ` hours`"
+                                    onchange="document.getElementById('times').innerHTML = parseInt(this.value) + ` hours`" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flight-schedule">
+                <div class="offers">
+                    <div class="offer">
+                        <span>OFFER</span>
+                        <h6>&nbsp; Up to 15% off with UPI Payment (Code: CTUPI) <a href="#"> Know more </a></h6>
+                    </div>
+                    <div class="offer">
+                        <span>OFFER</span>
+                        <h6>&nbsp;
+                            Flat ₹ 600/pax off with Mobikwik (Code: CTMBK) <a href="#"> Know more </a></h6>
+                    </div>
+                </div>
+                <div class="airlines">
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://th.bing.com/th/id/R.032eba4da0b54d568f8b4203f60fb9c6?rik=d%2fAJgerf9A62qg&riu=http%3a%2f%2fwww.contactnumbers.in%2fwp-content%2fuploads%2f2015%2f04%2fIndiGo_airlines_Logo2.jpg&ehk=JkB2AETVW%2ftF1tUOzpgf728DfV4L63CEutBqzRI9N6g%3d&risl=&pid=ImgRaw&r=0" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightName"></span>
+                                    <span id="flightNumber"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCity"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCity"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTime"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="duration"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTime"></span>
+                        </div>
+                        <div class="price">
+                            <span id="price"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routes"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookOne">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://www.farehawker.com/img/image/vistara-logo-large.jpg" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameTwo"></span>
+                                    <span id="flightNumberTwo"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCityTwo"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCityTwo"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeTwo"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationTwo"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeTwo"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceTwo"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesTwo"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookTwo">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://th.bing.com/th/id/OIP.TQGi9KJJPACbeelpX8dgsQHaHP?pid=ImgDet&rs=1" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameThree"></span>
+                                    <span id="flightNumberThree"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCityThree"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCityThree"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeThree"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationThree"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeThree"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceThree"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesThree"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookThree">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://th.bing.com/th/id/R.3a3547dc8cf37072bfacb0755ad7da58?rik=fBZtlBszqs8XQQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-6YOY3SMN7kI%2fTwPF5jQYJqI%2fAAAAAAAAEAs%2ffR3TcoJHvzk%2fs1600%2fspicejet_logo.png&ehk=VITKeRPupnGWuF5xYSkQpQHcZzKXkB0nFubSW2JGmz8%3d&risl=&pid=ImgRaw&r=0" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameFour"></span>
+                                    <span id="flightNumberFour"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCityFour"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCityFour"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeFour"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationFour"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeFour"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceFour"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesFour"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookFour">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://www.farehawker.com/img/image/Goair.png" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameFive"></span>
+                                    <span id="flightNumberFive"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCityFive"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCityFive"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeFive"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationFive"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeFive"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceFive"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesFive"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookFive">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://th.bing.com/th/id/OIP.Ly9L-epkuYNh9GvjTw75ngHaFj?pid=ImgDet&rs=1" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameSix"></span>
+                                    <span id="flightNumberSix"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCitySix"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCitySix"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeSix"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationSix"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeSix"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceSix"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesSix"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookSix">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://lookuptwice.com/wp-content/uploads/2020/11/Air-costa.png" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameSeven"></span>
+                                    <span id="flightNumberSeven"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCitySeven"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCitySeven"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeSeven"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationSeven"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeSeven"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceSeven"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesSeven"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookSeven">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://th.bing.com/th/id/OIP.MAsud9UPvajaGNqDVkZ_YAHaHa?pid=ImgDet&rs=1" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameEight"></span>
+                                    <span id="flightNumberEight"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCityEight"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCityEight"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeEight"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationEight"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeEight"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceEight"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesEight"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookEight">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://th.bing.com/th/id/R.553fd27500a2a1112462dad1c99d93c5?rik=KanUQICRBHD8KA&riu=http%3a%2f%2flogonoid.com%2fimages%2fair-asia-logo.png&ehk=Z54jZu4c%2b6vIJ3bDHLLm5X5SLuSa4CFGIBKZnRLCyJ8%3d&risl=&pid=ImgRaw&r=0" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameNine"></span>
+                                    <span id="flightNumberNine"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCityNine"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCityNine"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeNine"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationNine"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeNine"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceNine"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesNine"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookNine">Book</button>
+                        </div>
+                    </div>
+                    <div class="overall">
+                        <div class="flight">
+                            <div class="img-desc">
+                                <div class="image">
+                                    <img src="https://www.ch-aviation.com/images/stockPhotos/6840/99df7a96e4e98e1874d219bd77f5fc961b04e379.png" alt="logo">
+                                </div>
+                                <div class="desc">
+                                    <span id="flightNameTen"></span>
+                                    <span id="flightNumberTen"></span>
+                                </div>
+                            </div>
+                            <h6 style="margin-top: -.75rem; color: #6290e0;">Flight details</h6>
+                        </div>
+                        <div class="from">
+                            <span id="fromCityTen"></span>
+                        </div>
+                        <div class="to">
+                            <span id="toCityTen"></span>
+                        </div>
+                        <div class="depart">
+                            <span id="departTimeTen"></span>
+                        </div>
+                        <div class="duration">
+                            <span id="durationTen"></span>
+                        </div>
+                        <div class="arrival">
+                            <span id="reachTimeTen"></span>
+                        </div>
+                        <div class="price">
+                            <span id="priceTen"></span>
+                        </div>
+                        <div class="routes">
+                            <span id="routesTen"></span>
+                        </div>
+                        <div class="buyNow">
+                            <button id="bookTen">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center text-white">
+            <hr>
+            <div class="about">
+                <ul>
+                    <li>AboutUs</li>
+                    <li>Career</li>
+                    <li>FAQs</li>
+                    <li>Support</li>
+                    <li>Blog</li>
+                    <li>Mobile</li>
+                    <li>Collections</li>
+                    <li>Happytripforbusiness</li>
+                    <li>Giftcards</li>
+                    <li>Holiday Planner</li>
+                </ul>
+            </div>
+            <div class="about">
+                <ul>
+                    <li>&copy;2006-2022 Happytrip pvt LTD</li>
+                    <li>Privacy</li>
+                    <li>Security</li>
+                    <li>TermsofUse</li>
+                    <li>Covid-19 Lockdown refund procedure</li>
+
+                </ul>
+            </div>
+            <div class="tool">
+                <ul>
+                    <li><b>Other Tools:</b></li>
+                    <li>Cheap air tickets</li>
+                    <li>Flight tickets</li>
+                    <li>Indiahotel</li>
+                    <li>Checkflightstatus</li>
+                    <li>IRCTC Railway Resevation</li>
+                    <li>Indian Railways PNR Status</li>
+                    <li>Tatkal booking</li>
+                    <li>IRCTC Seat Availability</li>
+                    <li>Cheap Domestic Air Tickets</li>
+                    <li>Domestic Flights</li>
+                    <li>Domestic Airlines in India</li>
+                    <li>International Air tickets</li>
+                    <li>International flight</li>
+                    <li>International Airlines</li>
+                    <li>Holiday packages</li>
+                </ul>
+
+            </div>
+            <hr>
+            <!-- Copyright -->
+        </footer>
+    </div>
+    <script type="module" src="./searchResults.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "springjars/j2ee/org.springframework.jms-3.0.1.RELEASE-A.jar"
+    ]
+}

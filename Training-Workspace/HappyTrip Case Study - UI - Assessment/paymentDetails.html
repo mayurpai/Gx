@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: lightskyblue;
+    }
+
+
+    .main {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+        background-color: #A9C9FF;
+    }
+
+    form {
+        border-top: 1px solid whitesmoke;
+        border-bottom: 1px solid whitesmoke;
+        border-radius: 1rem;
+        padding: 1rem .75rem;
+        font-weight: 500;
+        box-shadow: .5rem .5rem 0.5rem rgba(0, 0, 0, 0.5);
+    }
+
+    .former {
+        width: 24rem;
+        height: 14rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    form h3 {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+
+    .flexBox {
+        display: flex;
+        border-radius: .2rem;
+        justify-content: space-between;
+        font-weight: 500;
+        width: 20rem;
+        margin-left: 1.9rem;
+    }
+
+    input[type=email],
+    #Name,
+    #CardNumber {
+        width: 20rem;
+        background-color: rgb(59, 89, 152);
+        height: 2rem;
+        color: lightcyan;
+        border-radius: .2rem;
+        text-align: left;
+        padding-left: .4rem;
+        border-bottom: 1px solid gray;
+        font-size: 0.8rem;
+    }
+
+    ::placeholder {
+        color: lightcyan;
+    }
+
+    #Expiry,
+    #CVV {
+        color: lightcyan;
+        font-size: 0.8rem;
+        background-color: rgb(59, 89, 152);
+        width: 9rem;
+        padding-left: .4rem;
+        height: 2rem;
+        text-align: left;
+        border-bottom: 1px solid gray;
+    }
+
+    .submit {
+        width: 20rem;
+        height: 2.5rem;
+        margin-right: .25rem;
+        font-size: 0.8rem;
+        background-color: black;
+        text-align: left;
+        border-radius: .2rem;
+        padding-left: .4rem;
+        color: white;
+        background-color: #0093E9;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+        font-weight: 500;
+        border: none;
+    }
+
+    .fa {
+        position: absolute;
+        margin-left: -1.35rem;
+        margin-top: 0.75rem;
+        font-size: 1rem;
+        color: white;
+    }
+
+    button {
+        background-color: rgb(59, 89, 152);
+        color: white;
+        width: 20rem;
+        height: 2.5rem;
+        font-weight: 500;
+        border: none;
+    }
+
+    .output {
+        font-size: 2rem;
+    }
+
+    i {
+        color: black;
+        font-size: 2rem;
+    }
+
+    #success {
+        height: 1rem;
+        width: 1rem;
+        color: black;
+        font-size: 1rem;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="main">
+        <form>
+            <h3>Payment Details</h3>
+            <div class="former">
+                <label for="Name"><input type="text" name="Name" id="Name" placeholder="Person Name" required></label>
+                <label for="CardNumber"><input type="text" maxlength="16" pattern="[0-9]{16}" name="CardNumber"
+                        id="CardNumber" placeholder="Card Number (1234 5678 4352 6789)" required></label>
+                <div class="flexBox">
+                    <label for="Expiry">
+                        <input type="text" maxlength="7" name="Expiry" id="Expiry" placeholder="MM/YYYY" required>
+                    </label>
+                    <label for="CVV">
+                        <input type="text" maxlength="3" pattern="[0-9]{3}" name="CVV" id="CVV" placeholder="CVV/CVC"
+                            required>
+                    </label>
+                </div>
+                <label for="Submit"><input class="submit" id="paymentSubmission" type="submit" value="Pay $243"><i
+                        class="fa fa-arrow-right"></i></label>
+
+            </div>
+        </form>
+    </div>
+    <script>
+        let date = new Date();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        const regexMonth = new RegExp(/^[0-1][0-9]$/);
+        const regexYear = new RegExp(/^[0-9]{4}$/);
+        document.getElementById('paymentSubmission').onclick = function paymentSubmission() {
+            // if (!(document.getElementById("Name").value.length > 0) || !(isNaN(document.getElementById("Name").value)))
+            //     alert("Invalid Name")
+
+            let expiry = document.getElementById("Expiry").value.split("/")
+            let monthChecker = regexMonth.test(expiry[0])
+            let yearChecker = regexYear.test(expiry[1])
+            if (monthChecker && (expiry[0] >= 1 && expiry[0] <= 12) || expiry[0].length == 0) {
+                if (expiry[0][0] != 1 && expiry[0][1] > month)
+                    ;
+                else if (expiry[0] > month)
+                    ;
+                else
+                    alert("Month Should Be Greater Than Current Month")
+            }
+            else
+                alert("Invalid Month")
+            if (yearChecker && (expiry[1] >= year) || expiry[1].length != 0)
+                ;
+            else
+                alert("Invalid Year")
+            return false;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+1. List Out Top 5 UI Web Applications & Justify, Why Do You Think They Are Good?
+
+A. Brave Browser:
+-> Invasive Ads Blocked
+-> Cross-site Trackers Blocked
+-> Cookies Blocked
+-> Malware & Phishing Attacks Protection
+-> Anonymized Network Routing
+
+B. Medium:
+-> An Online Reading And Publishing Platform
+-> Minimal Use Of Color, Generous Line Spacing, Well Choosen Combination Of Typography
+-> An Amazing And Effortless Editorial Experience
+->  Presented With An Almost Empty White Page, Removing Clutter And Simply Providing A Clean Space To Focus On Writing.
+
+C. Airbnb:
+-> Booking A Place To Stay
+-> Just Choose A Destination That Users Would Like To Go, Along With The Duration Of Their Stay And The Number Of Guests.
+-> Airbnb Takes Pride In Bringing People Together And Gives The Conversation Importance Over The Transaction
+-> Used Engaging Photos And Videos To Ensure That The Interface Conveys An Emotional Tone That Helps Create A Sense Of Trust Between Strangers.
+
+D. Dropbox: 
+-> One Of The Most Easily Understandable Interfaces 
+-> Having A Folder And File Organizational Structure Is Easily Recognizable
+-> Dropbox’s Friendly Personality, Created By Lighthearted Illustrations, Helps The User Feel Comfortable When Using The Product.
+-> There’s So Much Attention To Detail, With Sequenced Color Palettes And Animated Icons, And Wonderful Illustration That Is Coordinated With All The Other Wonderful Illustrations
+
+E. MakeMyTrip:
+-> One Is Able To Book Flights, Hotels, Homestays, Holiday Packages, Trains, Buses, Cabs, Etc.
+-> It Offers OneWay And Round Trip Bookings To Be Done With Clear Mentioning Beforehand On The Homepage
+-> Providing Great Offers, Competitive Airfares, Exclusive Discounts, And A Seamless Online Booking Experience To Many Of Its Customers
+->  Instant Notifications Ensure Current Flight Status, Instant Fare Drops, Amazing Discounts, Instant Refunds And Rebook Options, Price Comparisons And Many More Interesting Features.
+-> Booking Your Flight Tickets, Hotel Stay, And Holiday Package Through Our Desktop Site Or Mobile App Can Be Done With Complete Ease And No Hassles At All
+
+

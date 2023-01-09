@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href='https://fonts.googleapis.com/css?family=Libre Barcode 39' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../style/happytrip-styles.css" />
+  <title>Booking Confirmation</title>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+
+  <!-- <nav class="navbar navbar-light bg-light col-12"> -->
+  <!-- <div class="container-fluid">
+          <a class="navbar-brand col-2" href="#" >
+            <img
+              src="https://www.travelbizmonitor.com/wp-content/uploads/2022/09/Cleartrip-New-Logo.png"
+              alt=""
+              height="24"
+              class="d-inline-block align-text-top"
+            />
+          </a>
+          <div class="subsection-nav">
+            <a class="navbar-brand nav-element" href="#">
+              INR<i class="bi bi-currency-rupee"></i>
+            </a>
+            <a class="navbar-brand nav-element" href="#">
+              <i class="bi bi-headset"></i>&nbsp; Support
+            </a>
+            <a class="navbar-brand nav-element" href="#">
+              <i class="bi bi-person-circle"></i>&nbsp; Log in
+            </a>
+          </div>
+        </div> -->
+  <!-- </nav>
+  -->
+
+
+
+
+  <div class="container" style="font-size:12px; height: 110rem; margin-top: 2rem;">
+    <div class="row align-items-center">
+      <!-- <div class="col-3 side"> -->
+      <!-- Sidebar -->
+
+      <!-- <div
+            id="sidebarMenu"
+            class="collapse d-lg-block sidebar collapse bg-white"></div>
+          
+            <div class="position-sticky">
+              <div class="list-group list-group-flush mx-3 mt-4">
+                <a
+                  href="../booking/booking.html"
+                  class="list-group-item list-group-item-action py-2 ripple active"
+                  aria-current="true"
+                >
+                  <i class="bi bi-airplane "></i>&nbsp;<span>Flights</span
+                  ><i class="bi bi-chevron-right" style="float: right"></i>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action py-2 ripple"
+                >
+                  <i class="bi bi-house"></i>&nbsp;<span>Hotels</span
+                  ><i class="bi bi-chevron-right" style="float: right"></i>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action py-2 ripple"
+                  ><i class="bi bi-star-fill"></i>&nbsp;<span
+                    >Cleartrip for Work</span
+                  ></a
+                >
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action py-2 ripple"
+                  ><i class="bi bi-percent"></i>&nbsp;<span>Top Offers</span></a
+                >
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action py-2 ripple"
+                >
+                  <i class="bi bi-gift-fill"></i>&nbsp;<span>Gift Cards</span>
+                </a>
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action py-2 ripple"
+                  ><i class="bi bi-headset"></i>&nbsp;<span>Support</span></a
+                >
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action py-2 ripple"
+                  ><i class="bi bi-briefcase-fill"></i>&nbsp;<span
+                    >Manage Trips</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div> -->
+    </div>
+    <div style="padding:10px;margin-left:20rem;border:solid 3px grey;box-shadow: 10px 10px 5px lightgray;"
+      class="col-md-8 ">
+      <h4>E-generated Confirmed Ticket</h4>
+      <p>We have confirmed your booking and the same details recived through registered Email ID. Your Booking ID
+        is <span id="tripId" style="font-weight: bold;"></span>. Use this ID in any communication with Happytrip.
+      </p>
+      <P style="font-family: 'Libre Barcode 39';font-size: 30px; ">
+        <a href="../search/search.html"><img src="/images/logo.png" style="height:10rem ; width:10rem"></a>
+        abcdefghi jklmnopq rst uvwxy z <br>
+      </P><br>
+
+      <p style="color: blue;">Note: Carry it along with the ID proof mentioned in the ticket when you
+        board the flight</p>
+      <!-- <p style=" border-top:2px solid skyblue;border-bottom:2px solid skyblue;background-color:lightblue"><b>Note:&nbsp;</b><u><a href="#"style="color:blue"onclick="printpage()" >Print</a></u> the e-ticket and carry it along with the ID proof mentioned in the ticket when you board the flight.</p> -->
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="6" id="Travel" style="background-color: lightgrey"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Transaction ID</td>
+              <td id="transactionID"></td>
+              <td>From</td>
+              <td id="From"></td>
+              <td>Airline</td>
+              <td id="Flightname"></td>
+
+            </tr>
+            <tr>
+              <td>Flight Name </td>
+              <td id="FlightName"></td>
+              <td>To</td>
+              <td id="To"></td>
+              <td>Date of journey</td>
+              <td id="Departdate"></td>
+            </tr>
+            <tr>
+              <td>Schedule Departure</td>
+              <td id="Departtime"></td>
+              <td>Boarding Point</td>
+              <td id="Boardingpoint"></td>
+              <td>Date of boarding</td>
+              <td id="Boardingdate"></td>
+            </tr>
+            <tr>
+              <td>Duration:</td>
+              <td colspan="5" id="Duration"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="6" style="background-color: lightgrey">Passenger details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>S.No.</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Seat No</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td id="Passengername1"></td>
+              <td id="age1"></td>
+              <td id="gender1"></td>
+              <td id="seat1"></td>
+              <td id="confirm1"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td id="Passengername2"></td>
+              <td id="age2"></td>
+              <td id="gender2"></td>
+              <td id="seat2"></td>
+              <td id="confirm2"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td id="Passengername3"></td>
+              <td id="age3"></td>
+              <td id="gender3"></td>
+              <td id="seat3"></td>
+              <td id="confirm3"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td id="Passengername4"></td>
+              <td id="age4"></td>
+              <td id="gender4"></td>
+              <td id="seat4"></td>
+              <td id="confirm4"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td id="Passengername5"></td>
+              <td id="age5"></td>
+              <td id="gender5"></td>
+              <td id="seat5"></td>
+              <td id="confirm5"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td id="Passengername6"></td>
+              <td id="age6"></td>
+              <td id="gender6"></td>
+              <td id="seat6"></td>
+              <td id="confirm6"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td id="Passengername7"></td>
+              <td id="age7"></td>
+              <td id="gender7"></td>
+              <td id="seat7"></td>
+              <td id="confirm7"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td id="Passengername8"></td>
+              <td id="age8"></td>
+              <td id="gender8"></td>
+              <td id="seat8"></td>
+              <td id="confirm8"></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td id="Passengername9"></td>
+              <td id="age9"></td>
+              <td id="gender9"></td>
+              <td id="seat9"></td>
+              <td id="confirm9"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="8" style="background-color: lightgrey">General Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th rowspan="2">Price details</th>
+              <td>Total you paid:</td>
+              <th id="Totalpaid"></th>
+              <td>Base Fare:</td>
+              <th id="Basefare"></th>
+
+            </tr>
+            <tr>
+              <td>Taxes and fees:</td>
+              <th id="Taxfee"></th>
+              <td>Convenience fee:</td>
+              <th id="Conveniencefee"></th>
+            </tr>
+
+            <tr>
+              <th rowspan="2">Contact details for this trip</th>
+              <td>Name:</td>
+              <th>Mr. Mayur Pai B H (Customer Executive) </th>
+              <td>Address:</td>
+              <th>Managlore, Karnataka</th>
+              <td>Email:</td>
+              <th>mayur5pai@gmail.com</th>
+            </tr>
+            <tr>
+              <td>Telephone:</td>
+              <th>0824-42237932</th>
+              <td>Mobile:</td>
+              <th>9845198451</th>
+            </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <div class="d-flex justify-content-evenly">
+    <button id="print" type="button" class="btn btn-primary"
+      style="height: 4rem; width: 15rem; margin-bottom: 5rem; font-size:1.5rem; font-weight: 700;">Print</button>
+    <button id="home" type="button" class="btn btn-primary"
+      style="height: 4rem; width: 15rem; margin-bottom: 5rem; font-size:1.5rem; font-weight: 700;">Return To Home</button>
+  </div>
+  </div>
+  <script text="module" src="../booking/bookingConfirmation.js"></script>
+</body>
+
+</html>

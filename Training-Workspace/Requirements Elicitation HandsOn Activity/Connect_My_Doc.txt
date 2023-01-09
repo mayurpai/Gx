@@ -1,0 +1,26 @@
+CMD (Connect My Doc)
+
+Actors:
+1. User : One Who Is Busy And Has A Tight Schedule & Can't Make It To The Clinics/Hospital
+2. User : One Who Wishes To Have Regular Checkups And Medications
+3. Delivery Boy : One Who Delivers Medicines At All Door Steps
+4. Doctor : Who Is Consulting The Patients
+5. User : Who Have Good Understanding About Internet And Tech And Know How To Work With The App
+6. Devices : That Are Used To Connect The Doc
+7. Database Systems : Storing Of Patients And Doctors Details
+
+
+Business Model:
+1. Guaranteed Home Delivery Of Medicines/Healthcare Products/Devices With 3-5 Hours Of Time.
+2. Returning Policies Of Medicines/Healthcare Products/Fitness Equipements.
+3. Online Mode Of Payment On Ordering Of Medicines/Healthcare Products With/Without Having Additional Discounts.
+4. Rewards To Be Given Like Package/Subscriptions/Medical Kits, 
+	a. Free Checkups On First Usage. (One Of The Ways To Build The Initial Customers)
+	b. Diabetic Checkup : People Who Wish To have Regular Reports To Prevent/Check Their Diabetes Level, Including 40-50 Tests
+	c. Devices/Fitness Equipements : Pulse Oximeter, Thermometer
+5. Comprehensive Diagnostic Test Services & Teleconsultations
+6. High Marginal Discounts Could Be Given To Resist The Customers
+7. Give Offers Upto 15-20%, If The Users Orders Medicines/Products Via App
+8. Featuring Ads On Homepage/Search Results From Specific Pharmaceutical Companies
+9. Doctors Would Receive Certain Percentage Of Amount On Having More Regular Customers (Make Users Stay Over The App)
+

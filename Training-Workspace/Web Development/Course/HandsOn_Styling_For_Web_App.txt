@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandsOn: Styling for Web App</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .heading {
+            width: 100vw;
+            padding: 1rem;
+            background-color:#11233b;
+            color: white;
+        }
+
+        .navigation {
+            width: 100vw;
+            background-color: #20416c;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            margin-left: 1rem;
+            text-transform: uppercase;
+            text-decoration: underline;
+            padding: .5rem;
+            color: white;
+            font-weight: 800;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .flex {
+            margin-top: .1rem;
+            width: 70%;
+            background-color: grey;
+        }
+
+        .side {
+            margin-top: .1rem;
+            padding: 2rem;
+            width: 30%;
+            background-color: grey;
+            height: calc(100vh - 8rem);
+            border-left: .5rem solid white;
+        }
+
+        .side p {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+
+        .local-news,
+        .national-news {
+            padding: .45rem;
+        }
+
+        .local-one,
+        .national-one {
+            background-color: white;
+            padding: 1rem;
+        }
+        
+        .break {
+            background-color: grey;
+            height: .3rem;
+            width: 100%;
+        }
+        
+        .white-break {
+            background-color: white;
+            height: .3rem;
+            width: 100%;
+        }
+        
+        footer {
+            padding: .2rem;
+            background-color: #20416c;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="heading">
+            <h1>News</h1>
+            <h4>Local And National News</h4>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li>Home</li>
+                <li>Archives</li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="white-break"></div>
+        <div class="container">
+            <div class="flex">
+                <div class="local-news">
+                    <p style="font-size:1.5rem; font-weight: 800">Local News</p>
+                    <div class="local-one">
+                        <p><b>Fire Fighter Rescue Man From The Building</b> <br>
+                            (Author, Date) <br>
+                            This Is The Story Text <br>
+                            This Is The Story Text</p>
+                    </div>
+                    <div class="break"></div>
+                    <div class="local-one">
+                        <p><b> New Branch To Be Setup </b><br>
+                            (Author, Date) <br>
+                            This Is The Story Text <br>
+                            This Is The Story Text</p>
+                    </div>
+                </div>
+                <div class="white-break"></div>
+                <div class="national-news">
+                    <p style="font-size:1.5rem; font-weight: 800">National News</p>
+                    <div class="national-one">
+                        <p><b> Global Warming On The Rise</b> <br>
+                            (Author, Date) <br>
+                            This Is The Story Text. <br>
+                            This Is The Story Text.</p>
+                    </div>
+                    <div class="break"></div>
+                    <div class="national-one">
+                        <p><b> Power Cut A Major Issue </b><br>
+                            (Author, Date) <br>
+                            This Is The Story Text. <br>
+                            This Is The Story Text.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="side">
+                <p>Be A News Reporter</p>
+                Send Us A Text If You See News Happening.
+            </div>
+        </div>
+        <div class="white-break"></div>
+        <footer>
+            Copyright by SkillAssure India Pvt. Ltd.
+        </footer>
+    </div>
+
+</body>
+
+</html>

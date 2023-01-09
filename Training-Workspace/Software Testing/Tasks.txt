@@ -1,0 +1,91 @@
+-- Amazon Cart
+1. The Cart Number Provided Has To Increment As We Keep Adding In Items Into The Cart.
+2. Verify That It Is The Exact Product Which We Selected Is Successfully Added Into The Cart.
+3. Verify That Once The Item In The Cart Is Purchased, It Shall No Longer Remain In The Cart And The Item Count Decrements.
+4. Try Editing The Quantity Of The Item In The Cart With Valid And Invalid Quantities (Positive Values, Negative Values, Etc).
+5. Verify That If The Item’s Quantity Count Is Greater Than It's Actual Inventory Count Then Checkout Shouldn't Be Allowed And An Appropriate Error Should Be Displayed.
+6. User Shouldn't Be Able To Add To Cart, If He/She Hasn't Logged Themselves In.
+7. Verify That After The User Logs Out/ Closes The Website And Logs In/Opens Up Again, The Items In The Cart Are Not Disturbed.
+
+-- Test Scenarios For Shopping Cart Module
+1. Add Items To The Shopping Cart.
+2. Pay The Invoice.
+3. Remove Items From The Shopping Cart.
+4. Check The Add To Cart Button Is Clickable Or Not.
+5. Check If Success Message Is Displayed When A Product Is Added Into The Cart Successfully.
+6. Check On Adding The New Products Into The Cart And Whether The Count Is Increasing Or Not.
+
+-- Positive And Negative Test Cases For Scenarios Created Earlier
+1. Login Page - 
+Positive:
+1) User Should Be Able To Login With Valid Credentials.
+2) User Should Be Redirected To Appropriate Page When Clicking on Forgot Password Link.
+3) User Should Be Redirected To Appropriate Page When Clicking on Sign Up Link.
+4) Reset Button Should Clear Data From All Text Boxes in the Login Page.
+
+Negative:
+1) User Should Not Be Allowed To Login With Valid Username and Invalid Password.
+2) User Should Not Be Allowed To Login With Invalid Username and Valid Password.
+3) User Should Not Be Allowed To Login With Blank Username Field.
+4) User Should Not Be Allowed To Login With Blank Password Field.
+
+2. Cart - 
+Positive:
+1) The Cart Number Provided Has To Increment As We Keep Adding In Items Into The Cart.
+2) Verify That It Is The Exact Product Which We Selected Is Successfully Added Into The Cart.
+3) Verify That Once The Item In The Cart Is Purchased, It Shall No Longer Remain In The Cart And The Item Count Decrements.
+4) Try Editing The Quantity Of The Item In The Cart With Valid And Invalid Quantities (Positive Values, Negative Values, Etc).
+5) Verify That After The User Logs Out/ Closes The Website And Logs In/Opens Up Again, The Items In The Cart Are Not Disturbed.
+
+Negative:
+1) User Should Not Be Allowed To Add In Items Into Cart If He/She Hasn't Logged In.
+2) User Should Not Be Allowed To Place An Order If The Item’s Quantity Count Is Greater Than It's Actual Inventory Count And An Appropriate Error Should Be Displayed
+3) User Should Not Be Able To Give The Quantity Of The Items In Negative Numbers.
+4) User Has ToUser Should Not Be Allowed To Login With Blank Password Field.
+
+-- Quiz 1:
+Traceability Metrics is done in  Test Design Phase​
+True ✔️
+False 
+
+-- Quiz 2:
+Analysis of Result is done in Test Execution Phase of  STLC :​
+True 
+False ✔️ 
+
+-- Quiz 3:
+Analysis of Result is done in Test Execution Phase of  STLC :​
+Test Planning​
+Test Execution
+Test Design ​
+Test Closure ✔️
+
+-- Quiz 4:
+What is the fourth stage of STLC :​
+Test Closure​
+Test Design​
+Test Execution​ ✔️
+Test Planning
+
+1. Provide Valid Credentials In The Login Page 
+2. Search For A Product/ Click Over Any Product
+3. Click On Add To Cart Button
+4. Play Around With The Quantity
+5. Place Order
+
+1. Admin Should Be Logged In Successfully
+2. In The Product Display Section, Add To Cart Button Should Be Present
+3. Quantity Range Maintainer Is To Be Present
+4. Place Order Button Has To Be Present
+
+Username: test@123
+Password: ****
+
+1. The User Has To Provide The File Name As A Parameter To The Function In The Form Of String Datatype
+2. Run The Program
+3. If The File Name Exists Within The System, The Program Successfully Compiles And Executes.
+
+String: ABC.txt
+
+User Will Get To Know If The File Exists Within The System.
+

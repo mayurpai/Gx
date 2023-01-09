@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/happytrip-styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles/booking-style.css">
+    <title>Booking</title>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="details">
+            <h1>Flight Schedule</h1>
+            <img src="../images/Airbus.jpg" alt="Indigo">
+            <form onsubmit="return checkForm(this);">
+                <table>
+                    <tr>
+                        <td><label for="flight">Flight: </td>
+                        <td><input type="text" name="flight" id="flight" placeholder="Flight" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Date">Date: </td>
+                        <td><input type="date" name="date" id="date" placeholder="Date" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Time">Time: </td>
+                        <td><input type="time" name="time" id="time" placeholder="Time" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Duration">Duration: </td>
+                        <td><input type="text" name="duration" id="duration" placeholder="Duration" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="seatsAvailability">Seats Availability: </td>
+                        <td><input type="number" name="seatsAvailability" id="seatsAvailability"
+                                placeholder="Seats Availability" required></label></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fromCity">From City: </td>
+                        <td><input type="text" name="fromCity" id="fromCity" placeholder="From City" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="toCity">To City: </td>
+                        <td><input type="text" name="toCity" id="toCity" placeholder="To City" required></label></td>
+                    </tr>
+                    <tr>
+                        <td><label for="price">Price: </td>
+                        <td><input type="text" name="price" id="price" placeholder="Price" required></label></td>
+                    </tr>
+                    <tr>
+                        <td><label for="routes">Routes: </td>
+                        <td><input type="text" name="routes" id="routes" placeholder="Routes" required></label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Book Now" style="text-align: center;"></input></td>
+                        <td>T&C Apply<input type="checkbox" name="tca" id="tca"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="details">
+            <h1>Passenger</h1>
+            <img src="../images/User.jpg" alt="User" id="user">
+            <form>
+                <table id="userTb">
+                    <tr>
+                        <td><label for="Name">Name: </td>
+                        <td><input type="text" name="name" id="name" placeholder="Name" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Gender">Gender: </td>
+                        <td><input type="text" name="gender" id="gender" placeholder="Gender" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="DOB">DOB: </td>
+                        <td><input type="date" name="dob" id="dob" placeholder="DOB" required></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Mobile">Mobile Number: </td>
+                        <td><input type="tel" name="mobileNumber" id="mobileNumber" pattern="[6-9][0-9]{1,9}"
+                                maxlength="10" minlength="10" placeholder="Mobile" required></label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input id="submitBtn" type="submit" value="Add" style="text-align: center;"></input></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <script>
+        function checkForm(form) {
+            var name = document.getElementById("name").value;
+            var gender = document.getElementById("gender").value;
+            var dob = document.getElementById("dob").value;
+            var mobileNumber = document.getElementById("mobileNumber").value;
+            if (!form.tca.checked) {
+                alert("Please Indicate That You Accept The Terms And Conditions");
+                form.tca.focus();
+                return false;
+            }
+            else if (form.tca.checked && !(name.length > 0) || !(gender.length > 0)) {
+                alert("Please Fill The Passenger Form");
+            }
+            else {
+                console.log(gender.length)
+                window.location.href = 'https://code.tutsplus.com';
+            }
+            return false;
+        }
+
+        var userInformation = [];
+        function createPerson(form) {
+            var name = document.getElementById("name").value;
+            var gender = document.getElementById("gender").value;
+            var dob = document.getElementById("dob").value;
+            var mobileNumber = document.getElementById("mobileNumber").value;
+            function Passenger(name, gender, dob, mobileNumber) {
+                this.name = name;
+                this.gender = gender;
+                this.dob = dob;
+                this.mobileNumber = mobileNumber;
+            }
+
+            var user = new Passenger(name, gender, dob, mobileNumber);
+            userInformation.push(user);
+            console.log(userInformation);
+            return false;
+        }
+    </script>
+    <!-- Display Schedule Information ✔️ -->
+    <!-- Collect Passenger Information ✔️ -->
+    <!-- Accept Terms And Conditions ✔️ -->
+    <!-- Submit The Information ✔️ -->
+    <script type="module" src="booking.js"></script>
+</body>
+
+</html>
