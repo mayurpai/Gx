@@ -124,3 +124,7 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: asking_name
+  examples: |
+    - My Name Is [Mayur](user_name)

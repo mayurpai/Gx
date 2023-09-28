@@ -7,10 +7,11 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
+from typing import Any, Text, Dict, List
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import AllSlotsReset, SlotSet
 #
 #
 # class ActionHelloWorld(Action):
@@ -18,10 +19,29 @@
 #     def name(self) -> Text:
 #         return "action_hello_world"
 #
-#     def run(self, dispatcher: CollectingDispatcher,   
+#     def run(self, dispatcher: CollectingDispatcher,
 #             tracker: Tracker,
 #             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 #
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+
+
+class ActionAskName(Action):
+    def name(self) -> Text:
+        return "action_ask_name"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message("What's your name?")
+        return []
+
+
+class ActionStoreName(Action):
+    def name(self) -> Text:
+        return "action_store_name"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        user_name = tracker.latest_message.get("text")
+        dispatcher.utter_message(f"Nice to meet you, {user_name}!")
+        return [SlotSet("user_name", user_name)]
