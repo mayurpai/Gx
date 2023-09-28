@@ -1,3 +1,5 @@
+let userId = localStorage.getItem("userInformation");
+let userName = JSON.parse(userId)[0].name;
 // on input/text enter--------------------------------------------------------------------------------------
 $(".usrInput").on("keyup keypress", function (e) {
   var keyCode = e.keyCode || e.which;
@@ -19,9 +21,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 //------------------------------------- Set user response------------------------------------
 function setUserResponse(val) {
   var UserResponse =
-    '<img class="userAvatar" src=' +
-    "C:\\Users\\voriganti\\chatbot git\\POC\\Venkateswarlu Origanti\\Demo Project\\sample-Gxhelp_bot\\Rasa_CustomUI-v_2.0\\static\\img\\userAvatar.jpg" +
-    '><p class="userMsg">' +
+    '<img class="userAvatar" src="../../../../Rasa/Project 5/static/img/userAvatar.jpg"><p class="userMsg">' +
     val +
     ' </p><div class="clearfix"></div>';
   $(UserResponse).appendTo(".chats").show("slow");
@@ -44,7 +44,7 @@ function send(message) {
     contentType: "application/json",
     data: JSON.stringify({
       message: message,
-      sender: "Mayur Pai",
+      sender: userName,
     }),
     success: function (data, textStatus) {
       setBotResponse(data);
@@ -60,8 +60,7 @@ function send(message) {
 //------------------------------------ Set bot response -------------------------------------
 function setBotResponse(val) {
   setTimeout(function () {
-    var audio_loc =
-      "C:\\Users\\voriganti\\chatbot git\\POC\\Venkateswarlu Origanti\\Demo Project\\sample-Gxhelp_bot\\Rasa_CustomUI-v_2.0\\static\\js\\Notification.mp3";
+    var audio_loc = "../../../../Rasa/Project 5/static/js/Notification.mp3";
     var audio = new Audio(audio_loc);
     audio.play();
     if (val.length < 1) {
@@ -69,7 +68,7 @@ function setBotResponse(val) {
       msg = "I couldn't get that. Let' try something else!";
 
       var BotResponse =
-        '<img class="botAvatar" src="C:\\Users\\voriganti\\chatbot git\\POC\\Venkateswarlu Origanti\\Demo Project\\sample-Gxhelp_bot\\Rasa_CustomUI-v_2.0\\static\\img\\botAvatar.png"><p class="botMsg">' +
+        '<img class="botAvatar" src="../../../../Rasa/Project 5/static/img/botAvatar.png"><p class="botMsg">' +
         msg +
         '</p><div class="clearfix"></div>';
       $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
@@ -79,7 +78,7 @@ function setBotResponse(val) {
         //check if there is text message
         if (val[i].hasOwnProperty("text")) {
           var BotResponse =
-            '<img class="botAvatar" src="C:\\Users\\voriganti\\chatbot git\\POC\\Venkateswarlu Origanti\\Demo Project\\sample-Gxhelp_bot\\Rasa_CustomUI-v_2.0\\static\\img\\botAvatar.png"><p class="botMsg">' +
+            '<img class="botAvatar" src="../../../../Rasa/Project 5/static/img/botAvatar.png"><p class="botMsg">' +
             val[i].text +
             '</p><div class="clearfix"></div>';
           $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
