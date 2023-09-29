@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-function page() {
+function About() {
   const router = useRouter();
   const navigate = (path) => {
     router.push(`/about/${path}`);
@@ -13,4 +13,4 @@ function page() {
   );
 }
 
-export default page;
+export default About;

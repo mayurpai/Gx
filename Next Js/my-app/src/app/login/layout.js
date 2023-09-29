@@ -1,3 +1,10 @@
+"use client";
+import { usePathname } from "next/navigation";
+
 export default function Layout({ children }) {
-  return <div>Common Login Layout{children}</div>
+  const pathName = usePathname();
+  console.log(pathName);
+  return (
+    <div>{pathName != "/login" ? "Please Login" : <div>{children}</div>}Common Login Layout</div>
+  );
 }
