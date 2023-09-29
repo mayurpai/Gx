@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-function page() {
+function AboutStudent() {
   return (
     <div>
       About Student
@@ -12,4 +12,4 @@ function page() {
   );
 }
 
-export default page;
+export default AboutStudent;

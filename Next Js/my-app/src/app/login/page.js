@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation.js";
 import Intro from "./intro.js";
 import Link from "next/link";
 
-function page() {
+function Login() {
   const router = useRouter();
   const navigate = () => {
     router.back();
@@ -17,4 +17,4 @@ function page() {
   );
 }
 
-export default page;
+export default Login;
