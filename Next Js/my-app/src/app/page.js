@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import styles from "./page.module.css";
+import custom from "@/style/custom.module.css";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -11,10 +12,12 @@ export default function Home() {
   return (
     <>
       <Link href="/login">Redirect To Login</Link>
-      <button onClick={() => navigate("/login")}>
+      <button className={styles.code} onClick={() => navigate("/login")}>
         Click Me To Go To Login
       </button>
-      <button onClick={() => navigate("/about")}>About</button>
+      <button className={custom.main} onClick={() => navigate("/about")}>
+        About
+      </button>
     </>
   );
 }
