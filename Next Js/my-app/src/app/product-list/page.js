@@ -1,5 +1,5 @@
 // Server Side API Fetch
-import ButtonComponent from './ButtonComponent'
+import ButtonComponent from "./ButtonComponent";
 
 async function apiCall() {
   let data = await fetch("https://dummyjson.com/products");
@@ -14,7 +14,7 @@ export default async function Product() {
       <h1>Product List</h1>
       {console.log(productList)}
       {productList.map((i) => (
-        <div style={{ display: "flex" }}>
+        <div key={i.id} style={{ display: "flex" }}>
           <h6>{i.title}</h6>
           <ButtonComponent data={i} />
         </div>

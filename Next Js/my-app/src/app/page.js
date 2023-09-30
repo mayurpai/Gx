@@ -9,6 +9,7 @@ export default function Home() {
   const navigate = (routePage) => {
     router.push(routePage);
   };
+  console.log(process.env.NODE_ENV)
   return (
     <>
       <Link href="/login">Redirect To Login</Link>

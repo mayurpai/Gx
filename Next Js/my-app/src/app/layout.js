@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="stylesheet" href="/static.css"></link>
-        <script rel="stylesheet" src="/static.js"></script>
+        {/* <script rel="stylesheet" src="/static.js"></script> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

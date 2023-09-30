@@ -19,7 +19,7 @@ function Product() {
       <h1>Product List</h1>
       {console.log(response)}
       {response.map((i) => (
-        <h6>{i.title}</h6>
+        <h6 key={i.id}>{i.title}</h6>
       ))}
     </div>
   );
