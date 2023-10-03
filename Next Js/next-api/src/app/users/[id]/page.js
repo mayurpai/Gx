@@ -15,10 +15,8 @@ export default async function User({params}) {
             return (
               <tr key={i.id}>
                 <td>{i.id}</td>
-                <td>{i.firstName}</td>
-                <td>{i.lastName}</td>
+                <td>{i.name}</td>
                 <td>{i.age}</td>
-                <td>{i.gender}</td>
                 <td>{i.email}</td>
               </tr>
             );

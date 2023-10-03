@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DeleteButton from "../components/DeleteButton";
 
 async function getUsers() {
   let data = await fetch("http://localhost:3000/api/users");
@@ -21,11 +22,11 @@ export default async function User() {
                     {i.id}
                   </td>
                 </Link>
-                <td>{i.firstName}</td>
-                <td>{i.lastName}</td>
+                <td>{i.name}</td>
                 <td>{i.age}</td>
-                <td>{i.gender}</td>
                 <td>{i.email}</td>
+                <td><Link href={`/users/${i.id}/update`}>Edit</Link></td>
+                <td><DeleteButton id={i.id}></DeleteButton></td>
               </tr>
             );
           })}

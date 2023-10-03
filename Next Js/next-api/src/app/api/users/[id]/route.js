@@ -15,9 +15,31 @@ export async function PUT(request, url) {
   console.log(payload);
   console.log(url);
   let id = url.params.id;
-  payload.id = id
+  payload.id = id;
   return NextResponse.json(payload, {
     status: 200,
     statusText: "Awesome!",
   });
+}
+
+export async function DELETE(request, url) {
+  let id = url.params.id;
+  let message;
+  if (id) {
+    message = { response: "User Deleted!", status: 200, text: "Awesome!" };
+    return NextResponse.json(message, {
+      status: message.status,
+      statusText: message.text,
+    });
+  } else {
+    message = {
+      response: "User Not Valid!",
+      status: 404,
+      text: "Not Awesome!",
+    };
+    return NextResponse.json(message, {
+      status: message.status,
+      statusText: message.text,
+    });
+  }
 }
