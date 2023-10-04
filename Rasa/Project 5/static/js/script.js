@@ -1,5 +1,9 @@
-let userId = localStorage.getItem("userInformation");
-let userName = JSON.parse(userId)[0].name;
+console.log("Index");
+let loginOutBtn = document.getElementById("loginOutBtn");
+loginOutBtn.addEventListener("click", logout);
+let localURL = "http://localhost:5500/Rasa/Project%205/login.html";
+let username = localStorage.getItem("username");
+// let userName = JSON.parse(userId)[0].name;
 // on input/text enter--------------------------------------------------------------------------------------
 $(".usrInput").on("keyup keypress", function (e) {
   var keyCode = e.keyCode || e.which;
@@ -44,7 +48,7 @@ function send(message) {
     contentType: "application/json",
     data: JSON.stringify({
       message: message,
-      sender: userName,
+      sender: username,
     }),
     success: function (data, textStatus) {
       setBotResponse(data);
@@ -160,4 +164,12 @@ function generateRandomString(length) {
   }
 
   return randomString;
+}
+
+
+function logout(event) {
+  event.preventDefault();
+  localStorage.removeItem("username");
+  localStorage.removeItem("password");
+  window.location.href = localURL;
 }

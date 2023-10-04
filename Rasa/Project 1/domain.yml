@@ -8,11 +8,9 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - asking_name
 
 entities:
   - name
-  - user_name
 
 slots:
   name:
@@ -21,16 +19,11 @@ slots:
     mappings:
       - type: from_entity
         entity: name
-  user_name:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: user_name
 
 responses:
   utter_greet:
     - text: "Hey, {name} How are you?"
+    - text: "Hey, How Are You?"
       buttons:
         - title: "great"
           payload: "/mood_great"
@@ -75,7 +68,3 @@ responses:
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
-actions:
-  - action_ask_name
-  - action_store_name
