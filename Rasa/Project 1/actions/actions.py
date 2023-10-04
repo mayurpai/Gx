@@ -28,20 +28,20 @@ from rasa_sdk.events import AllSlotsReset, SlotSet
 #         return []
 
 
-class ActionAskName(Action):
-    def name(self) -> Text:
-        return "action_ask_name"
+# class ActionAskName(Action):
+#     def name(self) -> Text:
+#         return "action_ask_name"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message("What's your name?")
-        return []
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         dispatcher.utter_message("What's your name?")
+#         return []
 
 
-class ActionStoreName(Action):
-    def name(self) -> Text:
-        return "action_store_name"
+# class ActionStoreName(Action):
+#     def name(self) -> Text:
+#         return "action_store_name"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        user_name = tracker.latest_message.get("text")
-        dispatcher.utter_message(f"Nice to meet you, {user_name}!")
-        return [SlotSet("user_name", user_name)]
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         user_name = tracker.latest_message.get("text")
+#         dispatcher.utter_message(f"Nice to meet you, {user_name}!")
+#         return [SlotSet("user_name", user_name)]

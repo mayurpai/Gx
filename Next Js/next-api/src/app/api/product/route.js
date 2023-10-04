@@ -11,6 +11,27 @@ export async function GET(request, url) {
     console.log(data);
   } catch (error) {
     console.log(error);
-  } 
+  }
   return NextResponse.json({ result: data });
+}
+
+export async function POST(request, url) {
+  let payload = await request.json();
+  console.log(payload);
+  try {
+    await mongoose.connect(connectionStr);
+    // let product = new Product({
+    //   name: "Poco M4 Pro",
+    //   price: "17999",
+    //   company: "Poco",
+    //   category: "Mobile",
+    //   color: "Pink",
+    //   image: "https://th.bing.com/th/id/OIP.v7Kp7UUUyF5wEtXHPHyPUgHaHd?pid=ImgDet&rs=1"
+    // });
+    let product = new Product(payload);
+    const res = await product.save();
+    return NextResponse.json({ result: res });
+  } catch (error) {
+    console.log(error);
+  }
 }
