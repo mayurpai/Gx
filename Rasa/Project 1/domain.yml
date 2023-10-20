@@ -9,20 +9,8 @@ intents:
   - mood_unhappy
   - bot_challenge
 
-entities:
-  - name
-
-slots:
-  name:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: name
-
 responses:
   utter_greet:
-    - text: "Hey, {name} How are you?"
     - text: "Hey, How Are You?"
       buttons:
         - title: "great"

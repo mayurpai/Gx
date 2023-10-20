@@ -16,7 +16,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-    - Hey, My Name Is [Mayur](name)
 
 # - intent: inform
 #   examples: |
