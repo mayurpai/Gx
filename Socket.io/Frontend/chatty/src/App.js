@@ -1,22 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import io from "socket.io-client";
+import { nanoid } from "nanoid";
+
+const port = 5000;
+const socket = io.connect("http://localhost:" + port);
 
 function App() {
+  const [message, setMessage] = useState("");
+  const [chat, setChat] = useState([]);
+  const user = nanoid(3);
+
+  useEffect(() => {
+    socket.on("chat", (payload) => {
+      setChat([...chat, payload]);
+    });
+  });
+
+  const messageSendAction = (e) => {
+    e.preventDefault();
+    console.log(socket);
+    let socketId = socket.id;
+    socket.emit("chat", { message, socketId });
+    setMessage("");
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Chatty App
+        <form onSubmit={messageSendAction}>
+          <input
+            type="text"
+            placeholder="Enter Message Here..."
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+          ></input>
+          <button type="submit">Send Message</button>
+        </form>
+        {chat?.map((payload, index) => {
+          return (
+            <div key={index}>
+              {`User: ${payload.socketId}, Message: ${payload.message}`}
+            </div>
+          );
+        })}
       </header>
     </div>
   );
