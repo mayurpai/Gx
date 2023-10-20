@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     socket.on("chat", (payload) => {
+      console.log(payload);
       setChat([...chat, payload]);
     });
   });
@@ -44,6 +45,7 @@ function App() {
           return (
             <div key={index}>
               {`User: ${payload.socketId}, Message: ${payload.message}`}
+              {/* {`${payload}`} */}
             </div>
           );
         })}

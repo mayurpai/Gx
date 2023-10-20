@@ -8,10 +8,10 @@ const io = require("socket.io")(server, {
 const port = 5000;
 
 io.on("connection", (socket) => {
-  console.log(socket);
+  // console.log(socket);
 
   socket.on("chat", (payload) => {
-    console.log(payload);
+    socket.user = payload.socketId
     io.emit("chat", payload);
   });
 });
