@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Chatty App
+        Chatty App!
         <form onSubmit={messageSendAction}>
           <input
             type="text"
