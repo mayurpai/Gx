@@ -1,0 +1,58 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hey, How Are You?"
+      buttons:
+        - title: "great"
+          payload: "/mood_great"
+        - title: "super sad"
+          payload: "/mood_unhappy"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://th.bing.com/th/id/R.be910db951bafca7bbf5cd2c84600731?rik=aauxFHegqo3a5w&riu=http%3a%2f%2fstatic3.businessinsider.com%2fimage%2f5484d9d1eab8ea3017b17e29%2f9-science-backed-reasons-to-own-a-dog.jpg&ehk=xgoJIFryMSERKzmXor2k3oOtE1fWtrgYC7i0yek0fQU%3d&risl=&pid=ImgRaw&r=0"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_ask_game:
+    - text: "Which game would you like to play on Slack?"
+      channel: "slack"
+    - text: "Which game would you like to play?"
+
+  utter_book_time:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "Book a time for your appointment:"
+              type: mrkdown
+            accessory:
+              type: datepicker
+              initial_date: "2019-05-21"
+              placeholder:
+                type: plain_text
+                text: "Select a date"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
