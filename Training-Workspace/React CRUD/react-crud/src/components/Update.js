@@ -19,12 +19,12 @@ export default function Update() {
 
   const updateAPIData = () => {
     axios
-      .put(`https://6334122e90a73d0fede5f192.mockapi.io/realData/${id}`, {
+      .put(`${process.env.REACT_APP_URL}/${id}`, {
         firstName,
         lastName,
         checkbox,
       })
-      .then(() => {
+      .then(() => { 
         navigate('/read');
       });
   };

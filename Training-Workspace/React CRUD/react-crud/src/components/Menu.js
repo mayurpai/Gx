@@ -18,9 +18,9 @@ function Menu() {
       <Link to="read" style={{ color: "white" }}>
         <b>Read</b>
       </Link>
-      <Link to="update" style={{ color: "white" }}>
+      {/* <Link to="update" style={{ color: "white" }}>
         <b>Update</b>
-      </Link>
+      </Link> */}
     </div>
   );
 }

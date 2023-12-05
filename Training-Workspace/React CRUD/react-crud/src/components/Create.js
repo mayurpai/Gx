@@ -11,7 +11,7 @@ function Create() {
 
   const postData = () => {
     axios
-      .post(`https://6334122e90a73d0fede5f192.mockapi.io/realData`, {
+      .post(`${process.env.REACT_APP_URL}`, {
         firstName,
         lastName,
         checkbox,

@@ -4,12 +4,13 @@ import axios from "axios";
 import "semantic-ui-css/semantic.css";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 
 export default function Read() {
   const [APIData, setAPIData] = useState([]);
   useEffect(() => {
     axios
-      .get(`https://6334122e90a73d0fede5f192.mockapi.io/realData`)
+      .get(`${process.env.REACT_APP_URL}`)
       .then((response) => {
         setAPIData(response.data);
       });
@@ -23,14 +24,14 @@ export default function Read() {
   };
   const getData = () => {
     axios
-      .get(`https://6334122e90a73d0fede5f192.mockapi.io/realData`)
+      .get(`${process.env.REACT_APP_URL}`)
       .then((getData) => {
         setAPIData(getData.data);
       });
   };
   const onDelete = (id) => {
     axios
-      .delete(`https://6334122e90a73d0fede5f192.mockapi.io/realData/${id}`)
+      .delete(`${process.env.REACT_APP_URL}/${id}`)
       .then(() => {
         getData();
       });
