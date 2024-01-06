@@ -136,3 +136,6 @@ dmypy.json
 *.db-shm
 *.db-wal
 .rasa
+
+# Large Files
+./Machine Learning/Pandas/data/survey_results_public.csv
